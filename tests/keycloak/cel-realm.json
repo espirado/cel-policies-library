@@ -1,0 +1,114 @@
+{
+ "realm": "cel",
+ "enabled": true,
+ "sslRequired": "none",
+ "roles": {
+  "realm": [
+   {
+    "name": "operator"
+   },
+   {
+    "name": "admin"
+   },
+   {
+    "name": "viewer"
+   }
+  ]
+ },
+ "clients": [
+  {
+   "clientId": "agw",
+   "enabled": true,
+   "publicClient": true,
+   "directAccessGrantsEnabled": true,
+   "standardFlowEnabled": false,
+   "protocolMappers": [
+    {
+     "name": "roles",
+     "protocol": "openid-connect",
+     "protocolMapper": "oidc-usermodel-realm-role-mapper",
+     "config": {
+      "claim.name": "roles",
+      "multivalued": "true",
+      "jsonType.label": "String",
+      "access.token.claim": "true",
+      "id.token.claim": "false",
+      "userinfo.token.claim": "false"
+     }
+    }
+   ]
+  }
+ ],
+ "users": [
+  {
+   "username": "op",
+   "enabled": true,
+   "emailVerified": true,
+   "firstName": "op",
+   "lastName": "test",
+   "email": "op@example.test",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "pw-op",
+     "temporary": false
+    }
+   ],
+   "realmRoles": [
+    "operator"
+   ]
+  },
+  {
+   "username": "adm",
+   "enabled": true,
+   "emailVerified": true,
+   "firstName": "adm",
+   "lastName": "test",
+   "email": "adm@example.test",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "pw-adm",
+     "temporary": false
+    }
+   ],
+   "realmRoles": [
+    "admin"
+   ]
+  },
+  {
+   "username": "view",
+   "enabled": true,
+   "emailVerified": true,
+   "firstName": "view",
+   "lastName": "test",
+   "email": "view@example.test",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "pw-view",
+     "temporary": false
+    }
+   ],
+   "realmRoles": [
+    "viewer"
+   ]
+  },
+  {
+   "username": "norole",
+   "enabled": true,
+   "emailVerified": true,
+   "firstName": "norole",
+   "lastName": "test",
+   "email": "norole@example.test",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "pw-norole",
+     "temporary": false
+    }
+   ],
+   "realmRoles": []
+  }
+ ]
+}

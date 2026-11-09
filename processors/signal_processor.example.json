@@ -1,0 +1,22 @@
+{
+  "policies": {
+    "block": ["combined/multi_signal_safety_gate"],
+    "review": ["combined/moderate_safety_gate"]
+  },
+  "tools": {
+    "lookup_mpfs": {
+      "record": "results.0",
+      "required": ["hcpcs_code", "short_descriptor", "work_rvu", "total_rvu_facility", "total_rvu_nonfacility", "conversion_factor", "year"],
+      "entity": "code",
+      "year": "year",
+      "facts": {"work_rvu": "work_rvu", "pe_rvu": "pe_rvu_nonfacility", "mp_rvu": "mp_rvu", "conversion_factor": "conversion_factor"}
+    },
+    "calculate_payment": {
+      "record": "physician",
+      "required": ["work_rvu", "pe_rvu", "mp_rvu", "conversion_factor", "rvu_year"],
+      "entity": "cpt",
+      "year": "rvu_year",
+      "facts": {"work_rvu": "work_rvu", "pe_rvu": "pe_rvu", "mp_rvu": "mp_rvu", "conversion_factor": "conversion_factor"}
+    }
+  }
+}

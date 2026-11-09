@@ -1,0 +1,6 @@
+// agentgateway-native: transform paired with flag_stale_result.cel.
+// Returns the replacement `mcp.result` with a `calibration` annotation merged
+// into structuredContent. The original fields are preserved.
+
+mcp.result.merge({"structuredContent": mcp.result.structuredContent.merge(
+  {"calibration": {"tier": "review", "reason": "fee-schedule year is before the current year (superseded)"}})})

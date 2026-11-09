@@ -1,0 +1,17 @@
+// Combined: Multi-Signal Safety Gate
+// Purpose: Block if contradiction or severe incompleteness
+// Category: Composite Safety Gate (Hard Block)
+//
+// SIGNALS (any one triggers block):
+//   1. contradiction == true
+//   2. completeness < 0.4
+//
+// Currency / superseded year is REVIEW, not BLOCK: see
+// calibration/review_stale_data.cel, combined/moderate_safety_gate.cel, and
+// policies/guardrails/flag_stale_result.cel. The processor scores currency as
+// 1.0 (this calendar year or later) or 0.0 (missing, unparsable, or earlier).
+// Putting currency < 0.3 on this BLOCK gate made those two tiers identical.
+//
+// Verdict: BLOCK the result. The upstream tool has already run.
+
+contradiction == true || completeness < 0.4

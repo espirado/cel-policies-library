@@ -1,0 +1,15 @@
+// Combined: Moderate Safety Gate
+// Purpose: Flag for review if data quality is below standard
+// Category: Composite Safety Gate (Moderate Threshold, REVIEW tier)
+//
+// SIGNALS (any one triggers review):
+//   1. contradiction == true
+//      (dead in the default processor wiring: multi_signal_safety_gate BLOCKs first)
+//   2. completeness < 0.75
+//   3. currency < 0.6
+//      superseded year (processor currency 0.0) or a decay score below 0.6
+//
+// Verdict: REVIEW. Use combined/multi_signal_safety_gate or the
+// calibration/block_* policies when the call must be stopped.
+
+contradiction == true || completeness < 0.75 || currency < 0.6

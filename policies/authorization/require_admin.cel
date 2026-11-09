@@ -1,0 +1,7 @@
+// Authorization: Require Admin Role
+// Purpose: Gate grant_admin_access to authenticated admin users
+//
+// Same guards as require_operator.cel: has(jwt.roles) and list membership via exists,
+// so a missing roles claim is a clean non-match and a string claim cannot substring-match.
+
+mcp.tool.name == "grant_admin_access" && has(jwt.sub) && has(jwt.roles) && jwt.roles.exists(r, r == "admin")

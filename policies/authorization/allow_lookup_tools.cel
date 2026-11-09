@@ -1,0 +1,10 @@
+// agentgateway mcpAuthorization rule: allow read-only lookup tools to any caller.
+//
+// Matches tools named lookup_* and list_*. This is a NAMING-CONVENTION rule: it is only as safe as
+// the server's naming. Verify that every tool matching these prefixes on your server is read-only
+// before using it. Checked against the real rci-knowledge server's tool list (45 tools) in
+// scripts/live_rcintel_authz.py.
+//
+// EDIT: the prefixes (or replace with an explicit list of tool names, which is safer).
+
+mcp.tool.name.startsWith("lookup_") || mcp.tool.name.startsWith("list_")

@@ -1,0 +1,25 @@
+// agentgateway-native: flag a result from a superseded fee-schedule year (mcpGuardrails, response phase)
+//
+// Matches when the result's `year` is earlier than the calendar year of the
+// request (request.startTime). A fee schedule is valid for its whole year, so
+// CY2026 data is current all through 2026 and becomes superseded in 2027.
+//
+// Why not a linear-decay "currency < 0.6" rule here: tested against the real
+// rci-knowledge server, an age-from-effective-date rule flagged CY2026 data in
+// November as stale (currency 0.15 on a 365-day horizon) although
+// list_dataset_snapshots reports it as the current snapshot. Annual fee
+// schedules are valid until superseded; they do not decay. Use a decay rule only
+// for data that really ages continuously, and EDIT this expression to match how
+// your dataset's validity works.
+//
+// REVIEW-tier: the call is not rejected. The paired
+// flag_stale_result.transform.cel adds a `calibration` object to structuredContent.
+// Results without a `year` do not match (validity unknown); the completeness
+// gate treats a missing year as a missing field.
+
+mcp.tool.name == "lookup_mpfs" &&
+has(mcp.result.structuredContent) && "results" in mcp.result.structuredContent &&
+size(mcp.result.structuredContent.results) > 0 &&
+mcp.result.structuredContent.results[0].with(r,
+  "year" in r && r.year != null &&
+  int(r.year) < timestamp(request.startTime).getFullYear())

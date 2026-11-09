@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://agentgateway.dev/schema/config
+#
+# agentgateway config using the authorization policies from this library.
+# Structure copied from ../mcp-judge-seam/agentgateway.yaml, which runs against
+# a live agentgateway. Only the two rule strings below come from this library.
+#
+# mcpAuthorization.rules is a list of CEL expressions with OR semantics:
+# a call is allowed if ANY rule matches, otherwise it is denied. That is why
+# only the `authorization/` policies belong here. The `calibration/` and
+# `combined/` policies are deny/review conditions over trace signals
+# (contradiction, completeness, currency) that agentgateway does not compute;
+# evaluate them where the signals exist (see README).
+#
+# require_operator.cel is a strengthening of mcp-judge-seam allow_admin.cel
+# (has(jwt.roles) and list membership via exists).
+#
+# tests/test_policies.py asserts these strings equal the .cel files.
+
+mcp:
+  port: 3100
+  policies:
+    mcpAuthorization:
+      rules:
+        # authorization/allow_harmless.cel
+        - 'mcp.tool.name == "grant_read_access"'
+        # authorization/require_operator.cel
+        # (swap in authorization/require_admin.cel for an admin-role gate)
+        - 'mcp.tool.name == "grant_admin_access" && has(jwt.sub) && has(jwt.roles) && jwt.roles.exists(r, r == "operator")'
+  targets:
+    - name: access
+      mcp:
+        host: http://127.0.0.1:8081/mcp

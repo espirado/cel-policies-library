@@ -1,0 +1,21 @@
+// agentgateway-native: reject an incomplete FLAT tool result (mcpGuardrails, response phase)
+//
+// For tools whose structuredContent is the record itself (not a `results` list), e.g.
+// rci-knowledge `lookup_opps`. Same threshold as block_incomplete_result.cel:
+// completeness < 0.4, where completeness = fraction of REQUIRED fields that are
+// present and non-null.
+//
+// EDIT: the tool name and the REQUIRED list. Scope the rule to one tool with the
+// `mcp.tool.name ==` guard; without it the rule would run on every tool's result.
+//
+// Real example (rci-knowledge, 2026-11-06): lookup_opps for CPT 99213 returns
+// status_indicator "B" and null payment_rate, relative_weight and all copayment
+// fields, so a caller that needs a payment gets 0 of 5 payment fields and this
+// rule rejects it. CPT 71046 has payment data and passes.
+
+mcp.tool.name == "lookup_opps" &&
+has(mcp.result.structuredContent) &&
+mcp.result.structuredContent.with(r,
+  ["payment_rate", "relative_weight", "national_unadjusted_copayment",
+   "minimum_unadjusted_copayment", "adjusted_copayment"].with(req,
+    double(size(req.filter(k, k in r && r[k] != null))) / double(size(req)) < 0.4))

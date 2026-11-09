@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://agentgateway.dev/schema/config
+#
+# Reference deployment in front of the hosted rci-knowledge MCP server (45 tools): authentication
+# and authorization for real tool names. Needs agentgateway >= 1.0.1 (tested 1.0.1 to 1.7.0); add the result guardrails from
+# templates/agentgateway-calibration.yaml (v1.7.0+) under the same mcp.policies.
+#
+#   authentication  jwtAuth validates an OIDC access token when one is sent (mode: optional, so
+#                   anonymous callers are still served, with no jwt claims).
+#   authorization   lookup_* / list_* open to everyone; calculate_* needs the `operator` role;
+#                   every other tool (check_*, search_*, get_*, ...) is hidden and denied.
+#
+# Replace the issuer and JWKS URL with your identity provider. The client sends its own X-API-Key
+# header; the gateway forwards it to the upstream server (no key is stored in this file).
+
+mcp:
+  port: 3100
+  policies:
+    jwtAuth:
+      mode: optional
+      issuer: http://127.0.0.1:19180/realms/cel
+      jwks:
+        url: http://127.0.0.1:19180/realms/cel/protocol/openid-connect/certs
+    mcpAuthorization:
+      rules:
+        # policies/authorization/allow_lookup_tools.cel
+        - 'mcp.tool.name.startsWith("lookup_") || mcp.tool.name.startsWith("list_")'
+        # policies/authorization/require_operator_for_calculate.cel
+        - 'mcp.tool.name.startsWith("calculate_") && has(jwt.sub) && has(jwt.roles) && jwt.roles.exists(r, r == "operator")'
+  targets:
+    - name: rci
+      mcp:
+        host: https://api.rcintell.com/v1/mcp

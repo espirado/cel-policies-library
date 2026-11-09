@@ -1,0 +1,10 @@
+// agentgateway-native: transform paired with flag_stale_snapshot.cel.
+// Adds structuredContent.calibration listing the flagged datasets; the snapshot
+// rows are unchanged.
+
+mcp.result.merge({"structuredContent": mcp.result.structuredContent.merge(
+  {"calibration": {"tier": "review",
+    "reason": "effective_date is more than 365 days old",
+    "datasets": mcp.result.structuredContent.snapshots.filter(s,
+      "effective_date" in s && s.effective_date != null &&
+      timestamp(request.startTime) - timestamp(s.effective_date + "T00:00:00Z") > duration("8760h")).map(s, s.dataset)}})})

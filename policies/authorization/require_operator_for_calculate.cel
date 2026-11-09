@@ -1,0 +1,13 @@
+// agentgateway mcpAuthorization rule: calculate_* tools need an authenticated operator.
+//
+// has(jwt.roles) so a token with a subject but no `roles` claim is a clean "no match"
+// (deny) rather than a CEL evaluation error. jwt.roles.exists(...) requires a list, so a
+// string claim cannot substring-match "operator".
+//
+// `jwt.roles` must be a top-level array claim. Keycloak puts realm roles under
+// realm_access.roles by default; map them to a top-level `roles` claim with a realm-role mapper
+// (tests/test_keycloak.py does this) or change the expression to read the nested claim.
+//
+// EDIT: the tool prefix and the role name.
+
+mcp.tool.name.startsWith("calculate_") && has(jwt.sub) && has(jwt.roles) && jwt.roles.exists(r, r == "operator")

@@ -1,0 +1,11 @@
+// Authorization: Require Operator Role
+// Purpose: Gate grant_admin_access to authenticated operator users
+//
+// Strengthened relative to mcp-judge-seam allow_admin.cel:
+// - has(jwt.roles) so a token with sub but no roles is a clean non-match
+// - jwt.roles.exists(...) so a string claim cannot substring-match "operator"
+//   (CEL `x in y` on a string is a substring test)
+//
+// `jwt.roles` must be a top-level array claim.
+
+mcp.tool.name == "grant_admin_access" && has(jwt.sub) && has(jwt.roles) && jwt.roles.exists(r, r == "operator")

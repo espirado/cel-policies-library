@@ -1,0 +1,9 @@
+cel-python>=0.5.0
+pytest>=8.0.0
+pyyaml>=6.0
+# ExtMCP signal processor (processors/signal_processor.py) and its tests
+grpcio>=1.60
+grpcio-tools>=1.60
+# only for the locally signed JWT tests in tests/test_gateway.py (skipped if absent)
+pyjwt>=2.8
+cryptography>=42

@@ -1,0 +1,20 @@
+// Calibration: Review Stale Data
+// Purpose: Soft flag when the record is not valid for the current calendar year
+// Category: Data Quality → Confidence Gate (Soft Flag)
+//
+// WHAT IS CURRENCY (in this library and the ExtMCP processor)?
+// Year validity, not linear decay:
+//   1.0  record year >= the current calendar year (or, for a decay-fed caller, fresh)
+//   0.0  missing year, unparsable year, or a superseded fee-schedule year
+//
+// A linear-decay formula (1 - age/365) flagged current CY2026 fee schedules in
+// November. Annual schedules are valid until superseded; they do not decay.
+// Use a decay scorer only for data that really ages continuously, and keep this
+// threshold if you feed that scorer: currency < 0.6.
+//
+// With the processor's 0/1 currency, currency < 0.6 matches a superseded year.
+// That is REVIEW, matching flag_stale_result.cel. It is not a hard block.
+//
+// VERDICT: FLAG for review; the result is still returned.
+
+currency < 0.6

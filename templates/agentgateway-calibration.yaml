@@ -1,0 +1,84 @@
+# yaml-language-server: $schema=https://agentgateway.dev/schema/config
+#
+# Calibration gating inside agentgateway, using mcpGuardrails CEL expression
+# processors on the tool RESULT (response phase). Requires an agentgateway
+# release that supports mcpGuardrails (tested on v1.7.0; see README).
+#
+# Processors run in order. The block processor rejects an incomplete result;
+# the flag processor annotates a result from a superseded fee-schedule year and
+# lets it through.
+#
+# The conditions are the expressions in policies/guardrails/*.cel (a test
+# asserts they are identical). Edit the required-field list and result path in
+# those files for your tool; the lists here are for rci-knowledge lookup_mpfs.
+#
+# `contradiction` (disagreement with an earlier call) needs state across calls.
+# A stateless expression cannot compute it; use mcp-trace-gate or a remote
+# ExtMCP processor for that signal.
+
+mcp:
+  port: 3100
+  policies:
+    mcpGuardrails:
+      processors:
+        # policies/guardrails/block_incomplete_result.cel
+        - kind: expression
+          condition: >-
+            mcp.tool.name == "lookup_mpfs" &&
+            has(mcp.result.structuredContent) && "results" in mcp.result.structuredContent &&
+            (size(mcp.result.structuredContent.results) == 0 ||
+            mcp.result.structuredContent.results.exists(r,
+            ["hcpcs_code", "short_descriptor", "work_rvu", "total_rvu_facility",
+            "total_rvu_nonfacility", "conversion_factor", "year"].with(req,
+            double(size(req.filter(k, k in r && r[k] != null))) / double(size(req)) < 0.4)))
+          reject: "calibration: result incomplete (completeness < 0.4)"
+          methods:
+            tools/call: response
+        # policies/guardrails/flag_stale_result.cel + .transform.cel
+        - kind: expression
+          condition: >-
+            mcp.tool.name == "lookup_mpfs" &&
+            has(mcp.result.structuredContent) && "results" in mcp.result.structuredContent &&
+            size(mcp.result.structuredContent.results) > 0 &&
+            mcp.result.structuredContent.results[0].with(r,
+            "year" in r && r.year != null &&
+            int(r.year) < timestamp(request.startTime).getFullYear())
+          transform: >-
+            mcp.result.merge({"structuredContent": mcp.result.structuredContent.merge(
+            {"calibration": {"tier": "review", "reason": "fee-schedule year is before the current year (superseded)"}})})
+          methods:
+            tools/call: response
+        # policies/guardrails/block_incomplete_flat_result.cel  (tool: lookup_opps)
+        - kind: expression
+          condition: >-
+            mcp.tool.name == "lookup_opps" &&
+            has(mcp.result.structuredContent) &&
+            mcp.result.structuredContent.with(r,
+            ["payment_rate", "relative_weight", "national_unadjusted_copayment",
+            "minimum_unadjusted_copayment", "adjusted_copayment"].with(req,
+            double(size(req.filter(k, k in r && r[k] != null))) / double(size(req)) < 0.4))
+          reject: "calibration: result incomplete (completeness < 0.4)"
+          methods:
+            tools/call: response
+        # policies/guardrails/flag_stale_snapshot.cel + .transform.cel  (tool: list_dataset_snapshots)
+        - kind: expression
+          condition: >-
+            mcp.tool.name == "list_dataset_snapshots" &&
+            has(mcp.result.structuredContent) &&
+            "snapshots" in mcp.result.structuredContent &&
+            mcp.result.structuredContent.snapshots.exists(s,
+            "effective_date" in s && s.effective_date != null &&
+            timestamp(request.startTime) - timestamp(s.effective_date + "T00:00:00Z") > duration("8760h"))
+          transform: >-
+            mcp.result.merge({"structuredContent": mcp.result.structuredContent.merge(
+            {"calibration": {"tier": "review",
+            "reason": "effective_date is more than 365 days old",
+            "datasets": mcp.result.structuredContent.snapshots.filter(s,
+            "effective_date" in s && s.effective_date != null &&
+            timestamp(request.startTime) - timestamp(s.effective_date + "T00:00:00Z") > duration("8760h")).map(s, s.dataset)}})})
+          methods:
+            tools/call: response
+  targets:
+    - name: fees
+      mcp:
+        host: http://127.0.0.1:8081/mcp

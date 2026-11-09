@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://agentgateway.dev/schema/config
+#
+# Enforce the library's SIGNAL policies (contradiction / completeness / currency) in the gateway
+# with an external ExtMCP processor: processors/signal_processor.py.
+#
+#   python processors/signal_processor.py --port 9001
+#
+# The processor needs state across calls (to detect a contradiction with an earlier result in the
+# same MCP session), which a stateless CEL expression cannot hold. It remembers the tool and
+# arguments at request time and scores the result at response time, so run it for `full` phase.
+# The `session` metadata key tells it which MCP session a call belongs to.
+#
+# failureMode failClosed: if the processor is down, tool calls are denied.
+
+mcp:
+  port: 3100
+  policies:
+    mcpGuardrails:
+      processors:
+        - kind: remote
+          host: "127.0.0.1:9001"
+          failureMode: failClosed
+          metadata:
+            session: 'default(request.headers["mcp-session-id"], "")'
+          methods:
+            tools/call: full
+  targets:
+    - name: fees
+      mcp:
+        host: http://127.0.0.1:8081/mcp

@@ -1,0 +1,23 @@
+// Calibration: Block on Contradiction
+// Purpose: Hard safety gate when tool results disagree
+// Category: Data Quality → Safety Gate (Hard Block)
+// Use Case: mcp-trace-gate scenarios, multi-source data inconsistency
+// 
+// WHAT IS CONTRADICTION?
+// When two tools return conflicting data on the same identity field.
+// Example:
+//   - Tool A: user_id = "123", status = "active"
+//   - Tool B: user_id = "123", status = "inactive"
+//   → contradiction = true (disagreement on shared identity field)
+//
+// WHY THIS MATTERS (APM Blind Spot)
+// Standard distributed tracing logs:
+//   - Tool A: ✅ 200 OK, 45ms
+//   - Tool B: ✅ 200 OK, 38ms
+// Both appear healthy. But they contradict each other on critical data.
+// CEL detects this; logs don't.
+//
+// VERDICT: BLOCK execution immediately
+// This is a hard safety gate: no human override without review.
+
+contradiction == true

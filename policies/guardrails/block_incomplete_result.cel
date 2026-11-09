@@ -1,0 +1,27 @@
+// agentgateway-native: reject an incomplete tool result (mcpGuardrails, response phase)
+//
+// Runs inside agentgateway on `mcp.result`, so no external scoring service is needed.
+// Same threshold as calibration/block_incomplete.cel: completeness < 0.4, where
+// completeness = fraction of REQUIRED fields that are present and non-null.
+// Matches when there are no rows, or ANY row is under the threshold (not only results[0]).
+//
+// EDIT: the tool name, the REQUIRED list and the result path
+// (structuredContent.results) to match your tool. The `mcp.tool.name` guard and
+// the `"results" in` guard are required: without them the rule runs on every tool's
+// result and fails closed (rejects) on any result that has no `results` list.
+// The list below is for rci-knowledge `lookup_mpfs`.
+//
+// Behaviour:
+//   - structuredContent present, no rows        -> completeness 0 -> matches (reject)
+//   - structuredContent present, any row < 40%  -> matches (reject)
+//   - no structuredContent (e.g. isError result)  -> does not match; the error already reaches the client
+//
+// Used as `condition` with `reject:` in templates/agentgateway-calibration.yaml.
+
+mcp.tool.name == "lookup_mpfs" &&
+has(mcp.result.structuredContent) && "results" in mcp.result.structuredContent &&
+(size(mcp.result.structuredContent.results) == 0 ||
+ mcp.result.structuredContent.results.exists(r,
+   ["hcpcs_code", "short_descriptor", "work_rvu", "total_rvu_facility",
+    "total_rvu_nonfacility", "conversion_factor", "year"].with(req,
+     double(size(req.filter(k, k in r && r[k] != null))) / double(size(req)) < 0.4)))

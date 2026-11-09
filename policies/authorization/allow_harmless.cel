@@ -1,0 +1,7 @@
+// Authorization: allow the demo grant_read_access tool with no authentication.
+//
+// This is the mcp-judge-seam allow_read.cel expression. It is not a general
+// read-only prefix: only this exact tool name matches. Do not treat it as
+// permission to call arbitrary lookup or describe tools.
+
+mcp.tool.name == "grant_read_access"

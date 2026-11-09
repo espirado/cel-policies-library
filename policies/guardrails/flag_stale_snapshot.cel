@@ -1,0 +1,22 @@
+// agentgateway-native: flag dataset snapshots whose effective date is over a year old
+// (mcpGuardrails, response phase). REVIEW tier: the call is not rejected.
+//
+// For tools that list dataset snapshots, e.g. rci-knowledge `list_dataset_snapshots`.
+// A snapshot is flagged when `effective_date` is more than 365 days (8760h) before the
+// request, whatever its own `is_current` says. For annual-cycle datasets that means the
+// next cycle should already have started. It does NOT say the server is wrong:
+// the data owner must confirm whether a newer release exists.
+//
+// Real example (rci-knowledge, 2026-11-06): ipps FY2026 (effective 2025-10-01),
+// medi_cal_aprdrg and medi_cal_supplies (2025-07-01) and umls 2025AB (2025-11-01) are
+// flagged; mpfs CY2026 and ncci 2026 (2026-01-01) are not. All were reported with
+// is_current = true.
+//
+// EDIT: the tool name and the 8760h horizon.
+
+mcp.tool.name == "list_dataset_snapshots" &&
+has(mcp.result.structuredContent) &&
+"snapshots" in mcp.result.structuredContent &&
+mcp.result.structuredContent.snapshots.exists(s,
+  "effective_date" in s && s.effective_date != null &&
+  timestamp(request.startTime) - timestamp(s.effective_date + "T00:00:00Z") > duration("8760h"))

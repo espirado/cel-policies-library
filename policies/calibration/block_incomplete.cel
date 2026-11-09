@@ -1,0 +1,22 @@
+// Calibration: Block on Severe Incompleteness
+// Purpose: Hard safety gate when data is critically incomplete
+// Category: Data Quality → Safety Gate (Hard Block)
+// Use Case: mcp-trace-gate scenarios, required field validation
+//
+// WHAT IS COMPLETENESS?
+// Fraction of requested fields that were actually returned.
+// Calculation: (present_fields AND requested_fields) / requested_fields
+//
+// Examples:
+//   - Requested 10 fields, got 8 → completeness = 0.8 (✅ allow)
+//   - Requested 10 fields, got 4 → completeness = 0.4 (🔶 threshold)
+//   - Requested 10 fields, got 2 → completeness = 0.2 (❌ block)
+//
+// THRESHOLD: 0.4 (40%)
+// If less than 40% of required data present, that's a hard block.
+// Agent lacks critical context; execution continues at serious risk.
+//
+// VERDICT: BLOCK execution, escalate to review
+// Data too incomplete to safely proceed.
+
+completeness < 0.4
