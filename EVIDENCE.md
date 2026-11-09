@@ -14,7 +14,7 @@ Environment:
 - agentgateway **1.4.1** (`163ea2146acb…`) at `/usr/local/bin/agentgateway`
 - Keycloak `cel` realm at `http://127.0.0.1:19180`
 
-Story for any later post: library + two pitfalls; not a duplicate of `examples/mcp-guardrails/expression`. **Not posted.**
+Published README claims are only the rows in §1a and the public-MCP / Linux numbers below. The 1.0.1–1.2.1 matrix, llama3.1 agent run, and 4-code hosted contradiction table are **not** README claims.
 
 ### 1. Full pytest on 1.7.0 with Keycloak
 
@@ -161,10 +161,19 @@ https://api.rcintell.com/v1/mcp initialize without a key → HTTP 401 {"detail":
 
 `scripts/live_rcintel_processor.py`, `scripts/live_rcintel_authz.py`, and `scripts/live_rcintel_signals.py` were not run. README tables for 12 CPT codes, OPPS 99213/71046, snapshot flags, and cross-tool contradiction are **not** reproduced in this session.
 
-### 4. Not run this session
+### 4. Linux aarch64, this session
 
-- agentgateway version matrix 1.0.1–1.6.0
-- Linux aarch64 container install
+```bash
+# python:3.12-slim, linux/arm64, agentgateway-linux-arm64 from the v1.7.0 release
+AGENTGATEWAY_BIN=/tmp/agw python -m pytest -q
+```
+
+**85 passed, 10 skipped, 4.99s** (Keycloak absent). Log: [`evidence/runs/pytest-linux-aarch64-1.7.0.txt`](evidence/runs/pytest-linux-aarch64-1.7.0.txt).
+
+### 5. Not run this session
+
+- agentgateway 1.0.1, 1.1.0, 1.2.1, 1.3.1, 1.5.0
+- x86_64, Windows
 - `scripts/bench_gateway.py`
 - llama3.1:8b agent run (lives in mcp-judge-seam)
 

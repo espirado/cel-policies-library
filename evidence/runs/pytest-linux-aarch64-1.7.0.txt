@@ -1,0 +1,10 @@
+=== Linux aarch64 1.7.0 2026-11-09T19:28Z ===
+image: python:3.12-slim  platform: linux/arm64
+binary: agentgateway-linux-arm64 from github.com/agentgateway/agentgateway v1.7.0
+git_revision: 26f5aebe99a36a037fe54f8080a608aca5547e15
+build_target: aarch64-unknown-linux-musl
+install: pip install -r requirements.txt (clean)
+
+85 passed, 10 skipped in 4.99s
+# skipped: Keycloak tests (no Docker-in-Docker Keycloak)
+exit:0
