@@ -7,3 +7,8 @@ processors/_gen/
 *.pyc
 .DS_Store
 bin/
+
+# Local drafts. Not published; do not add them back.
+UPSTREAM.md
+BLOG_POST_DRAFT.md
+DISCUSSION_DRAFT.md

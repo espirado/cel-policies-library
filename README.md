@@ -4,7 +4,7 @@ A **library + notes** for [agentgateway](https://agentgateway.dev) MCP: CEL poli
 
 Point the gateway at **your** Streamable-HTTP MCP server. Tool names and field lists in the example files are bindings you replace. One hosted 45-tool server is an example target, not the product.
 
-Validated inside agentgateway (v1.7.0, plus a version matrix back to 1.0.1) and against public MCP servers. What upstream already covers, and what this pack does not (Entra, remote OAuth, webhooks, [#4245](https://github.com/agentgateway/agentgateway/issues/4245)), is in [UPSTREAM.md](UPSTREAM.md). The unpublished discussion text is [DISCUSSION_DRAFT.md](DISCUSSION_DRAFT.md) — do not post it until [EVIDENCE.md](EVIDENCE.md) matches the tests it cites.
+Validated inside agentgateway (v1.7.0, plus a version matrix back to 1.0.1) and against public MCP servers. This pack does not add Entra, remote MCP OAuth, or webhook prompt-guards. [#4245](https://github.com/agentgateway/agentgateway/issues/4245) (guardrails skip JSON-RPC errors and server-initiated messages) is reproduced in [EVIDENCE.md](EVIDENCE.md); the fix is upstream [#4345](https://github.com/agentgateway/agentgateway/pull/4345), not this repo.
 
 | Layer | agentgateway feature | Question it answers | Policies |
 |---|---|---|---|
@@ -13,8 +13,6 @@ Validated inside agentgateway (v1.7.0, plus a version matrix back to 1.0.1) and 
 | Do results agree across calls | `mcpGuardrails` remote (ExtMCP) processor | Does this result contradict an earlier one? Is it too incomplete or stale to use? | 5 signal policies + a processor |
 
 Extracted from [mcp-judge-seam](https://github.com/espirado/mcp-judge-seam) (two authorization rules) and [mcp-trace-gate](https://github.com/espirado/mcp-trace-gate) (the signal thresholds).
-
-What already exists in agentgateway (toy `examples/mcp-guardrails/expression`, JWT authz example, Entra/OAuth discussions) and what this pack does **not** cover is in [UPSTREAM.md](UPSTREAM.md). Read that before posting anything.
 
 ## Use it
 
@@ -171,7 +169,7 @@ Exit codes: 0 permitted (ALLOW or PROCEED), 1 DENY, BLOCK or REVIEW, 2 error. It
 - **`allow_lookup_tools` trusts naming.** It was checked against the 45 real tool names, not against what each tool does.
 - **One local model** (`llama3.1:8b`) drove the authorization traffic. The rules do not depend on the model.
 - Does not replace judges or tracing; it adds deterministic checks at the tool-call boundary.
-- **Not Entra, not remote MCP OAuth, not webhook prompt-guards, not [#4245](https://github.com/agentgateway/agentgateway/issues/4245).** Those are open upstream asks. See [UPSTREAM.md](UPSTREAM.md).
+- **Not Entra, not remote MCP OAuth, not webhook prompt-guards.** [#4245](https://github.com/agentgateway/agentgateway/issues/4245) is reproduced here; the fix is [#4345](https://github.com/agentgateway/agentgateway/pull/4345).
 
 ## License
 

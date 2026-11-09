@@ -14,7 +14,7 @@ Environment:
 - agentgateway **1.4.1** (`163ea2146acb…`) at `/usr/local/bin/agentgateway`
 - Keycloak `cel` realm at `http://127.0.0.1:19180`
 
-Story for any later post: library + two pitfalls; not a duplicate of `examples/mcp-guardrails/expression`. Draft: [DISCUSSION_DRAFT.md](DISCUSSION_DRAFT.md). **Not posted.**
+Story for any later post: library + two pitfalls; not a duplicate of `examples/mcp-guardrails/expression`. **Not posted.**
 
 ### 1. Full pytest on 1.7.0 with Keycloak
 
