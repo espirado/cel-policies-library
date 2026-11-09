@@ -133,7 +133,21 @@ Exit codes: 0 permitted (ALLOW or PROCEED), 1 DENY, BLOCK or REVIEW, 2 error. It
 - Public MCP checks do not test your result shapes.
 - Tokens in tests come from a local Keycloak password grant, not a production IdP.
 - The processor is a reference implementation (in-memory, FIFO pending per session, BLOCK after the tool has run).
-- Not Entra, not remote MCP OAuth, not webhook prompt-guards. #4245 is reproduced; the fix is #4345.
+
+### Not live-tested, and why
+
+These are not missing runs of this pack. They are either a different product surface, a different machine, or a host that refused the call.
+
+| Item | Why it was not live-tested here |
+|---|---|
+| Entra ID + MCP | This pack does not implement Entra. Tests use local Keycloak (password grant, top-level `roles`). Upstream already tracks Entra separately. |
+| OAuth to a remote MCP | The live scripts forward `X-API-Key` or no auth. They do not run the MCP Authorization / `.well-known` dance against an Atlassian-style host. |
+| Webhook / `promptGuard` | Wrong API. These rules are `mcpAuthorization` and `mcpGuardrails`, not `ai.promptGuard`. |
+| agentgateway 1.0.1–1.3.1, 1.5.0 | This publish used the binaries on the machine: **1.4.1**, **1.6.0**, **1.7.0**. Those three already split the features (authz / remote / expression). Older releases were not downloaded again. |
+| x86_64, Windows | The runner is macOS arm64. Linux was `python:3.12-slim` on **linux/arm64**. No x86 or Windows host. |
+| Hosted 45-tool completeness / contradiction table | Optional example host. `live_rcintel_gateway.py` passed; processor/authz/signals then hit **HTTP 429**. The README does not claim those rows. |
+| `llama3.1:8b` through the gateway | That driver lives in mcp-judge-seam, not this repo. Authorization here is pytest + Keycloak + public MCP. |
+| `scripts/bench_gateway.py` | Loopback microbenchmark, not live MCP. Not re-run for this publish. |
 
 ## License
 

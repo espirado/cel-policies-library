@@ -170,12 +170,16 @@ AGENTGATEWAY_BIN=/tmp/agw python -m pytest -q
 
 **85 passed, 10 skipped, 4.99s** (Keycloak absent). Log: [`evidence/runs/pytest-linux-aarch64-1.7.0.txt`](evidence/runs/pytest-linux-aarch64-1.7.0.txt).
 
-### 5. Not run this session
+### 5. Not live-tested this session (and why)
 
-- agentgateway 1.0.1, 1.1.0, 1.2.1, 1.3.1, 1.5.0
-- x86_64, Windows
-- `scripts/bench_gateway.py`
-- llama3.1:8b agent run (lives in mcp-judge-seam)
+| Item | Why |
+|---|---|
+| Entra, remote MCP OAuth, webhook `promptGuard` | Not this pack's APIs. No Entra tenant, no OAuth dance, no `ai.promptGuard`. |
+| agentgateway 1.0.1, 1.1.0, 1.2.1, 1.3.1, 1.5.0 | Binaries on this machine were 1.4.1, 1.6.0, 1.7.0 only. |
+| x86_64, Windows | Runner is macOS arm64; Linux check was linux/arm64. |
+| Hosted 45-tool contradiction / authz / signals tables | Processor and later scripts hit HTTP 429. Gateway-only script had passed; README does not claim the incomplete rows. |
+| llama3.1:8b agent | Driver is in mcp-judge-seam. |
+| `scripts/bench_gateway.py` | Not re-run; not a live-MCP check. |
 
 ## Mapping (policy → evidence)
 
