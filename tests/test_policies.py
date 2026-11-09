@@ -236,15 +236,15 @@ def test_agentgateway_template_rules_equal_policy_files():
     ]
 
 
-def test_rci_template_rules_equal_policy_files():
+def test_prefix_authz_template_rules_equal_policy_files():
     import yaml
-    rules = yaml.safe_load(
-        (ROOT / "templates" / "agentgateway-rci-knowledge.yaml").read_text()
-    )["mcp"]["policies"]["mcpAuthorization"]["rules"]
-    assert rules == [
+    expected = [
         _expr(ROOT / "policies/authorization/allow_lookup_tools.cel"),
         _expr(ROOT / "policies/authorization/require_operator_for_calculate.cel"),
     ]
+    for name in ("agentgateway-prefix-authz.yaml", "agentgateway-rci-knowledge.yaml"):
+        rules = yaml.safe_load((ROOT / "templates" / name).read_text())["mcp"]["policies"]["mcpAuthorization"]["rules"]
+        assert rules == expected, name
 
 
 # ------------------------------------------------------------------ CLI ----

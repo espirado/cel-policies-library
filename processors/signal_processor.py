@@ -122,7 +122,9 @@ class SignalProcessor(pb_grpc.ExtMcpServicer):
             self._warned = True
             log.warning(
                 "no `session` metadata from the gateway: contradiction history is shared across "
-                "all MCP sessions (per-session scoping needs agentgateway >= 1.7.0)")
+                "all MCP sessions. Map metadata.session to "
+                'default(request.headers["mcp-session-id"], "") and confirm the upstream MCP '
+                "returns a unique Mcp-Session-Id per initialize")
         return session
 
     def _prune_pending(self, session: str, now: float) -> None:

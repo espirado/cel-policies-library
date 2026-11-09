@@ -1,0 +1,77 @@
+=== live_rcintel_gateway.py 2026-11-09T17:27:33Z ===
+A. lookup_mpfs as shipped (no false positives expected)
+  PASS  99213 unchanged 
+  PASS  99214 unchanged 
+  PASS  36415 unchanged 
+  PASS  97110 unchanged 
+  PASS  10060 unchanged 
+  PASS  27447 unchanged 
+  PASS  59400 unchanged 
+  PASS  92014 unchanged 
+  PASS  0100T unchanged 
+  PASS  1000F unchanged 
+  PASS  G0008 unchanged 
+  PASS  J0585 unchanged 
+  PASS  E0100 not found -> tool error passes through Error: API returned HTTP 404
+  PASS  00000 not found -> tool error passes through Error: API returned HTTP 404
+B. lookup_opps (flat result), real incompleteness
+  PASS  99213 (no OPPS payment fields) rejected calibration: result incomplete (completeness < 0.4)
+  PASS  71046 (payment data present) unchanged 
+C. list_dataset_snapshots, real snapshot age
+  PASS  response annotated {'tier': 'review', 'reason': 'effective_date is more than 365 days old', 'datasets': ['ipps', 'medi_cal_aprdrg', 'medi_c
+        datasets flagged (effective_date over 365 days old): ['ipps', 'medi_cal_aprdrg', 'medi_cal_supplies', 'ms_drg', 'umls']
+  PASS  current-year datasets (mpfs, ncci) not flagged ['ipps', 'medi_cal_aprdrg', 'medi_cal_supplies', 'ms_drg', 'umls']
+D. mechanism checks on a real lookup_mpfs payload, one parameter changed
+  PASS  99213 rejected (required list changed) calibration: result incomplete (completeness < 0.4)
+  PASS  99214 rejected (required list changed) calibration: result incomplete (completeness < 0.4)
+  PASS  97110 rejected (required list changed) calibration: result incomplete (completeness < 0.4)
+  PASS  99213 annotated, call not blocked (year rule shifted) {'tier': 'review', 'reason': 'fee-schedule year is before the current year (superseded)'}
+  PASS  99214 annotated, call not blocked (year rule shifted) {'tier': 'review', 'reason': 'fee-schedule year is before the current year (superseded)'}
+  PASS  97110 annotated, call not blocked (year rule shifted) {'tier': 'review', 'reason': 'fee-schedule year is before the current year (superseded)'}
+
+all checks passed
+exit:0
+
+=== live_rcintel_processor.py 2026-11-09T17:27:39Z ===
+I1109 12:27:40.225732 64940926 fork_posix.cc:71] Other threads are currently calling into gRPC, skipping fork() handlers
+99213
+  PASS  lookup_mpfs passes unannotated 
+  PASS  calculate_payment (default qpp) denied for contradiction calibration: combined/multi_signal_safety_gate matched {"completeness": 1.0, "currency": 1.0, "contradiction":
+  PASS  calculate_payment (qpp=false) passes estimated_payment=98.63
+  PASS  calculate_payment in a new session passes (no history) 
+99214
+  PASS  lookup_mpfs passes unannotated 
+  PASS  calculate_payment (default qpp) denied for contradiction calibration: combined/multi_signal_safety_gate matched {"completeness": 1.0, "currency": 1.0, "contradiction":
+  PASS  calculate_payment (qpp=false) passes estimated_payment=140.23
+  PASS  calculate_payment in a new session passes (no history) 
+97110
+  PASS  lookup_mpfs passes unannotated 
+  PASS  calculate_payment (default qpp) denied for contradiction calibration: combined/multi_signal_safety_gate matched {"completeness": 1.0, "currency": 1.0, "contradiction":
+  PASS  calculate_payment (qpp=false) passes estimated_payment=30.24
+  PASS  calculate_payment in a new session passes (no history) 
+10060
+  PASS  lookup_mpfs passes unannotated 
+  PASS  calculate_payment (default qpp) denied for contradiction calibration: combined/multi_signal_safety_gate matched {"completeness": 1.0, "currency": 1.0, "contradiction":
+  PASS  calculate_payment (qpp=false) passes estimated_payment=134.1
+  FAIL  calculate_payment in a new session passes (no history) 
+
+1 check(s) FAILED
+exit:1
+
+=== live_rcintel_authz.py 2026-11-09T17:27:45Z ===
+Traceback (most recent call last):
+  File "/Users/espirado/Downloads/AAIF/cel-policies-library/scripts/live_rcintel_authz.py", line 130, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/espirado/Downloads/AAIF/cel-policies-library/scripts/live_rcintel_authz.py", line 84, in main
+    sid = open_session(lrg.UPSTREAM, key)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/espirado/Downloads/AAIF/cel-policies-library/scripts/live_rcintel_authz.py", line 55, in open_session
+    assert "result" in init, init
+           ^^^^^^^^^^^^^^^^
+AssertionError: {'http_error': '{"detail":"Rate limit exceeded"}'}
+exit:1
+
+=== live_rcintel_signals.py 2026-11-09T17:27:45Z ===
+initialize failed: {'http_error': '{"detail":"Rate limit exceeded"}'}
+exit:1

@@ -1,0 +1,2526 @@
+{
+  "started": "2026-11-09T17:16:03Z",
+  "agentgateway": {
+    "version": "1.7.0",
+    "git_revision": "26f5aebe99a36a037fe54f8080a608aca5547e15",
+    "rust_version": "1.99.0",
+    "build_profile": "release",
+    "build_target": "aarch64-apple-darwin",
+    "crypto_backend": "aws-lc-rs",
+    "crypto_fips": false
+  },
+  "binary": "/Users/espirado/Downloads/AAIF/cel-policies-library/bin/agentgateway-1.7.0",
+  "rci_api_key_present": false,
+  "targets": [
+    {
+      "name": "mcpharbor-search",
+      "url": "https://mcpharbor.app/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 1.13,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search_servers",
+          "get_server",
+          "list_categories",
+          "recent_servers",
+          "search_tools",
+          "get_tool"
+        ],
+        "n_tools": 6,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_categories"
+          ],
+          "calculate_": [],
+          "other": 5
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 6,
+          "n_direct": 6,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_categories"
+          ],
+          "expected": [
+            "list_categories"
+          ],
+          "n_hidden": 5,
+          "denied_sample": "get_server",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_categories",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_categories",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "placeholder-tools",
+      "url": "https://mcp.placeholder.com/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.354,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "image_url",
+          "photo_url",
+          "avatar_url",
+          "qr_url",
+          "barcode_url",
+          "brand_assets",
+          "get_person",
+          "generate_people",
+          "safe_test_values",
+          "lorem_text",
+          "localized_text",
+          "stress_text",
+          "pseudo_localize",
+          "mock_api",
+          "company_overview",
+          "company_query",
+          "company_record",
+          "company_wiki_page",
+          "company_eval_questions",
+          "brand_kit",
+          "list_fixtures",
+          "get_fixture",
+          "dummy_files",
+          "http_test_endpoints"
+        ],
+        "n_tools": 24,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_fixtures"
+          ],
+          "calculate_": [],
+          "other": 23
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 24,
+          "n_direct": 24,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_fixtures"
+          ],
+          "expected": [
+            "list_fixtures"
+          ],
+          "n_hidden": 23,
+          "denied_sample": "avatar_url",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_fixtures",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_fixtures",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "superdocs-sbox",
+      "url": "https://superdocs.sboxcool.com/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.621,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search",
+          "get_type",
+          "get_examples",
+          "list_workflows",
+          "get_workflow",
+          "list_namespaces",
+          "get_namespace_types",
+          "get_patterns",
+          "get_related_types",
+          "get_stats",
+          "get_network_storage_guide",
+          "get_pitfalls",
+          "get_pitfall",
+          "get_sbox_tools",
+          "diagnose_error",
+          "get_generalized_patterns",
+          "get_api_catalog",
+          "get_code_templates",
+          "get_component_info",
+          "list_component_types",
+          "get_razor_ui_components",
+          "get_css_reference",
+          "get_networking_patterns",
+          "get_method_signature",
+          "search_properties",
+          "get_gameobject_guide",
+          "get_scene_guide",
+          "get_recipes",
+          "ingest_code_folder",
+          "suggestions",
+          "sbox_generate_material",
+          "sbox_generate_terrain",
+          "sbox_import_model",
+          "sbox_model_status",
+          "get_gameobject_tree",
+          "search_gameobjects",
+          "get_type_members",
+          "browse_api",
+          "compare_types",
+          "get_type_hierarchy",
+          "get_member_details",
+          "get_all_with_attribute",
+          "get_unity_migration_guide",
+          "get_restricted_apis",
+          "get_event_system_guide",
+          "get_endpoint_standards",
+          "get_quick_reference",
+          "find_usages",
+          "find_callers",
+          "find_implementers",
+          "find_overrides",
+          "get_symbol_graph",
+          "get_source_snippet",
+          "resolve_symbol",
+          "get_attribute_usage_map",
+          "get_inheritance_chain_rich",
+          "search_snippets",
+          "get_type_context_bundle",
+          "get_razor_component",
+          "get_scss_selectors",
+          "related_symbols_semantic",
+          "get_razor_examples",
+          "get_namespace_examples",
+          "get_ingested_patterns",
+          "get_editor_integration",
+          "get_sbox_news",
+          "get_sbox_leaderboard",
+          "get_sbox_achievements",
+          "get_sbox_player_count",
+          "get_sbox_steam_news",
+          "get_sbox_reviews",
+          "search_sbox_docs",
+          "get_sbox_doc_page",
+          "list_sbox_doc_categories",
+          "get_schema_diff",
+          "unified_search",
+          "get_whats_new"
+        ],
+        "n_tools": 77,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_workflows",
+            "list_namespaces",
+            "list_component_types",
+            "list_sbox_doc_categories"
+          ],
+          "calculate_": [],
+          "other": 73
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 77,
+          "n_direct": 77,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_component_types",
+            "list_namespaces",
+            "list_sbox_doc_categories",
+            "list_workflows"
+          ],
+          "expected": [
+            "list_component_types",
+            "list_namespaces",
+            "list_sbox_doc_categories",
+            "list_workflows"
+          ],
+          "n_hidden": 73,
+          "denied_sample": "browse_api",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_component_types",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_component_types",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "pathwren-crawler-index",
+      "url": "https://www.pathwren.workers.dev/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.168,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "whoami",
+          "example",
+          "classify_user_agent",
+          "lookup_crawler",
+          "list_crawlers",
+          "generate_robots_txt",
+          "is_verified_crawler_ip",
+          "whats_changed",
+          "changes_since"
+        ],
+        "n_tools": 9,
+        "prefixes": {
+          "lookup_": [
+            "lookup_crawler"
+          ],
+          "list_": [
+            "list_crawlers"
+          ],
+          "calculate_": [],
+          "other": 7
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 9,
+          "n_direct": 9,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_crawlers",
+            "lookup_crawler"
+          ],
+          "expected": [
+            "list_crawlers",
+            "lookup_crawler"
+          ],
+          "n_hidden": 7,
+          "denied_sample": "changes_since",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_crawlers",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_crawlers",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "mizan-bans",
+      "url": "https://mizan.ac/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.629,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "lookup_player",
+          "check_players",
+          "list_sources",
+          "registry_stats",
+          "list_my_communities"
+        ],
+        "n_tools": 5,
+        "prefixes": {
+          "lookup_": [
+            "lookup_player"
+          ],
+          "list_": [
+            "list_sources",
+            "list_my_communities"
+          ],
+          "calculate_": [],
+          "other": 2
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 5,
+          "n_direct": 5,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_my_communities",
+            "list_sources",
+            "lookup_player"
+          ],
+          "expected": [
+            "list_my_communities",
+            "list_sources",
+            "lookup_player"
+          ],
+          "n_hidden": 2,
+          "denied_sample": "check_players",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_my_communities",
+            "kind": "transport",
+            "detail": "{'http_error': '{\"jsonrpc\":\"2.0\",\"error\":{\"code\":-32000,\"message\":\"missing authorization header\"},\"id\":null}'}",
+            "ok": false
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_my_communities",
+          "args": {},
+          "kind": "transport",
+          "detail": "{'http_error': '{\"jsonrpc\":\"2.0\",\"error\":{\"code\":-32000,\"message\":\"missing authorization header\"},\"id\":null}'}"
+        }
+      }
+    },
+    {
+      "name": "tandem-docs",
+      "url": "https://tandem.ac/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.707,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search_docs",
+          "get_doc",
+          "get_start_path",
+          "recommend_next_docs",
+          "answer_how_to",
+          "get_tandem_guide",
+          "warmup_docs_cache",
+          "get_docs_cache_status",
+          "refresh_docs_index",
+          "refresh_doc_page",
+          "invalidate_docs_cache",
+          "compare_docs_index_refresh",
+          "compare_doc_page_refresh"
+        ],
+        "n_tools": 13,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 13
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 13,
+          "n_direct": 13,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 13,
+          "denied_sample": "answer_how_to",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "get_docs_cache_status",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "apex-ai-academy",
+      "url": "https://apexai.academy/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.101,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "list_courses",
+          "list_lessons",
+          "get_lesson",
+          "search",
+          "latest_news",
+          "list_deep_dives",
+          "get_resources",
+          "get_pricing",
+          "subscribe_link",
+          "get_premium_lesson",
+          "get_progress",
+          "mark_lesson_complete",
+          "forum_search",
+          "forum_read",
+          "forum_post",
+          "forum_hello",
+          "forum_reply",
+          "forum_category_create",
+          "agent_handoff",
+          "agent_notes_get",
+          "agent_notes_set",
+          "forum_edit",
+          "pair_agent",
+          "forum_polls_list",
+          "forum_poll_vote",
+          "agent_signup",
+          "agent_me",
+          "agent_progress",
+          "agent_quiz_answer",
+          "agent_delete_account"
+        ],
+        "n_tools": 30,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_courses",
+            "list_lessons",
+            "list_deep_dives"
+          ],
+          "calculate_": [],
+          "other": 27
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 30,
+          "n_direct": 30,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_courses",
+            "list_deep_dives",
+            "list_lessons"
+          ],
+          "expected": [
+            "list_courses",
+            "list_deep_dives",
+            "list_lessons"
+          ],
+          "n_hidden": 27,
+          "denied_sample": "agent_delete_account",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_courses",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_courses",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "ase-periodic-system",
+      "url": "https://ase.academy/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.209,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "overview",
+          "find_elements",
+          "get_element",
+          "repository_checklist"
+        ],
+        "n_tools": 4,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 4
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 4,
+          "n_direct": 4,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 4,
+          "denied_sample": "find_elements",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "get_element",
+          "args": {
+            "ref": "test"
+          },
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "service-engineer-ai",
+      "url": "https://api.serviceengineer.academy/mcp",
+      "note": null,
+      "direct": {
+        "http": 401,
+        "protocol": "2024-11-05",
+        "elapsed_s": 0.721,
+        "ok": false,
+        "error": {
+          "http_error": "{\"jsonrpc\": \"2.0\", \"id\": null, \"error\": {\"code\": -32001, \"message\": \"Sign in to Service Engineer AI (OAuth), or use a personal key from serviceengineer.academy/ai, menu, Connect to Claude / ChatGPT.\"}}"
+        },
+        "tools": [],
+        "n_tools": 0,
+        "prefixes": {}
+      },
+      "reachable": false
+    },
+    {
+      "name": "brainy-uae-prices",
+      "url": "https://prices.brainy.ae/mcp/v2",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.794,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "commute_cost",
+          "costs_by_area",
+          "costs_by_emirate",
+          "data_sources",
+          "dewa",
+          "end_of_service_gratuity",
+          "fixed_monthly_costs",
+          "free_zone_companies",
+          "fuel_prices",
+          "fx_rates",
+          "grocery_compare_list",
+          "grocery_products",
+          "grocery_stores",
+          "health_insurance",
+          "housing_rents",
+          "housing_sales",
+          "labour_calculator",
+          "ministry_shop_prices",
+          "mobile_internet_plans",
+          "move_to_dubai",
+          "residence_visas",
+          "schools",
+          "shopper_price_reports",
+          "start_here",
+          "tax_savings_by_country",
+          "transport_fares"
+        ],
+        "n_tools": 26,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 26
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 26,
+          "n_direct": 26,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 26,
+          "denied_sample": "commute_cost",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "health_insurance",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "dubai-real-estate",
+      "url": "https://mcp.datadubai.ae/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 4.095,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search",
+          "get_entity",
+          "get_market_summary",
+          "get_monthly_report",
+          "fetch",
+          "list_rankings"
+        ],
+        "n_tools": 6,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_rankings"
+          ],
+          "calculate_": [],
+          "other": 5
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 6,
+          "n_direct": 6,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_rankings"
+          ],
+          "expected": [
+            "list_rankings"
+          ],
+          "n_hidden": 5,
+          "denied_sample": "fetch",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_rankings",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "get_market_summary",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "plantguide-dubai",
+      "url": "https://plantguide.ae/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 3.021,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "what_to_plant",
+          "search_plants",
+          "get_plant",
+          "get_planting_calendar",
+          "get_dubai_climate",
+          "list_garden_styles",
+          "get_garden_style",
+          "search_guides",
+          "get_guide",
+          "get_kitchen_garden_guide",
+          "get_indoor_plant_guide",
+          "get_indoor_style",
+          "estimate_garden_care_price",
+          "build_designer_link",
+          "get_contact_link"
+        ],
+        "n_tools": 15,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_garden_styles"
+          ],
+          "calculate_": [],
+          "other": 14
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 15,
+          "n_direct": 15,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_garden_styles"
+          ],
+          "expected": [
+            "list_garden_styles"
+          ],
+          "n_hidden": 14,
+          "denied_sample": "build_designer_link",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_garden_styles",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_garden_styles",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "beachclubs-ae",
+      "url": "https://www.beachclubs.ae/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 12.692,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search_beach_clubs",
+          "get_beach_club",
+          "list_events",
+          "request_booking_enquiry"
+        ],
+        "n_tools": 4,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_events"
+          ],
+          "calculate_": [],
+          "other": 3
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 4,
+          "n_direct": 4,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_events"
+          ],
+          "expected": [
+            "list_events"
+          ],
+          "n_hidden": 3,
+          "denied_sample": "get_beach_club",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_events",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_events",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "deepwiki",
+      "url": "https://mcp.deepwiki.com/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.534,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "ask_wiki_question",
+          "read_wiki_contents",
+          "read_wiki_structure"
+        ],
+        "n_tools": 3,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 3
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 3,
+          "n_direct": 3,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 3,
+          "denied_sample": "ask_wiki_question",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "read_wiki_contents",
+          "args": {
+            "repoName": "test"
+          },
+          "kind": "tool_error",
+          "detail": "Invalid repoName format: \"test\". Expected format is \"owner/repo\", e.g. \"facebook/react\". For custom domains you must include the host, e.g., \"git.mydomain.com/f"
+        }
+      }
+    },
+    {
+      "name": "grovisor-grotax",
+      "url": "https://mcp.grovisor.ae",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 1.603,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "grotax_compute_ct",
+          "grotax_health_check",
+          "grotax_list_health_questions",
+          "grotax_tp_thresholds",
+          "grotax_compare_sbr",
+          "grotax_penalties",
+          "grotax_qfzp_de_minimis",
+          "grotax_get_rules"
+        ],
+        "n_tools": 8,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 8
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 8,
+          "n_direct": 8,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 8,
+          "denied_sample": "grotax_compare_sbr",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "grotax_get_rules",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "projectory-uae",
+      "url": "https://mcp.projectory.ae/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.933,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search",
+          "search_transactions",
+          "list_research_reports",
+          "fetch",
+          "list_project_facets",
+          "suggest_project_terms"
+        ],
+        "n_tools": 6,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_research_reports",
+            "list_project_facets"
+          ],
+          "calculate_": [],
+          "other": 4
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 6,
+          "n_direct": 6,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_project_facets",
+            "list_research_reports"
+          ],
+          "expected": [
+            "list_project_facets",
+            "list_research_reports"
+          ],
+          "n_hidden": 4,
+          "denied_sample": "fetch",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_project_facets",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_project_facets",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "events-aero",
+      "url": "https://events.aero/mcp/events",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.752,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search-events",
+          "get-event",
+          "featured-events",
+          "list-event-types",
+          "list-countries"
+        ],
+        "n_tools": 5,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 5
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 5,
+          "n_direct": 5,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 5,
+          "denied_sample": "featured-events",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "featured-events",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "tide-sui",
+      "url": "https://api.tide.ad/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.771,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "explain_transaction",
+          "wallet_profile",
+          "wallet_history",
+          "balance_at",
+          "token_info",
+          "trace_funds",
+          "search",
+          "perp_market",
+          "price",
+          "sql",
+          "explain_unsigned",
+          "yield_options",
+          "yield_plan",
+          "build_transaction",
+          "withdraw_plan",
+          "receipt_for_transaction",
+          "confirm_execution",
+          "verify_receipt",
+          "agent_pass_report",
+          "agent_pass_precheck",
+          "agents_overview",
+          "agent_wallet",
+          "owner_agents",
+          "billing_status",
+          "billing_topup",
+          "get_object",
+          "get_object_at",
+          "object_children",
+          "package_info",
+          "events",
+          "checkpoint",
+          "candles",
+          "nfts",
+          "staking",
+          "order_book",
+          "walrus_blob",
+          "address_kind",
+          "docs"
+        ],
+        "n_tools": 38,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 38
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 38,
+          "n_direct": 38,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 38,
+          "denied_sample": "address_kind",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "get_object",
+          "args": {
+            "id": "1"
+          },
+          "kind": "tool_error",
+          "detail": "invalid_params: id must be a 0x object id. Fix the arguments and call get_object again."
+        }
+      }
+    },
+    {
+      "name": "pantheon-ads",
+      "url": "https://mcp.pantheon.ad/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.739,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "list_projects",
+          "list_brand_voices",
+          "list_offer_briefs",
+          "list_analyzed_pages",
+          "search_ads_library",
+          "get_market_creators_data",
+          "get_top_performing_ads",
+          "get_active_ads_copy",
+          "get_saved_ads",
+          "get_strategic_avatar",
+          "get_competitor_active_ads",
+          "get_creative_analysis",
+          "get_job_status",
+          "run_competitor_spy",
+          "run_inspiration_search",
+          "run_brand_campaign_analysis",
+          "run_ad_copilot",
+          "analyze_ad",
+          "run_persuasion_analysis",
+          "run_sales_psychology",
+          "create_brand_voice",
+          "create_offer_brief",
+          "run_magic_tool"
+        ],
+        "n_tools": 23,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_projects",
+            "list_brand_voices",
+            "list_offer_briefs",
+            "list_analyzed_pages"
+          ],
+          "calculate_": [],
+          "other": 19
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 23,
+          "n_direct": 23,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_analyzed_pages",
+            "list_brand_voices",
+            "list_offer_briefs",
+            "list_projects"
+          ],
+          "expected": [
+            "list_analyzed_pages",
+            "list_brand_voices",
+            "list_offer_briefs",
+            "list_projects"
+          ],
+          "n_hidden": 19,
+          "denied_sample": "analyze_ad",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_brand_voices",
+            "kind": "transport",
+            "detail": "{'http_error': '{\"error\": \"invalid_token\", \"error_description\": \"Authentication required\"}'}",
+            "ok": false
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_brand_voices",
+          "args": {},
+          "kind": "transport",
+          "detail": "{'http_error': '{\"error\": \"invalid_token\", \"error_description\": \"Authentication required\"}'}"
+        }
+      }
+    },
+    {
+      "name": "1court-state",
+      "url": "https://state.1court.ai/api/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.306,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "list_rule_sets",
+          "search_rules",
+          "get_rule",
+          "list_deadline_rules",
+          "calculate_deadline",
+          "list_states",
+          "list_counties",
+          "get_court_info",
+          "search_courts"
+        ],
+        "n_tools": 9,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_rule_sets",
+            "list_deadline_rules",
+            "list_states",
+            "list_counties"
+          ],
+          "calculate_": [
+            "calculate_deadline"
+          ],
+          "other": 4
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 9,
+          "n_direct": 9,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_counties",
+            "list_deadline_rules",
+            "list_rule_sets",
+            "list_states"
+          ],
+          "expected": [
+            "list_counties",
+            "list_deadline_rules",
+            "list_rule_sets",
+            "list_states"
+          ],
+          "n_hidden": 5,
+          "denied_sample": "calculate_deadline",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_rule_sets",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_rule_sets",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "4ai",
+      "url": "https://4ai.ai/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.341,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search_domains",
+          "get_domain",
+          "list_categories",
+          "estimate_domain_value",
+          "suggest_domains",
+          "similar_domains",
+          "get_offer_link",
+          "compare_domains",
+          "how_buying_works",
+          "ai_domain_sales"
+        ],
+        "n_tools": 10,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_categories"
+          ],
+          "calculate_": [],
+          "other": 9
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 10,
+          "n_direct": 10,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_categories"
+          ],
+          "expected": [
+            "list_categories"
+          ],
+          "n_hidden": 9,
+          "denied_sample": "ai_domain_sales",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_categories",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_categories",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      }
+    },
+    {
+      "name": "rci-knowledge-unauthenticated",
+      "url": "https://api.rcintell.com/v1/mcp",
+      "note": "hosted domain-specific target; expected to refuse without RCI_API_KEY",
+      "direct": {
+        "http": 401,
+        "protocol": "2024-11-05",
+        "elapsed_s": 0.333,
+        "ok": false,
+        "error": {
+          "http_error": "{\"detail\":\"Missing API key\"}"
+        },
+        "tools": [],
+        "n_tools": 0,
+        "prefixes": {}
+      },
+      "reachable": false
+    }
+  ],
+  "discovered": [
+    {
+      "name": "ac.inference.sh/mcp",
+      "url": "https://api.inference.sh/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ac.snag/snag",
+      "url": "https://mcp.snag.ac/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ad.apogee/apogee",
+      "url": "https://app.apogee.ad/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ad.getle/leads",
+      "url": "https://mcp.getle.ad/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 35,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 4,
+        "calculate_": 0,
+        "other": 31
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 35,
+          "n_direct": 35,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_campaigns",
+            "list_lists",
+            "list_mailboxes",
+            "list_opportunities"
+          ],
+          "expected": [
+            "list_campaigns",
+            "list_lists",
+            "list_mailboxes",
+            "list_opportunities"
+          ],
+          "n_hidden": 31,
+          "denied_sample": "add_leads_to_list",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_lists",
+            "kind": "transport",
+            "detail": "{'http_error': '{\"jsonrpc\":\"2.0\",\"id\":null,\"error\":{\"code\":401,\"message\":\"Authorization required\"}}'}",
+            "ok": false
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_lists",
+          "args": {},
+          "kind": "transport",
+          "detail": "{'http_error': '{\"jsonrpc\":\"2.0\",\"id\":null,\"error\":{\"code\":401,\"message\":\"Authorization required\"}}'}"
+        }
+      },
+      "direct_tools": [
+        "get_account",
+        "list_mailboxes",
+        "test_mailbox",
+        "list_campaigns",
+        "get_campaign_stats",
+        "get_campaign_analytics",
+        "control_campaign",
+        "create_campaign",
+        "crm_leads",
+        "crm_update_lead",
+        "check_deliverability",
+        "suppression",
+        "email_templates",
+        "get_inbox",
+        "get_thread",
+        "draft_reply",
+        "send_reply",
+        "list_opportunities",
+        "update_opportunity",
+        "preview_b2b_leads",
+        "search_b2b_leads",
+        "enrich_lead",
+        "scrape_leads_start",
+        "scrape_job_status",
+        "scrape_job_leads",
+        "verify_email",
+        "verify_list_start",
+        "verify_list_status",
+        "find_email",
+        "list_lists",
+        "create_list",
+        "get_list_leads",
+        "add_leads_to_list",
+        "export_list_csv",
+        "delete_list"
+      ]
+    },
+    {
+      "name": "ad.inside/inside-ads",
+      "url": "https://app.inside.ad/api/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 3,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 3
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 3,
+          "n_direct": 3,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 3,
+          "denied_sample": "create_campaign_draft",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "get_draft_status",
+          "args": {
+            "draftId": "test"
+          },
+          "kind": "tool_error",
+          "detail": "error: draft_not_found"
+        }
+      },
+      "direct_tools": [
+        "estimate_campaign",
+        "create_campaign_draft",
+        "get_draft_status"
+      ]
+    },
+    {
+      "name": "ae.genosys/genosys",
+      "url": "https://genosys.ae/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 11,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 1,
+        "calculate_": 0,
+        "other": 10
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 11,
+          "n_direct": 11,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_categories"
+          ],
+          "expected": [
+            "list_categories"
+          ],
+          "n_hidden": 10,
+          "denied_sample": "create_bag_link",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_categories",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_categories",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      },
+      "direct_tools": [
+        "search_products",
+        "get_product",
+        "recommend_routine",
+        "list_categories",
+        "create_bag_link",
+        "open_checkout",
+        "place_order",
+        "order_status",
+        "store_info",
+        "search",
+        "fetch"
+      ]
+    },
+    {
+      "name": "africa.lomi/mcp",
+      "url": "https://mcp.lomi.africa/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "africa.lomi/mcp",
+      "url": "https://mcp.lomi.africa/mcp/guest",
+      "ok": true,
+      "http": 200,
+      "n_tools": 0,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 0
+      }
+    },
+    {
+      "name": "africa.ugc/ugc",
+      "url": "https://api.ugc.africa/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ag.hood/name-service",
+      "url": "https://www.hood.ag/api/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 5,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 5
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 5,
+          "n_direct": 5,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 5,
+          "denied_sample": "check_availability",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "check_availability",
+          "args": {
+            "name": "mcp"
+          },
+          "kind": "unchanged",
+          "detail": ""
+        }
+      },
+      "direct_tools": [
+        "resolve_name",
+        "reverse_resolve",
+        "resolve_text",
+        "check_availability",
+        "name_info"
+      ]
+    },
+    {
+      "name": "agency.goji/goji",
+      "url": "https://mcp.goji.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 9,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 9
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 9,
+          "n_direct": 9,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 9,
+          "denied_sample": "goji_answer_faq",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "goji_browse_glossary",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      },
+      "direct_tools": [
+        "goji_search",
+        "goji_explain_term",
+        "goji_browse_glossary",
+        "goji_get_service",
+        "goji_answer_faq",
+        "goji_guide_contents",
+        "goji_read_guide_chapter",
+        "goji_read_guide",
+        "goji_start_enquiry"
+      ]
+    },
+    {
+      "name": "agency.granek.signal/signal",
+      "url": "https://signal.granek.agency/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "agency.justidea/justidea-agency",
+      "url": "https://justidea.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 8,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 1,
+        "calculate_": 0,
+        "other": 7
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 8,
+          "n_direct": 8,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_services"
+          ],
+          "expected": [
+            "list_services"
+          ],
+          "n_hidden": 7,
+          "denied_sample": "get_page",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_services",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_services",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      },
+      "direct_tools": [
+        "list_services",
+        "get_page",
+        "search_site",
+        "send_inquiry",
+        "scan_analytics",
+        "scan_ai_visibility",
+        "scan_google_visibility",
+        "get_scan_result"
+      ]
+    },
+    {
+      "name": "agency.lona/trading",
+      "url": "https://mcp.lona.agency/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "agency.ottobot/business-contact-finder",
+      "url": "https://business-contact-finder-mcp.ottobot2025.workers.dev/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 1,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 1
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 1,
+          "n_direct": 1,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 1,
+          "denied_sample": "check_contact_path",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "skipped": "no non-rci tool to call"
+        }
+      },
+      "direct_tools": [
+        "check_contact_path"
+      ]
+    },
+    {
+      "name": "agency.ottobot/contractor-license-changes",
+      "url": "https://license-changes-mcp.ottobot2025.workers.dev/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 2,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 2
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 2,
+          "n_direct": 2,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 2,
+          "denied_sample": "check_license_history",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "recent_license_changes",
+          "args": {
+            "state": "test"
+          },
+          "kind": "rpc_error",
+          "detail": "argument state must be a two-letter state code, e.g. CA"
+        }
+      },
+      "direct_tools": [
+        "check_license_history",
+        "recent_license_changes"
+      ]
+    },
+    {
+      "name": "agency.ottobot/licensed-house-painters",
+      "url": "https://house-painters.ottobot.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 3,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 3
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 3,
+          "n_direct": 3,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 3,
+          "denied_sample": "get_painter",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "get_painter",
+          "args": {
+            "painter_id": "test"
+          },
+          "kind": "unchanged",
+          "detail": ""
+        }
+      },
+      "direct_tools": [
+        "search_painters",
+        "get_painter",
+        "request_estimate"
+      ]
+    },
+    {
+      "name": "agency.thebureauoflostcontext/bureau-public",
+      "url": "https://thebureauoflostcontext.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 5,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 5
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 5,
+          "n_direct": 5,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 5,
+          "denied_sample": "bureau_discover",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "bureau_discover",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      },
+      "direct_tools": [
+        "bureau_discover",
+        "bureau_search_agents",
+        "bureau_list_cases",
+        "bureau_get_case",
+        "bureau_get_artifact"
+      ]
+    },
+    {
+      "name": "agency.thirdhemisphere/ai-authority-index",
+      "url": "https://thirdhemisphere.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 12,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 3,
+        "calculate_": 0,
+        "other": 9
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 12,
+          "n_direct": 12,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [
+            "list_index_editions",
+            "list_markets",
+            "list_my_blueprints"
+          ],
+          "expected": [
+            "list_index_editions",
+            "list_markets",
+            "list_my_blueprints"
+          ],
+          "n_hidden": 9,
+          "denied_sample": "get_blueprint_item_evidence",
+          "denied_ok": true,
+          "allowed_call": {
+            "tool": "list_index_editions",
+            "kind": "unchanged",
+            "detail": "",
+            "ok": true
+          }
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "list_index_editions",
+          "args": {},
+          "kind": "unchanged",
+          "detail": ""
+        }
+      },
+      "direct_tools": [
+        "list_index_editions",
+        "get_edition_results",
+        "get_company_authority_score",
+        "get_company_score_history",
+        "search_companies",
+        "list_markets",
+        "get_market_standing",
+        "list_my_blueprints",
+        "get_my_blueprint_plan",
+        "get_blueprint_item_evidence",
+        "update_blueprint_progress",
+        "get_blueprint_progress"
+      ]
+    },
+    {
+      "name": "agency.zoll/ausfuhr",
+      "url": "https://zoll.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 7,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 7
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 7,
+          "n_direct": 7,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 7,
+          "denied_sample": "ausfuhranmeldung_noetig",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "ausfuhranmeldung_noetig",
+          "args": {
+            "bestimmungsland": "test",
+            "warenwert_eur": 1
+          },
+          "kind": "tool_error",
+          "detail": "Die Angaben passen nicht zu diesem Werkzeug. Die erlaubten Werte stehen in der Beschreibung des Werkzeugs."
+        }
+      },
+      "direct_tools": [
+        "kumulierung_pruefen",
+        "praeferenznachweis_bestimmen",
+        "incoterms_waehlen",
+        "warennummer_suchen",
+        "ausfuhranmeldung_noetig",
+        "ratgeber_suchen",
+        "einfuhr_weg_bestimmen"
+      ]
+    },
+    {
+      "name": "ai.0si/disclosures",
+      "url": "https://app.0si.ai/api/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.1325/mcp",
+      "url": "https://agoclnqfyinwjxdmjnns.supabase.co/functions/v1/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.1clickwebsite/mcp",
+      "url": "https://www.1clickwebsite.ai/api/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.28in28/agent-service-desk",
+      "url": "https://28in28.ai/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 3,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 3
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 3,
+          "n_direct": 3,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 3,
+          "denied_sample": "checkDomain",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "checkDomain",
+          "args": {
+            "domain": "test"
+          },
+          "kind": "tool_error",
+          "detail": "invalid_domain: Enter a full domain name such as example.com (IP addresses are not checked)."
+        }
+      },
+      "direct_tools": [
+        "checkDomain",
+        "quoteFixVerify",
+        "verifyFixVerify"
+      ]
+    },
+    {
+      "name": "ai.69ai/69ai",
+      "url": "https://69ai.ai/mcp",
+      "ok": false,
+      "http": 0,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.a1lane/a1lane",
+      "url": "https://a1lane.ai/mcp/v1",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.aard/aard",
+      "url": "https://api.aard.ai/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.aarna/atars-mcp",
+      "url": "https://mcp.aarna.ai/mcp",
+      "ok": false,
+      "http": 502,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.abmeter/abmeter",
+      "url": "https://mcp.abmeter.ai",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.achromat/mcp-server",
+      "url": "https://achromat.ai/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 1,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 1
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 1,
+          "n_direct": 1,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 1,
+          "denied_sample": "achromat_recall",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": false,
+          "tool": "achromat_recall",
+          "args": {
+            "domain": "test",
+            "tool_name": "test",
+            "task_description": "test",
+            "arguments": {}
+          },
+          "kind": "guardrail_reject",
+          "detail": "Invalid achromat_recall input. domain: Invalid option: expected one of \"fintech\"|\"industrial_iot\"|\"robotics\"|\"devsecops\"; task_description: Too small: expected "
+        }
+      },
+      "direct_tools": [
+        "achromat_recall"
+      ]
+    },
+    {
+      "name": "ai.actwise/ideation",
+      "url": "https://actwise.ai/ideation/mcp/v1",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adako/ads",
+      "url": "https://adako.ai/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adkix/adkix",
+      "url": "https://adkix.ai/api/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adoraads/beauty",
+      "url": "https://mcp.adoraads.ai/beauty",
+      "ok": true,
+      "http": 200,
+      "n_tools": 6,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 6
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": true,
+          "n_listed": 6,
+          "n_direct": 6,
+          "only_gateway": [],
+          "only_direct": []
+        },
+        "prefix_authz": {
+          "ok": true,
+          "listed": [],
+          "expected": [],
+          "n_hidden": 6,
+          "denied_sample": "brand_spotlight",
+          "denied_ok": true,
+          "allowed_call": null
+        },
+        "guardrail_scope": {
+          "ok": true,
+          "tool": "get_shopper_prefs",
+          "args": {
+            "shopper_id": "test",
+            "tenant_id": "test"
+          },
+          "kind": "unchanged",
+          "detail": ""
+        }
+      },
+      "direct_tools": [
+        "sponsored_search",
+        "brand_spotlight",
+        "routine_builder",
+        "skin_match",
+        "fire_billing_event",
+        "get_shopper_prefs"
+      ]
+    },
+    {
+      "name": "ai.adplane/google-ads",
+      "url": "https://mcp.adplane.ai",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adrails/adrails",
+      "url": "https://adrails.ai/api/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adramp/google-ads",
+      "url": "https://mcp.adramp.ai",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adrio/adrio",
+      "url": "https://api.adrio.ai/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adsap/adsap",
+      "url": "https://mcp.adsap.ai/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.advisorsai/service-navigator",
+      "url": "https://advisorsai.ai/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 5,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 5
+      }
+    }
+  ],
+  "finished": "2026-11-09T17:19:29Z",
+  "summary": {
+    "curated": 22,
+    "reachable": 20,
+    "gateway_checks_failed": 1,
+    "discovered_ok": 17,
+    "discovered_n": 40
+  }
+}

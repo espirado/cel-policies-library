@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://agentgateway.dev/schema/config
+#
+# Generic prefix authorization for any MCP server whose tools follow a naming
+# convention. Point `targets[].mcp.host` at your Streamable-HTTP endpoint.
+#
+#   lookup_* / list_*   allowed with no JWT
+#   calculate_*         needs jwt.roles to contain "operator"
+#   every other name    hidden from tools/list and denied
+#
+# Only as safe as the server's naming. Swap the prefixes in the .cel files for
+# yours. jwtAuth is omitted here; add it from your IdP when you need roles.
+# tests/test_policies.py asserts these strings equal the .cel files.
+
+mcp:
+  port: 3100
+  policies:
+    mcpAuthorization:
+      rules:
+        # policies/authorization/allow_lookup_tools.cel
+        - 'mcp.tool.name.startsWith("lookup_") || mcp.tool.name.startsWith("list_")'
+        # policies/authorization/require_operator_for_calculate.cel
+        - 'mcp.tool.name.startsWith("calculate_") && has(jwt.sub) && has(jwt.roles) && jwt.roles.exists(r, r == "operator")'
+  targets:
+    - name: mcp
+      mcp:
+        host: http://127.0.0.1:8081/mcp

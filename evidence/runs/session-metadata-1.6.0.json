@@ -1,0 +1,114 @@
+{
+  "binary": {
+    "version": "1.6.0",
+    "path": "/Users/espirado/Downloads/AAIF/cel-policies-library/bin/agentgateway-1.6.0"
+  },
+  "targets": [
+    {
+      "name": "pathwren",
+      "url": "https://www.pathwren.workers.dev/mcp",
+      "ok": true,
+      "http_sids": [
+        "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiI0OWY0MmFlOS0yODlmLTQ4ODAtOTUwYy00MDA1NTgwZDAzMzAifQ",
+        "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiIzOGM0MjkwNC01Mjk3LTQwZTktOGNjNi1jOWFlOGVhYzUwOGMifQ"
+      ],
+      "http_sids_distinct": true,
+      "extmcp_events": [
+        {
+          "phase": "request",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJlYzNkMmE2Zi00N2I1LTQ1YTUtYjZmNi01MTI2N2EyZGQ2MDYifQ"
+        },
+        {
+          "phase": "response",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJlYzNkMmE2Zi00N2I1LTQ1YTUtYjZmNi01MTI2N2EyZGQ2MDYifQ"
+        },
+        {
+          "phase": "request",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJjYjViNzlmNS0xNjE4LTQyODQtYTQ0ZC0zNDg4NDgwNDllZDEifQ"
+        },
+        {
+          "phase": "response",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJjYjViNzlmNS0xNjE4LTQyODQtYTQ0ZC0zNDg4NDgwNDllZDEifQ"
+        }
+      ],
+      "extmcp_sessions": [
+        "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiI0OWY0MmFlOS0yODlmLTQ4ODAtOTUwYy00MDA1NTgwZDAzMzAifQ",
+        "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiI0OWY0MmFlOS0yODlmLTQ4ODAtOTUwYy00MDA1NTgwZDAzMzAifQ",
+        "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiIzOGM0MjkwNC01Mjk3LTQwZTktOGNjNi1jOWFlOGVhYzUwOGMifQ",
+        "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiIzOGM0MjkwNC01Mjk3LTQwZTktOGNjNi1jOWFlOGVhYzUwOGMifQ"
+      ],
+      "extmcp_any_nonempty": true,
+      "extmcp_distinct_nonempty": 2,
+      "verdict": "UNEXPECTED_pre_1_7_sent_session"
+    },
+    {
+      "name": "plantguide",
+      "url": "https://plantguide.ae/mcp",
+      "ok": true,
+      "http_sids": [
+        "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJlYzNkMmE2Zi00N2I1LTQ1YTUtYjZmNi01MTI2N2EyZGQ2MDYifQ",
+        "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJjYjViNzlmNS0xNjE4LTQyODQtYTQ0ZC0zNDg4NDgwNDllZDEifQ"
+      ],
+      "http_sids_distinct": true,
+      "extmcp_events": [
+        {
+          "phase": "request",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJlYzNkMmE2Zi00N2I1LTQ1YTUtYjZmNi01MTI2N2EyZGQ2MDYifQ"
+        },
+        {
+          "phase": "response",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJlYzNkMmE2Zi00N2I1LTQ1YTUtYjZmNi01MTI2N2EyZGQ2MDYifQ"
+        },
+        {
+          "phase": "request",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJjYjViNzlmNS0xNjE4LTQyODQtYTQ0ZC0zNDg4NDgwNDllZDEifQ"
+        },
+        {
+          "phase": "response",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJjYjViNzlmNS0xNjE4LTQyODQtYTQ0ZC0zNDg4NDgwNDllZDEifQ"
+        }
+      ],
+      "extmcp_sessions": [
+        "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJlYzNkMmE2Zi00N2I1LTQ1YTUtYjZmNi01MTI2N2EyZGQ2MDYifQ",
+        "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJlYzNkMmE2Zi00N2I1LTQ1YTUtYjZmNi01MTI2N2EyZGQ2MDYifQ",
+        "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJjYjViNzlmNS0xNjE4LTQyODQtYTQ0ZC0zNDg4NDgwNDllZDEifQ",
+        "eyJ0IjoibWNwIiwicyI6W3sidCI6ImZlZXMifV0sInIiOiJjYjViNzlmNS0xNjE4LTQyODQtYTQ0ZC0zNDg4NDgwNDllZDEifQ"
+      ],
+      "extmcp_any_nonempty": true,
+      "extmcp_distinct_nonempty": 2,
+      "verdict": "UNEXPECTED_pre_1_7_sent_session"
+    }
+  ]
+}

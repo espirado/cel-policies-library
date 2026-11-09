@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 FIELDS = {
@@ -153,11 +154,18 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         body = json.loads(self.rfile.read(int(self.headers.get("content-length", 0))) or b"{}")
+        incoming = self.headers.get("mcp-session-id") or self.headers.get("Mcp-Session-Id")
+        # Unique id per initialize. A constant "mock-session" made agentgateway 1.6.0 treat
+        # two pytest sessions as one, which we had misread as empty ExtMCP session metadata.
+        if body.get("method") == "initialize" or not incoming:
+            sid = str(uuid.uuid4())
+        else:
+            sid = incoming
         out = handle(body)
         if out is None:
-            self._send(202, b"")
+            self._send(202, b"", {"Mcp-Session-Id": sid})
         else:
-            self._send(200, json.dumps(out).encode(), {"Mcp-Session-Id": "mock-session"})
+            self._send(200, json.dumps(out).encode(), {"Mcp-Session-Id": sid})
 
     def _send(self, code, data, extra=None):
         self.send_response(code)

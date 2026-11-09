@@ -1,0 +1,126 @@
+{
+  "binary": {
+    "version": "1.6.0",
+    "path": "/Users/espirado/Downloads/AAIF/cel-policies-library/bin/agentgateway-1.6.0"
+  },
+  "finished": "2026-11-09T18:52:09Z",
+  "rows": [
+    {
+      "check": "A",
+      "target": "-",
+      "status": "SKIP",
+      "detail": "kind: expression needs 1.7.0 (binary is 1.6.0)",
+      "raw": null
+    },
+    {
+      "check": "A5",
+      "target": "http-upstream",
+      "status": "PASS",
+      "detail": "control: all 5 interim messages + result forwarded; interim on POST response; error -> ['error']",
+      "raw": null
+    },
+    {
+      "check": "A5",
+      "target": "http-upstream",
+      "status": "INFO",
+      "detail": "#4245 (remote): stream call hooks ['request', 'response'], 5 interim messages forwarded with no hook; error call hooks ['request'], error forwarded untouched",
+      "raw": {
+        "stream_phases": [
+          "request",
+          "response"
+        ],
+        "err_phases": [
+          "request"
+        ],
+        "interim_through": [
+          "log",
+          "progress",
+          "elicit",
+          "sampling",
+          "roots"
+        ]
+      }
+    },
+    {
+      "check": "A5",
+      "target": "stdio-upstream",
+      "status": "PASS",
+      "detail": "control: all 5 interim messages + result forwarded; interim on session GET stream; error -> ['error']",
+      "raw": null
+    },
+    {
+      "check": "A5",
+      "target": "stdio-upstream",
+      "status": "INFO",
+      "detail": "#4245 (remote): stream call hooks ['request', 'response'], 5 interim messages forwarded with no hook; error call hooks ['request'], error forwarded untouched",
+      "raw": {
+        "stream_phases": [
+          "request",
+          "response"
+        ],
+        "err_phases": [
+          "request"
+        ],
+        "interim_through": [
+          "log",
+          "progress",
+          "elicit",
+          "sampling",
+          "roots"
+        ]
+      }
+    },
+    {
+      "check": "B",
+      "target": "pathwren",
+      "status": "PASS",
+      "detail": "remote processor down, failClosed -> -32603 'mcpGuardrails checkRequest failed: upstream call failed: Connect: Connection refused (os error 61)'",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "error": {
+          "code": -32603,
+          "message": "mcpGuardrails checkRequest failed: upstream call failed: Connect: Connection refused (os error 61)"
+        }
+      }
+    },
+    {
+      "check": "C1",
+      "target": "pathwren",
+      "status": "PASS",
+      "detail": "original rule, roles=\"superoperator\" -> changes_since listed=True (expected True); open tool listed=True",
+      "raw": [
+        "changes_since",
+        "list_crawlers"
+      ]
+    },
+    {
+      "check": "C2",
+      "target": "pathwren",
+      "status": "PASS",
+      "detail": "shipped rule, roles=\"superoperator\" -> changes_since listed=False (expected False); open tool listed=True",
+      "raw": [
+        "list_crawlers"
+      ]
+    },
+    {
+      "check": "C3",
+      "target": "pathwren",
+      "status": "PASS",
+      "detail": "shipped rule, roles=[\"operator\"] -> changes_since listed=True (expected True); open tool listed=True",
+      "raw": [
+        "changes_since",
+        "list_crawlers"
+      ]
+    },
+    {
+      "check": "C4",
+      "target": "pathwren",
+      "status": "PASS",
+      "detail": "shipped rule, no token -> changes_since listed=False (expected False); open tool listed=True",
+      "raw": [
+        "list_crawlers"
+      ]
+    }
+  ]
+}

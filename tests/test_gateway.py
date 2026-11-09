@@ -39,6 +39,7 @@ def gateway_version() -> tuple:
     return tuple(int(x) for x in ver.split("-")[0].split("."))
 
 AUTHZ = ROOT / "templates" / "agentgateway.yaml"
+PREFIX = ROOT / "templates" / "agentgateway-prefix-authz.yaml"
 CALIB = ROOT / "templates" / "agentgateway-calibration.yaml"
 SIGNALS_TEMPLATE = ROOT / "templates" / "agentgateway-signals.yaml"
 
@@ -83,12 +84,17 @@ def mock_mcp():
 
 
 class Gateway:
-    def __init__(self, template: Path, upstream: str, tmp_path: Path, extra_policies=None, files=None):
+    def __init__(self, template: Path, upstream: str, tmp_path: Path, extra_policies=None, files=None,
+                 target_policies=None):
         cfg = yaml.safe_load(template.read_text())
         self.port = free_port()
         cfg["mcp"]["port"] = self.port
-        cfg["mcp"]["targets"][0]["mcp"]["host"] = upstream
+        if "mcp" in cfg["mcp"]["targets"][0]:        # stdio targets carry their own cmd/args
+            cfg["mcp"]["targets"][0]["mcp"]["host"] = upstream
         cfg["mcp"]["policies"].update(extra_policies or {})
+        if target_policies:
+            tgt = cfg["mcp"]["targets"][0]
+            tgt["policies"] = {**(tgt.get("policies") or {}), **target_policies}
         # keep a developer's own gateway (admin :15000) from clashing with the test one. Free
         # ports rather than "off": releases before 1.3 only accept an ip:port here.
         cfg["config"] = {"adminAddr": f"127.0.0.1:{free_port()}", "statsAddr": f"127.0.0.1:{free_port()}",
@@ -142,6 +148,7 @@ class Gateway:
 
 def test_templates_pass_validate_only(tmp_path, mock_mcp):
     assert Gateway(AUTHZ, mock_mcp, tmp_path).validate().returncode == 0
+    assert Gateway(PREFIX, mock_mcp, tmp_path).validate().returncode == 0
     res = Gateway(CALIB, mock_mcp, tmp_path).validate()
     if res.returncode != 0:
         pytest.skip(f"binary does not accept mcpGuardrails: {res.stderr.strip()[:120]}")
@@ -384,3 +391,31 @@ def test_rules_scoped_to_one_tool_do_not_touch_other_tools(calib_gateway):
     assert "error" not in out and "calibration" not in _sc(out) and _sc(out)["results"][0]["state"] == "CA"
     _, out = calib_gateway.call(sid, "list_dataset_snapshots", {})
     assert "error" not in out  # results-shape rules also skip results-less shapes
+
+
+def test_unscoped_expression_fails_closed_on_other_tools(tmp_path, mock_mcp):
+    """Without a tool and shape guard, indexing `results` on a foreign tool errors and fail-closes.
+
+    This is the pitfall the shipped rules avoid. agentgateway's own toy example
+    (examples/mcp-guardrails/expression) uses `has(mcp.result.content)` for a global mask;
+    a completeness rule copied without `mcp.tool.name` is not that.
+    """
+    tmpl = tmp_path / "t.yaml"
+    tmpl.write_text("mcp:\n  port: 0\n  policies: {}\n  targets:\n  - name: m\n    mcp:\n      host: x\n")
+    policies = {"mcpGuardrails": {"processors": [{
+        "kind": "expression",
+        "condition": "size(mcp.result.structuredContent.results) == 0",
+        "reject": "unscoped",
+        "methods": {"tools/call": "response"},
+    }]}}
+    gw = Gateway(tmpl, mock_mcp, tmp_path, policies)
+    if gw.validate().returncode != 0:
+        pytest.skip("binary does not accept mcpGuardrails kind: expression")
+    with gw:
+        sid = gw.session()
+        _, out = gw.call(sid, "grant_read_access", {"contractor": "x"})
+        # Exact fail-closed string. A plain `reject: unscoped` match would mean the rule
+        # evaluated normally, which is not the pitfall. Same strings seen live on
+        # pathwren/plantguide/deepwiki (scripts/live_pitfalls.py).
+        err = out.get("error") or {}
+        assert err.get("code") == -32603 and err.get("message") == "guardrail check failed", out

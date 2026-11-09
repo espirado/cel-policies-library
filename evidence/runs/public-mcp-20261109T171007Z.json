@@ -1,0 +1,1145 @@
+{
+  "started": "2026-11-09T17:08:34Z",
+  "agentgateway": {
+    "version": "1.7.0",
+    "git_revision": "26f5aebe99a36a037fe54f8080a608aca5547e15",
+    "rust_version": "1.99.0",
+    "build_profile": "release",
+    "build_target": "aarch64-apple-darwin",
+    "crypto_backend": "aws-lc-rs",
+    "crypto_fips": false
+  },
+  "binary": "/Users/espirado/Downloads/AAIF/cel-policies-library/bin/agentgateway-1.7.0",
+  "rci_api_key_present": false,
+  "targets": [
+    {
+      "name": "mcpharbor-search",
+      "url": "https://mcpharbor.app/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.176,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search_servers",
+          "get_server",
+          "list_categories",
+          "recent_servers",
+          "search_tools",
+          "get_tool"
+        ],
+        "n_tools": 6,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_categories"
+          ],
+          "calculate_": [],
+          "other": 5
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/17/nyz9w60n0zv7t2n4l0c2_nmw0000gn/T/tmp2nbi2oow/pt/gw.yaml'"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "placeholder-tools",
+      "url": "https://mcp.placeholder.com/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.37,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "image_url",
+          "photo_url",
+          "avatar_url",
+          "qr_url",
+          "barcode_url",
+          "brand_assets",
+          "get_person",
+          "generate_people",
+          "safe_test_values",
+          "lorem_text",
+          "localized_text",
+          "stress_text",
+          "pseudo_localize",
+          "mock_api",
+          "company_overview",
+          "company_query",
+          "company_record",
+          "company_wiki_page",
+          "company_eval_questions",
+          "brand_kit",
+          "list_fixtures",
+          "get_fixture",
+          "dummy_files",
+          "http_test_endpoints"
+        ],
+        "n_tools": 24,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_fixtures"
+          ],
+          "calculate_": [],
+          "other": 23
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/17/nyz9w60n0zv7t2n4l0c2_nmw0000gn/T/tmp2nbi2oow/pt/gw.yaml'"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "superdocs-sbox",
+      "url": "https://superdocs.sboxcool.com/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 22.801,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search",
+          "get_type",
+          "get_examples",
+          "list_workflows",
+          "get_workflow",
+          "list_namespaces",
+          "get_namespace_types",
+          "get_patterns",
+          "get_related_types",
+          "get_stats",
+          "get_network_storage_guide",
+          "get_pitfalls",
+          "get_pitfall",
+          "get_sbox_tools",
+          "diagnose_error",
+          "get_generalized_patterns",
+          "get_api_catalog",
+          "get_code_templates",
+          "get_component_info",
+          "list_component_types",
+          "get_razor_ui_components",
+          "get_css_reference",
+          "get_networking_patterns",
+          "get_method_signature",
+          "search_properties",
+          "get_gameobject_guide",
+          "get_scene_guide",
+          "get_recipes",
+          "ingest_code_folder",
+          "suggestions",
+          "sbox_generate_material",
+          "sbox_generate_terrain",
+          "sbox_import_model",
+          "sbox_model_status",
+          "get_gameobject_tree",
+          "search_gameobjects",
+          "get_type_members",
+          "browse_api",
+          "compare_types",
+          "get_type_hierarchy",
+          "get_member_details",
+          "get_all_with_attribute",
+          "get_unity_migration_guide",
+          "get_restricted_apis",
+          "get_event_system_guide",
+          "get_endpoint_standards",
+          "get_quick_reference",
+          "find_usages",
+          "find_callers",
+          "find_implementers",
+          "find_overrides",
+          "get_symbol_graph",
+          "get_source_snippet",
+          "resolve_symbol",
+          "get_attribute_usage_map",
+          "get_inheritance_chain_rich",
+          "search_snippets",
+          "get_type_context_bundle",
+          "get_razor_component",
+          "get_scss_selectors",
+          "related_symbols_semantic",
+          "get_razor_examples",
+          "get_namespace_examples",
+          "get_ingested_patterns",
+          "get_editor_integration",
+          "get_sbox_news",
+          "get_sbox_leaderboard",
+          "get_sbox_achievements",
+          "get_sbox_player_count",
+          "get_sbox_steam_news",
+          "get_sbox_reviews",
+          "search_sbox_docs",
+          "get_sbox_doc_page",
+          "list_sbox_doc_categories",
+          "get_schema_diff",
+          "unified_search",
+          "get_whats_new"
+        ],
+        "n_tools": 77,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_workflows",
+            "list_namespaces",
+            "list_component_types",
+            "list_sbox_doc_categories"
+          ],
+          "calculate_": [],
+          "other": 73
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/17/nyz9w60n0zv7t2n4l0c2_nmw0000gn/T/tmp2nbi2oow/pt/gw.yaml'"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "pathwren-crawler-index",
+      "url": "https://www.pathwren.workers.dev/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.382,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "whoami",
+          "example",
+          "classify_user_agent",
+          "lookup_crawler",
+          "list_crawlers",
+          "generate_robots_txt",
+          "is_verified_crawler_ip",
+          "whats_changed",
+          "changes_since"
+        ],
+        "n_tools": 9,
+        "prefixes": {
+          "lookup_": [
+            "lookup_crawler"
+          ],
+          "list_": [
+            "list_crawlers"
+          ],
+          "calculate_": [],
+          "other": 7
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/17/nyz9w60n0zv7t2n4l0c2_nmw0000gn/T/tmp2nbi2oow/pt/gw.yaml'"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "mizan-bans",
+      "url": "https://mizan.ac/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.491,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "lookup_player",
+          "check_players",
+          "list_sources",
+          "registry_stats",
+          "list_my_communities"
+        ],
+        "n_tools": 5,
+        "prefixes": {
+          "lookup_": [
+            "lookup_player"
+          ],
+          "list_": [
+            "list_sources",
+            "list_my_communities"
+          ],
+          "calculate_": [],
+          "other": 2
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/17/nyz9w60n0zv7t2n4l0c2_nmw0000gn/T/tmp2nbi2oow/pt/gw.yaml'"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "tandem-docs",
+      "url": "https://tandem.ac/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.415,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search_docs",
+          "get_doc",
+          "get_start_path",
+          "recommend_next_docs",
+          "answer_how_to",
+          "get_tandem_guide",
+          "warmup_docs_cache",
+          "get_docs_cache_status",
+          "refresh_docs_index",
+          "refresh_doc_page",
+          "invalidate_docs_cache",
+          "compare_docs_index_refresh",
+          "compare_doc_page_refresh"
+        ],
+        "n_tools": 13,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 13
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/17/nyz9w60n0zv7t2n4l0c2_nmw0000gn/T/tmp2nbi2oow/pt/gw.yaml'"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "apex-ai-academy",
+      "url": "https://apexai.academy/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.141,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "list_courses",
+          "list_lessons",
+          "get_lesson",
+          "search",
+          "latest_news",
+          "list_deep_dives",
+          "get_resources",
+          "get_pricing",
+          "subscribe_link",
+          "get_premium_lesson",
+          "get_progress",
+          "mark_lesson_complete",
+          "forum_search",
+          "forum_read",
+          "forum_post",
+          "forum_hello",
+          "forum_reply",
+          "forum_category_create",
+          "agent_handoff",
+          "agent_notes_get",
+          "agent_notes_set",
+          "forum_edit",
+          "pair_agent",
+          "forum_polls_list",
+          "forum_poll_vote",
+          "agent_signup",
+          "agent_me",
+          "agent_progress",
+          "agent_quiz_answer",
+          "agent_delete_account"
+        ],
+        "n_tools": 30,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_courses",
+            "list_lessons",
+            "list_deep_dives"
+          ],
+          "calculate_": [],
+          "other": 27
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/17/nyz9w60n0zv7t2n4l0c2_nmw0000gn/T/tmp2nbi2oow/pt/gw.yaml'"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "ase-periodic-system",
+      "url": "https://ase.academy/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.534,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "overview",
+          "find_elements",
+          "get_element",
+          "repository_checklist"
+        ],
+        "n_tools": 4,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 4
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/17/nyz9w60n0zv7t2n4l0c2_nmw0000gn/T/tmp2nbi2oow/pt/gw.yaml'"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "service-engineer-ai",
+      "url": "https://api.serviceengineer.academy/mcp",
+      "note": null,
+      "direct": {
+        "http": 401,
+        "protocol": "2024-11-05",
+        "elapsed_s": 0.771,
+        "ok": false,
+        "error": {
+          "http_error": "{\"jsonrpc\": \"2.0\", \"id\": null, \"error\": {\"code\": -32001, \"message\": \"Sign in to Service Engineer AI (OAuth), or use a personal key from serviceengineer.academy/ai, menu, Connect to Claude / ChatGPT.\"}}"
+        },
+        "tools": [],
+        "n_tools": 0,
+        "prefixes": {}
+      },
+      "reachable": false
+    },
+    {
+      "name": "brainy-uae-prices",
+      "url": "https://prices.brainy.ae/mcp/v2",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 1.126,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "commute_cost",
+          "costs_by_area",
+          "costs_by_emirate",
+          "data_sources",
+          "dewa",
+          "end_of_service_gratuity",
+          "fixed_monthly_costs",
+          "free_zone_companies",
+          "fuel_prices",
+          "fx_rates",
+          "grocery_compare_list",
+          "grocery_products",
+          "grocery_stores",
+          "health_insurance",
+          "housing_rents",
+          "housing_sales",
+          "labour_calculator",
+          "ministry_shop_prices",
+          "mobile_internet_plans",
+          "move_to_dubai",
+          "residence_visas",
+          "schools",
+          "shopper_price_reports",
+          "start_here",
+          "tax_savings_by_country",
+          "transport_fares"
+        ],
+        "n_tools": 26,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 26
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/17/nyz9w60n0zv7t2n4l0c2_nmw0000gn/T/tmp2nbi2oow/pt/gw.yaml'"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "dubai-real-estate",
+      "url": "https://mcp.datadubai.ae/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 1.235,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search",
+          "get_entity",
+          "get_market_summary",
+          "get_monthly_report",
+          "fetch",
+          "list_rankings"
+        ],
+        "n_tools": 6,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_rankings"
+          ],
+          "calculate_": [],
+          "other": 5
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/17/nyz9w60n0zv7t2n4l0c2_nmw0000gn/T/tmp2nbi2oow/pt/gw.yaml'"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "plantguide-dubai",
+      "url": "https://plantguide.ae/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 1.267,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "what_to_plant",
+          "search_plants",
+          "get_plant",
+          "get_planting_calendar",
+          "get_dubai_climate",
+          "list_garden_styles",
+          "get_garden_style",
+          "search_guides",
+          "get_guide",
+          "get_kitchen_garden_guide",
+          "get_indoor_plant_guide",
+          "get_indoor_style",
+          "estimate_garden_care_price",
+          "build_designer_link",
+          "get_contact_link"
+        ],
+        "n_tools": 15,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_garden_styles"
+          ],
+          "calculate_": [],
+          "other": 14
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/17/nyz9w60n0zv7t2n4l0c2_nmw0000gn/T/tmp2nbi2oow/pt/gw.yaml'"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "beachclubs-ae",
+      "url": "https://www.beachclubs.ae/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 2.952,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search_beach_clubs",
+          "get_beach_club",
+          "list_events",
+          "request_booking_enquiry"
+        ],
+        "n_tools": 4,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_events"
+          ],
+          "calculate_": [],
+          "other": 3
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/17/nyz9w60n0zv7t2n4l0c2_nmw0000gn/T/tmp2nbi2oow/pt/gw.yaml'"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "deepwiki",
+      "url": "https://mcp.deepwiki.com/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.463,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "ask_wiki_question",
+          "read_wiki_contents",
+          "read_wiki_structure"
+        ],
+        "n_tools": 3,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 3
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/17/nyz9w60n0zv7t2n4l0c2_nmw0000gn/T/tmp2nbi2oow/pt/gw.yaml'"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "rci-knowledge-unauthenticated",
+      "url": "https://api.rcintell.com/v1/mcp",
+      "note": "hosted domain-specific target; expected to refuse without RCI_API_KEY",
+      "direct": {
+        "http": 401,
+        "protocol": "2024-11-05",
+        "elapsed_s": 0.388,
+        "ok": false,
+        "error": {
+          "http_error": "{\"detail\":\"Missing API key\"}"
+        },
+        "tools": [],
+        "n_tools": 0,
+        "prefixes": {}
+      },
+      "reachable": false
+    }
+  ],
+  "discovered": [
+    {
+      "name": "ac.inference.sh/mcp",
+      "url": "https://api.inference.sh/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ac.snag/snag",
+      "url": "https://mcp.snag.ac/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ad.apogee/apogee",
+      "url": "https://app.apogee.ad/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ad.getle/leads",
+      "url": "https://mcp.getle.ad/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 35,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 4,
+        "calculate_": 0,
+        "other": 31
+      }
+    },
+    {
+      "name": "ad.inside/inside-ads",
+      "url": "https://app.inside.ad/api/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 3,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 3
+      }
+    },
+    {
+      "name": "ad.pantheon/mcp",
+      "url": "https://mcp.pantheon.ad/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 23,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 4,
+        "calculate_": 0,
+        "other": 19
+      }
+    },
+    {
+      "name": "ad.tide/mcp",
+      "url": "https://api.tide.ad/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 38,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 38
+      }
+    },
+    {
+      "name": "ae.genosys/genosys",
+      "url": "https://genosys.ae/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 11,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 1,
+        "calculate_": 0,
+        "other": 10
+      }
+    },
+    {
+      "name": "ae.grovisor/grotax",
+      "url": "https://mcp.grovisor.ae",
+      "ok": true,
+      "http": 200,
+      "n_tools": 8,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 8
+      }
+    },
+    {
+      "name": "ae.projectory/mcp",
+      "url": "https://mcp.projectory.ae/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 6,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 2,
+        "calculate_": 0,
+        "other": 4
+      }
+    },
+    {
+      "name": "aero.events/events",
+      "url": "https://events.aero/mcp/events",
+      "ok": true,
+      "http": 200,
+      "n_tools": 5,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 5
+      }
+    },
+    {
+      "name": "africa.lomi/mcp",
+      "url": "https://mcp.lomi.africa/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "africa.lomi/mcp",
+      "url": "https://mcp.lomi.africa/mcp/guest",
+      "ok": true,
+      "http": 200,
+      "n_tools": 0,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 0
+      }
+    },
+    {
+      "name": "africa.ugc/ugc",
+      "url": "https://api.ugc.africa/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ag.hood/name-service",
+      "url": "https://www.hood.ag/api/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 5,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 5
+      }
+    },
+    {
+      "name": "agency.goji/goji",
+      "url": "https://mcp.goji.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 9,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 9
+      }
+    },
+    {
+      "name": "agency.granek.signal/signal",
+      "url": "https://signal.granek.agency/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "agency.justidea/justidea-agency",
+      "url": "https://justidea.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 8,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 1,
+        "calculate_": 0,
+        "other": 7
+      }
+    },
+    {
+      "name": "agency.lona/trading",
+      "url": "https://mcp.lona.agency/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "agency.ottobot/business-contact-finder",
+      "url": "https://business-contact-finder-mcp.ottobot2025.workers.dev/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 1,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 1
+      }
+    },
+    {
+      "name": "agency.ottobot/contractor-license-changes",
+      "url": "https://license-changes-mcp.ottobot2025.workers.dev/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 2,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 2
+      }
+    },
+    {
+      "name": "agency.ottobot/licensed-house-painters",
+      "url": "https://house-painters.ottobot.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 3,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 3
+      }
+    },
+    {
+      "name": "agency.thebureauoflostcontext/bureau-public",
+      "url": "https://thebureauoflostcontext.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 5,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 5
+      }
+    },
+    {
+      "name": "agency.thirdhemisphere/ai-authority-index",
+      "url": "https://thirdhemisphere.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 12,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 3,
+        "calculate_": 0,
+        "other": 9
+      }
+    },
+    {
+      "name": "agency.zoll/ausfuhr",
+      "url": "https://zoll.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 7,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 7
+      }
+    },
+    {
+      "name": "ai.0si/disclosures",
+      "url": "https://app.0si.ai/api/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.1325/mcp",
+      "url": "https://agoclnqfyinwjxdmjnns.supabase.co/functions/v1/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.1clickwebsite/mcp",
+      "url": "https://www.1clickwebsite.ai/api/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.1court.state/court-directory",
+      "url": "https://state.1court.ai/api/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 9,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 4,
+        "calculate_": 1,
+        "other": 4
+      }
+    },
+    {
+      "name": "ai.28in28/agent-service-desk",
+      "url": "https://28in28.ai/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 3,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 3
+      }
+    },
+    {
+      "name": "ai.4ai/domains",
+      "url": "https://4ai.ai/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 10,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 1,
+        "calculate_": 0,
+        "other": 9
+      }
+    },
+    {
+      "name": "ai.69ai/69ai",
+      "url": "https://69ai.ai/mcp",
+      "ok": false,
+      "http": 0,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.a1lane/a1lane",
+      "url": "https://a1lane.ai/mcp/v1",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.aard/aard",
+      "url": "https://api.aard.ai/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.aarna/atars-mcp",
+      "url": "https://mcp.aarna.ai/mcp",
+      "ok": false,
+      "http": 502,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.abmeter/abmeter",
+      "url": "https://mcp.abmeter.ai",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.achromat/mcp-server",
+      "url": "https://achromat.ai/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 1,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 1
+      }
+    },
+    {
+      "name": "ai.actwise/ideation",
+      "url": "https://actwise.ai/ideation/mcp/v1",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adako/ads",
+      "url": "https://adako.ai/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adkix/adkix",
+      "url": "https://adkix.ai/api/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    }
+  ],
+  "finished": "2026-11-09T17:10:07Z",
+  "summary": {
+    "curated": 15,
+    "reachable": 13,
+    "gateway_checks_failed": 13,
+    "discovered_ok": 22,
+    "discovered_n": 40
+  }
+}

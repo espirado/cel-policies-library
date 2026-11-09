@@ -9,8 +9,10 @@
 # lets it through.
 #
 # The conditions are the expressions in policies/guardrails/*.cel (a test
-# asserts they are identical). Edit the required-field list and result path in
-# those files for your tool; the lists here are for rci-knowledge lookup_mpfs.
+# asserts they are identical). This file is an example pack: tool names and
+# required-field lists are bound to one server's shapes. Copy the processors,
+# change `mcp.tool.name` and the field lists for your tools. Unscoped rules
+# fail closed on every other tool's result.
 #
 # `contradiction` (disagreement with an earlier call) needs state across calls.
 # A stateless expression cannot compute it; use mcp-trace-gate or a remote

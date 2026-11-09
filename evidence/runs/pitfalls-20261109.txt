@@ -1,0 +1,27 @@
+=== 1.7.0 full suite 2026-11-09T17:49:08Z ===
+........................................................................ [ 75%]
+.......................                                                  [100%]
+95 passed in 7.29s
+exit:0
+
+=== 1.7.0 pitfalls 2026-11-09T17:49:15Z ===
+...                                                                      [100%]
+3 passed in 0.77s
+exit:0
+
+=== 1.6.0 session leak 2026-11-09T17:49:16Z ===
+.                                                                        [100%]
+1 passed in 0.46s
+exit:0
+
+=== 1.4.1 session leak 2026-11-09T17:49:17Z ===
+.                                                                        [100%]
+1 passed in 0.45s
+exit:0
+
+=== RETRACTION 2026-11-09T18:10Z ===
+The "1.6.0 session leak" and "1.4.1 session leak" passes above asserted a leak that was
+caused by tests/gateway/mock_mcp.py returning a constant Mcp-Session-Id ("mock-session").
+Live 1.6.0 against public MCP forwarded distinct non-empty ExtMCP session fields
+(evidence/runs/session-metadata-1.6.0.json). The mock now mints a UUID per initialize and
+the test asserts isolation on every release. Do not cite the two runs above.

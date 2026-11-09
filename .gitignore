@@ -6,3 +6,4 @@ processors/_gen/
 .env.*
 *.pyc
 .DS_Store
+bin/

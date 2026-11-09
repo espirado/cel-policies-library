@@ -1,12 +1,12 @@
-# Blog outline: CEL policies for agentgateway MCP, tested against a real server
+# Blog outline: CEL policies for agentgateway MCP
 
-Working title: **Gating MCP tool calls and results with CEL in agentgateway: what a real server taught me**
+Working title: **A public CEL pack for agentgateway MCP: authorize the tool, gate the result**
 
-Every claim is from a run in this repo (agentgateway v1.7.0 unless stated) or a linked project. Reproduce with `pytest` and the scripts in the README. Keep the README's "Known gaps" section as the post's limits.
+Every claim is from a run in this repo (agentgateway v1.7.0 unless stated) or a linked project. Reproduce with `pytest` and the scripts in the README. Keep the README's "Known gaps" section as the post's limits. This is a public tool; do not frame it as an RCIntel product or as a stolen-credential control.
 
 ## Angle
 
-The judge-versus-enforcement contrast is already published ([agent-sec](https://espiradev.org/blog/llm-judge-partial-compliance.html), [mcp-judge-seam](https://espiradev.org/blog/mcp-judge-seam.html)). This is the practical follow-up for agentgateway users: three policy layers you can paste into a config, and what changed when they met a real 45-tool MCP server and a real identity provider. Link out for the research; do not retell it.
+The judge-versus-enforcement contrast is already published ([agent-sec](https://espiradev.org/blog/llm-judge-partial-compliance.html), [mcp-judge-seam](https://espiradev.org/blog/mcp-judge-seam.html)). This is the practical follow-up: a **library + notes**, not a new gateway feature. Cite upstream [`examples/mcp-guardrails/expression`](https://github.com/agentgateway/agentgateway/tree/main/examples/mcp-guardrails/expression) as the toy, then unscoped fail-closed, the substring `roles` trap, and rebindable YAML. One 45-tool host is an example target. Do not retell the research. Do not claim Entra, remote OAuth, webhooks, LLMjacking, or an ExtMCP session leak on 1.6.0. Unpublished until [EVIDENCE.md](EVIDENCE.md) matches.
 
 ## 1. Three layers
 
@@ -33,7 +33,7 @@ The judge-versus-enforcement contrast is already published ([agent-sec](https://
 1. My first staleness rule (linear decay, flag under 0.6) flagged every current CY2026 result. The server's own `list_dataset_snapshots` says it is current. Annual schedules do not decay.
 2. Guardrails without a tool and shape guard rejected other tools' results (expression errors fail closed). Found only when several tools sat behind one gateway.
 3. A clean `pip install` in a Linux container showed a missing dependency.
-4. Releases 1.3.1 to 1.6.0 send no session metadata to a remote processor, so contradiction history leaks across sessions; 1.7.0 fixes it.
+4. Do **not** claim 1.3.1–1.6.0 send empty ExtMCP `session` metadata. That was our mock returning a constant `Mcp-Session-Id`. Live 1.6.0 on public MCP isolated sessions. After unique mock ids, isolation holds on 1.4.1, 1.6.0, and 1.7.0.
 
 ## 5. A real contradiction, enforced in the gateway
 

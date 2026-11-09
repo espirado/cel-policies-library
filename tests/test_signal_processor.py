@@ -81,12 +81,11 @@ def test_contradiction_is_scoped_to_session_and_entity(stack):
     assert "result" in out and not _denial(out)
     other = gw.session()                                               # different session
     _, out = gw.call(other, "calculate_payment", {"cpt": "99213"})
-    if tg.gateway_version() >= (1, 7, 0):
-        assert "result" in out and not _denial(out)                    # no history in a new session
-    else:
-        # Observed on 1.3.1 through 1.6.0: the `session` metadata is empty, so the processor cannot
-        # tell sessions apart and history is shared (a new session inherits the old one's facts).
-        assert "contradiction" in _denial(out)
+    # Isolation is the gateway forwarding distinct Mcp-Session-Id values into ExtMCP
+    # metadata. A live remote MCP reproduces that on 1.6.0 and 1.7.0
+    # (scripts/live_session_metadata.py). The mock must mint a unique id per initialize;
+    # a constant "mock-session" made 1.6.0 look like it leaked.
+    assert "result" in out and not _denial(out), out
 
 
 @pytest.mark.parametrize("case", ["partial", "empty"])
@@ -128,4 +127,10 @@ def test_fails_closed_when_the_processor_is_down(stack):
     sid = gw.session()
     server.stop(0).wait()
     _, out = gw.call(sid, "lookup_mpfs", {"case": "full", "code": "99213"})
-    assert "error" in out or (out.get("result") or {}).get("isError") is True, out
+    # Exact strings, so an unrelated upstream error cannot satisfy the test. 1.7.0 returns a
+    # generic message; 1.6.0 echoes the connect error. Same strings seen live with a dead
+    # processor in front of pathwren (scripts/live_pitfalls.py).
+    err = out.get("error") or {}
+    assert err.get("code") == -32603, out
+    msg = err.get("message", "")
+    assert msg == "guardrail check failed" or msg.startswith("mcpGuardrails checkRequest failed:"), out

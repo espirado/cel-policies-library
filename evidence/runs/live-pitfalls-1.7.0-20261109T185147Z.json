@@ -1,0 +1,1657 @@
+{
+  "binary": {
+    "version": "1.7.0",
+    "path": "/Users/espirado/Downloads/AAIF/cel-policies-library/bin/agentgateway-1.7.0"
+  },
+  "finished": "2026-11-09T18:51:47Z",
+  "rows": [
+    {
+      "check": "A1",
+      "target": "pathwren",
+      "status": "PASS",
+      "detail": "unscoped rule on successful list_crawlers -> -32603 'guardrail check failed'",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "error": {
+          "code": -32603,
+          "message": "guardrail check failed"
+        }
+      }
+    },
+    {
+      "check": "A2",
+      "target": "pathwren",
+      "status": "PASS",
+      "detail": "shipped scoped rules on list_crawlers -> unchanged=True",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "150 of 150 crawlers match (no filter), showing 100:\n\n- gptbot \u2014 GPTBot, OpenAI [ai-training]: OpenAI's bulk crawler. Pages it fetches may be used to train future OpenAI foundation models. It is not the bot that puts you in ChatGPT's search results, and blocking it does not remove you from them.\n- oai-searchbot \u2014 OAI-SearchBot, OpenAI [ai-search]: Builds the index ChatGPT search answers from. Content it collects is used for retrieval and citation, not for model training.\n- chatgpt-user \u2014 ChatGPT-User, OpenAI [user-fetch]: Fetches a single page at the moment a user or a ChatGPT agent asks for it \u2014 a pasted link, a browsing step, an Operator task. One human intent, one request. OpenAI states these fetches are not used for training.\n- claudebot \u2014 ClaudeBot, Anthropic [ai-training]: Anthropic's bulk crawler, gathering pages that may be used to train Claude models.\n- claude-searchbot \u2014 Claude-SearchBot, Anthropic [ai-search]: Indexes pages so Claude's web search can find and cite them. Separate token from the training crawler, so search visibility and training consent are independent decisions.\n- claude-user \u2014 Claude-User, Anthropic [user-fetch]: Fetches a page because a Claude user asked Claude to read it, at that moment.\n- anthropic-ai \u2014 anthropic-ai, Anthropic [ai-training]: A legacy robots.txt token from before Anthropic consolidated on ClaudeBot. It is still widely present in robots.txt files and costs nothing to keep, but it is a control token rather than a bot you will see in logs.\n- claude-web \u2014 Claude-Web, Anthropic [ai-search]: An earlier Anthropic token for user-facing web access, superseded by Claude-User and Claude-SearchBot. Kept here because it appears in most published robots.txt templates.\n- google-extended \u2014 Google-Extended, Google [ai-training]: Not a crawler. A robots.txt token that tells Google whether pages Googlebot already fetched may be used to train and ground Gemini. You will never see it in an access log; disallowing it changes what Google does with content it fetched under a different name.\n- googlebot \u2014 Googlebot, Google [search]: The classic search crawler. It is also the crawler behind AI Overviews: Google does not run a separate bot for them, which is why the only AI opt-out is the Google-Extended token and not a Googlebot block.\n- googleother \u2014 GoogleOther, Google [ai-training]: A generic fetcher used by Google product teams for one-off crawls and research, including data collection that does not belong to Search.\n- google-cloudvertexbot \u2014 Google-CloudVertexBot, Google [ai-search]: Crawls a site on behalf of a Vertex AI Agent Builder customer who is building an agent over that site. It only visits sites the customer has asked it to.\n- google-inspectiontool \u2014 Google-InspectionTool, Google [tool]: The fetcher behind Search Console's URL Inspection and the Rich Results Test. It runs when a site owner clicks a button.\n- googlebot-image \u2014 Googlebot-Image, Google [search]: Image indexing for Google Images. A separate token so you can leave images out of search without leaving search.\n- googlebot-news \u2014 Googlebot-News, Google [search]: A robots.txt token controlling inclusion in Google News. It does not have its own user-agent string; the fetch arrives as Googlebot.\n- storebot-google \u2014 Storebot-Google, Google [search]: Checks shopping and checkout flows for Google's shopping surfaces.\n- bingbot \u2014 bingbot, Microsoft [search]: Bing's only crawler, and therefore also the crawler behind Microsoft Copilot's grounding. Microsoft's documented way to keep search indexing while refusing generative reuse is the nocache / noarchive robots meta directive, not a separate user-agent.\n- applebot \u2014 Applebot, Apple [search]: Powers Siri, Spotlight and Safari suggestions. Blocking it is a search decision, not an AI decision \u2014 the AI decision has its own token.\n- applebot-extended \u2014 Applebot-Extended, Apple [ai-training]: Apple's counterpart to Google-Extended: a robots.txt token that withdraws consent for Apple Intelligence and Apple foundation-model training, without touching Applebot's search crawl.\n- perplexitybot \u2014 PerplexityBot, Perplexity [ai-search]: Builds Perplexity's search index. Perplexity is citation-heavy by product design, so inclusion here converts to referral traffic more directly than most AI surfaces.\n- perplexity-user \u2014 Perplexity-User, Perplexity [user-fetch]: Fetches a page because a Perplexity user asked for it. Perplexity documents that this fetch is user-initiated and is therefore not governed by robots.txt \u2014 a robots rule will not stop it, by stated policy.\n- ccbot \u2014 CCBot, Common Crawl [dataset]: Common Crawl's corpus builder. It trains nothing itself, but its archive is an input to most open and many closed LLM training sets, which makes it the highest-leverage single entry on this list.\n- bytespider \u2014 Bytespider, ByteDance [ai-training]: ByteDance's crawler, associated with training data collection for Doubao and related models. Repeatedly reported by CDNs and site operators as the highest-volume AI crawler on the web and as inconsistent about robots.txt.\n- tiktokspider \u2014 TikTokSpider, ByteDance [ai-training]: A second ByteDance crawler identifying with TikTok, collecting page content for the same family of models.\n- meta-externalagent \u2014 meta-externalagent, Meta [ai-training]: Meta's AI crawler, gathering training data for Llama and Meta AI. It replaced the older FacebookBot name for this purpose.\n- meta-externalfetcher \u2014 meta-externalfetcher, Meta [user-fetch]: Fetches a page when a Meta AI user asks about a specific link.\n- facebookexternalhit \u2014 facebookexternalhit, Meta [preview]: The link unfurler: it reads your Open Graph tags when somebody shares your URL on a Meta property.\n- facebookbot \u2014 FacebookBot, Meta [ai-training]: Meta's older speech- and language-corpus crawler, largely superseded by meta-externalagent but still listed as a valid robots token.\n- amazonbot \u2014 Amazonbot, Amazon [ai-search]: Amazon's crawler, feeding Alexa's ability to answer questions from the web and Amazon's own search and assistant products.\n- duckassistbot \u2014 DuckAssistBot, DuckDuckGo [ai-search]: Fetches pages so DuckAssist can generate and cite answers inside DuckDuckGo.\n- duckduckbot \u2014 DuckDuckBot, DuckDuckGo [search]: DuckDuckGo's own crawler. Note that the bulk of DuckDuckGo's web results come from Bing, so blocking bingbot removes you from DuckDuckGo whether or not you allow this one.\n- ai2bot \u2014 AI2Bot, Allen Institute for AI [dataset]: The Allen Institute's crawler, gathering pages for open research corpora such as Dolma that underpin fully open models like OLMo.\n- ai2bot-dolma \u2014 Ai2Bot-Dolma, Allen Institute for AI [dataset]: The variant of AI2's crawler named for the Dolma corpus specifically.\n- cohere-ai \u2014 cohere-ai, Cohere [user-fetch]: Cohere's fetcher, used when its assistant products need a page.\n- cohere-training-data-crawler \u2014 cohere-training-data-crawler, Cohere [ai-training]: Cohere's separately-named bulk crawler for model training data, split out so consent for training and consent for retrieval can differ.\n- mistralai-user \u2014 MistralAI-User, Mistral AI [user-fetch]: Fetches a page when a Le Chat user asks Mistral's assistant to read it.\n- youbot \u2014 YouBot, You.com [ai-search]: You.com's crawler, feeding its AI search product and its search API.\n- diffbot \u2014 Diffbot, Diffbot [dataset]: Extracts structured records from pages to build a commercial knowledge graph that is resold and used for retrieval and training.\n- omgilibot \u2014 omgilibot, Webz.io [dataset]: Webz.io's crawler, collecting web and forum text sold as datasets, including to model builders.\n- omgili \u2014 omgili, Webz.io [dataset]: The older robots token for the same Webz.io collection, still honoured and still worth listing.\n- webzio-extended \u2014 Webzio-Extended, Webz.io [ai-training]: Webz.io's opt-out token specifically for AI training reuse, in the pattern Google and Apple established.\n- imagesiftbot \u2014 ImagesiftBot, Hive AI [dataset]: Crawls images for Hive AI's reverse-image and dataset products. Image-heavy sites see this one long before they see the text crawlers.\n- timpibot \u2014 Timpibot, Timpi [search]: A distributed crawler building an independent search index outside the Google/Bing duopoly.\n- semrushbot \u2014 SemrushBot, Semrush [seo]: Semrush's backlink and keyword crawler. It is not an AI crawler, but it is usually in the top three by volume on any site, and it is the cheapest block on this list.\n- semrushbot-ocob \u2014 SemrushBot-OCOB, Semrush [ai-training]: Semrush's separately-tokenised crawler for its AI content tooling, split out so SEO crawling and AI reuse can be answered differently.\n- ahrefsbot \u2014 AhrefsBot, Ahrefs [seo]: Ahrefs' backlink crawler, and one of the largest non-search crawlers on the web by request volume.\n- archive-org-bot \u2014 archive.org_bot, Internet Archive [archive]: The Wayback Machine's crawler. Preservation rather than AI, but it lands in the same 'is this bot welcome' decision and its output is a public corpus.\n- ia-archiver \u2014 ia_archiver, Internet Archive [archive]: The legacy Alexa/Internet Archive token, still present in most robots.txt files and still occasionally honoured.\n- yandexbot \u2014 YandexBot, Yandex [search]: Yandex's search crawler, which also feeds Alice and Yandex's generative answers.\n- baiduspider \u2014 Baiduspider, Baidu [search]: Baidu's search crawler, and the ingest path for Baidu's Ernie-backed answers.\n- seznambot \u2014 SeznamBot, Seznam [search]: Seznam's crawler \u2014 the dominant search engine in the Czech Republic and one of the few national engines with its own index.\n- yeti \u2014 Yeti, Naver [search]: Naver's crawler. Naver is South Korea's largest search portal and runs its own index and its own generative answers.\n- petalbot \u2014 PetalBot, Huawei [search]: Huawei's crawler for Petal Search, shipped as the default search on Huawei devices.\n- firecrawlagent \u2014 FirecrawlAgent, Firecrawl [tool]: A hosted scrape-to-markdown service that LLM applications call to read pages. The requester is whoever is building on it, not Firecrawl itself, so volume and intent vary wildly.\n- scrapy \u2014 Scrapy, Scrapy project [tool]: Not an operator: the default user-agent of the most common Python crawling framework. Anyone can be behind it. Modern Scrapy obeys robots.txt by default, which is why the default UA is still worth a rule.\n- img2dataset \u2014 img2dataset, LAION / img2dataset [dataset]: The tool used to turn image-URL lists such as LAION's into downloaded training sets. It is run by whoever is building a dataset, not by a single operator.\n- googlebot-video \u2014 Googlebot-Video, Google [search]: The video half of Googlebot. It crawls video files and the pages around them for Google Video search, and it is matched by a robots.txt group for Googlebot as well as by its own token.\n- googleother-image \u2014 GoogleOther-Image, Google [ai-training]: The image variant of GoogleOther: one-off fetches by Google product and research teams that are not Search. It also answers to a GoogleOther group in robots.txt.\n- googleother-video \u2014 GoogleOther-Video, Google [ai-training]: The video variant of GoogleOther, used for internal Google fetches that do not belong to Search.\n- apis-google \u2014 APIs-Google, Google [tool]: Delivers push notifications for Google APIs to a webhook you registered. It is a special-case crawler: it ignores the robots.txt * group, because the fetch is a delivery to an address you asked it to deliver to.\n- adsbot-google \u2014 AdsBot-Google, Google [tool]: Checks the quality of desktop landing pages for Google Ads. Google documents that it ignores the robots.txt * group with the ad publisher's permission, and obeys a group named for its own token.\n- adsbot-google-mobile \u2014 AdsBot-Google-Mobile, Google [tool]: The mobile-web landing page checker for Google Ads. Same rules as AdsBot-Google: the * group does not apply to it, its own token does.\n- adsbot-google-mobile-apps \u2014 AdsBot-Google-Mobile-Apps, Google [tool]: Checks Android app landing pages for Google Ads. It obeys a group named for its own token and, per Google, follows the AdsBot-Google rules otherwise.\n- mediapartners-google \u2014 Mediapartners-Google, Google [tool]: The AdSense crawler. It reads a page so AdSense can choose relevant ads for it, and it is a special-case crawler that ignores the robots.txt * group.\n- google-safety \u2014 Google-Safety, Google [tool]: Google's abuse-investigation fetcher: malware review, phishing reports and similar. Google documents that it ignores robots.txt entirely, and a robots.txt rule for it does nothing.\n- feedfetcher-google \u2014 FeedFetcher-Google, Google [tool]: Crawls RSS and Atom feeds for Google News and WebSub. It is a user-triggered fetcher, and Google documents that those generally ignore robots.txt because a person asked for the fetch. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.\n- google-read-aloud \u2014 Google-Read-Aloud, Google [user-fetch]: Fetches a page so Google can read it out loud with text-to-speech, at the moment a user asks. Formerly google-speakr. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.\n- google-site-verification \u2014 Google-Site-Verification, Google [tool]: Fetches the token file or meta tag that proves you own a site, when you click verify in Search Console. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.\n- google-cws \u2014 Google-CWS, Google [tool]: The Chrome Web Store fetcher. It requests the URLs a developer put in the metadata of a Chrome extension or theme. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.\n- google-pinpoint \u2014 Google-Pinpoint, Google [user-fetch]: Fetches individual URLs that a Pinpoint user \u2014 usually a journalist or researcher \u2014 added as a source to their own document collection. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.\n- googleproducer \u2014 GoogleProducer, Google [tool]: Google Publisher Center: fetches the feeds a publisher explicitly supplied for Google News landing pages. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.\n- googlemessages \u2014 GoogleMessages, Google [preview]: Generates the link preview when somebody sends one of your URLs in Google Messages. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.\n- google-gemininotebook \u2014 Google-GeminiNotebook, Google [user-fetch]: Fetches a URL a Gemini Notebook (formerly NotebookLM) user added as a source to their notebook. The former agent string Google-NotebookLM is documented as supported until August 2026. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.\n- google-agent \u2014 Google-Agent, Google [user-fetch]: Agents hosted on Google infrastructure navigating the web and taking actions on a user's request. Google names one prefix list for it \u2014 user-triggered-agents.json \u2014 and is separately experimenting with Web Bot Auth under the identity https://agent.bot.goog.\n- yandeximages \u2014 YandexImages, Yandex [search]: Indexes images for Yandex Images. Yandex's robot table marks it as taking the general robots.txt rules into account.\n- yandexvideo \u2014 YandexVideo, Yandex [search]: Indexes video for Yandex video search. Obeys the general robots.txt rules per Yandex's own table.\n- yandexmedia \u2014 YandexMedia, Yandex [search]: Indexes multimedia data for Yandex. Takes the general robots.txt rules into account.\n- yandexblogs \u2014 YandexBlogs, Yandex [search]: Yandex's blog-search robot; it indexes post comments as well as posts.\n- yandexmarket \u2014 YandexMarket, Yandex [search]: The robot behind Yandex Market, Yandex's shopping comparison service. Version 1.0 is documented as obeying the general rules; version 2.0 is documented as not.\n- yandexwebmaster \u2014 YandexWebmaster, Yandex [tool]: The fetcher behind Yandex Webmaster, the console a site owner uses to inspect their own site.\n- yandexmobilebot \u2014 YandexMobileBot, Yandex [search]: Decides whether a page's layout is suitable for mobile devices. Yandex's table marks it as NOT taking the general robots.txt rules into account, so a * group does not stop it \u2014 a group named YandexMobileBot does.\n- yandexfavicons \u2014 YandexFavicons, Yandex [search]: Downloads your favicon so Yandex can show it beside your result. Documented as not taking the general robots.txt rules into account.\n- yandexcalendar \u2014 YandexCalendar, Yandex [user-fetch]: Downloads calendar files a user subscribed to. Yandex notes these files are often in directories that are disallowed for indexing, which is why the general rules are not applied.\n- yandexdirect \u2014 YandexDirect, Yandex [tool]: Reads the content of Yandex Advertising Network partner pages to work out their topic so relevant ads can be matched. Documented as not taking the general robots.txt rules into account.\n- yandexmetrika \u2014 YandexMetrika, Yandex [tool]: Yandex Metrica's own fetcher. Two of its versions \u2014 the 2.0 yabs01 availability checker and the 4.0 CSS cache for Webvisor \u2014 are documented in Yandex's table as not using robots.txt at all.\n- yandexrenderresourcesbot \u2014 YandexRenderResourcesBot, Yandex [search]: Loads the CSS, JavaScript and images Yandex needs to render a page. Yandex documents the exact rule: it ignores robots.txt for a resource when the HTML page using it is allowed, and does not fetch the resource when that page is disallowed.\n- yandexscreenshotbot \u2014 YandexScreenshotBot, Yandex [tool]: Takes a screenshot of a page. Documented as not taking the general robots.txt rules into account.\n- yandexadditional \u2014 YandexAdditional, Yandex [ai-training]: The token that controls whether already-indexed pages may appear in Search with Yandex AI answers. Yandex's table says it makes no indexing requests of its own \u2014 it exists so a site can opt out of the generative answer without leaving the index.\n- yandexadditionalbot \u2014 YandexAdditionalBot, Yandex [ai-training]: The second token Yandex publishes for the same AI-answers opt-out. Both names appear in Yandex's own robot list, so a robots.txt that names only one of them is half a policy.\n- yandexcombot \u2014 YandexComBot, Yandex [search]: Indexes content for Yandex search in languages other than Russian. Yandex documents that it can index content when there is no explicit robot-specific restriction \u2014 a * group is not one.\n- siteauditbot \u2014 SiteAuditBot, Semrush [seo]: Semrush's Site Audit crawler: it walks a site a customer owns and reports technical SEO problems. Semrush names it as the token to block for that product.\n- semrushbot-ba \u2014 SemrushBot-BA, Semrush [seo]: The Backlink Audit crawler. It re-checks links pointing at a customer's site, which means it lands on the sites doing the linking.\n- semrushbot-si \u2014 SemrushBot-SI, Semrush [seo]: Fetches pages for the On Page SEO Checker and similar advisory tools.\n- semrushbot-swa \u2014 SemrushBot-SWA, Semrush [seo]: Checks whether a URL is reachable, for the SEO Writing Assistant. One request per URL a writer references, not a crawl.\n- splitsignalbot \u2014 SplitSignalBot, Semrush [seo]: Runs SEO A/B tests on a customer's own site with the SplitSignal tool.\n- semrushbot-ft \u2014 SemrushBot-FT, Semrush [seo]: Fetches full text for the Plagiarism Checker and similar text-comparison tools.\n- semrushbot-esi \u2014 SemrushBot-ESI, Semrush [seo]: The crawler for Semrush Enterprise Site Intelligence, the enterprise tier's own site analysis.\n- ahrefssiteaudit \u2014 AhrefsSiteAudit, Ahrefs [seo]: Ahrefs' site-audit crawler, separate from AhrefsBot. Ahrefs documents that it obeys robots.txt by default, and that a verified site owner can ask for it to be allowed to ignore robots.txt on their own site so the audit can see disallowed sections.\n- mj12bot \u2014 MJ12bot, Majestic [seo]: Majestic's link-graph crawler, run as a distributed community project. Majestic states plainly that it cannot restrict the bot to a fixed set of addresses, and offers a pre-arranged ident string in the request headers instead.\n- dotbot \u2014 DotBot, Moz [seo]: Moz's crawler for Link Explorer. Moz documents that it respects robots.txt and that dotbot is the token to name."
+            }
+          ],
+          "structuredContent": {
+            "total_in_index": 150,
+            "matched": 150,
+            "returned": 100,
+            "filters_applied": {},
+            "crawlers": [
+              {
+                "slug": "gptbot",
+                "name": "GPTBot",
+                "operator": "OpenAI",
+                "category": "ai-training",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "OpenAI's bulk crawler. Pages it fetches may be used to train future OpenAI foundation models. It is not the bot that puts you in ChatGPT's search results, and blocking it does not remove you from them.",
+                "cost_of_blocking": "Your content is excluded from training data for future OpenAI models. No effect on ChatGPT search visibility, on citations, or on links a user pastes into ChatGPT."
+              },
+              {
+                "slug": "oai-searchbot",
+                "name": "OAI-SearchBot",
+                "operator": "OpenAI",
+                "category": "ai-search",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "Builds the index ChatGPT search answers from. Content it collects is used for retrieval and citation, not for model training.",
+                "cost_of_blocking": "High. Blocking this removes you from ChatGPT search results and from the source links ChatGPT shows. This is the single most expensive block on this list for anyone who wants to be cited by an assistant."
+              },
+              {
+                "slug": "chatgpt-user",
+                "name": "ChatGPT-User",
+                "operator": "OpenAI",
+                "category": "user-fetch",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "Fetches a single page at the moment a user or a ChatGPT agent asks for it \u2014 a pasted link, a browsing step, an Operator task. One human intent, one request. OpenAI states these fetches are not used for training.",
+                "cost_of_blocking": "ChatGPT cannot open your pages when a user explicitly asks it to. The user sees a fetch failure. This is usually the last bot anyone means to block."
+              },
+              {
+                "slug": "claudebot",
+                "name": "ClaudeBot",
+                "operator": "Anthropic",
+                "category": "ai-training",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Anthropic's bulk crawler, gathering pages that may be used to train Claude models.",
+                "cost_of_blocking": "Content excluded from training data for future Claude models. No effect on Claude's ability to fetch a link a user gives it."
+              },
+              {
+                "slug": "claude-searchbot",
+                "name": "Claude-SearchBot",
+                "operator": "Anthropic",
+                "category": "ai-search",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Indexes pages so Claude's web search can find and cite them. Separate token from the training crawler, so search visibility and training consent are independent decisions.",
+                "cost_of_blocking": "You stop appearing in Claude's search results and citations."
+              },
+              {
+                "slug": "claude-user",
+                "name": "Claude-User",
+                "operator": "Anthropic",
+                "category": "user-fetch",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Fetches a page because a Claude user asked Claude to read it, at that moment.",
+                "cost_of_blocking": "Claude reports a fetch failure to a user who asked for your page by name."
+              },
+              {
+                "slug": "anthropic-ai",
+                "name": "anthropic-ai",
+                "operator": "Anthropic",
+                "category": "ai-training",
+                "respects_robots_txt": "n-a",
+                "verification_method": "none",
+                "what_it_is": "A legacy robots.txt token from before Anthropic consolidated on ClaudeBot. It is still widely present in robots.txt files and costs nothing to keep, but it is a control token rather than a bot you will see in logs.",
+                "cost_of_blocking": "None. Nothing crawls under this name today; keeping the rule is harmless insurance."
+              },
+              {
+                "slug": "claude-web",
+                "name": "Claude-Web",
+                "operator": "Anthropic",
+                "category": "ai-search",
+                "respects_robots_txt": "n-a",
+                "verification_method": "none",
+                "what_it_is": "An earlier Anthropic token for user-facing web access, superseded by Claude-User and Claude-SearchBot. Kept here because it appears in most published robots.txt templates.",
+                "cost_of_blocking": "None in practice. Retain the rule; expect no traffic."
+              },
+              {
+                "slug": "google-extended",
+                "name": "Google-Extended",
+                "operator": "Google",
+                "category": "ai-training",
+                "respects_robots_txt": "n-a",
+                "verification_method": "none",
+                "what_it_is": "Not a crawler. A robots.txt token that tells Google whether pages Googlebot already fetched may be used to train and ground Gemini. You will never see it in an access log; disallowing it changes what Google does with content it fetched under a different name.",
+                "cost_of_blocking": "You are excluded from Gemini grounding and Gemini training. Google Search ranking and indexing are explicitly unaffected. This is the cleanest 'no training, keep my search traffic' lever that exists."
+              },
+              {
+                "slug": "googlebot",
+                "name": "Googlebot",
+                "operator": "Google",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "The classic search crawler. It is also the crawler behind AI Overviews: Google does not run a separate bot for them, which is why the only AI opt-out is the Google-Extended token and not a Googlebot block.",
+                "cost_of_blocking": "Total. You leave Google Search. Never block this to avoid AI use; use Google-Extended instead."
+              },
+              {
+                "slug": "googleother",
+                "name": "GoogleOther",
+                "operator": "Google",
+                "category": "ai-training",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "A generic fetcher used by Google product teams for one-off crawls and research, including data collection that does not belong to Search.",
+                "cost_of_blocking": "No effect on Search indexing. Blocks internal Google research and product fetches."
+              },
+              {
+                "slug": "google-cloudvertexbot",
+                "name": "Google-CloudVertexBot",
+                "operator": "Google",
+                "category": "ai-search",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "Crawls a site on behalf of a Vertex AI Agent Builder customer who is building an agent over that site. It only visits sites the customer has asked it to.",
+                "cost_of_blocking": "Third parties can no longer build Vertex AI agents that read your site. Irrelevant to Google Search."
+              },
+              {
+                "slug": "google-inspectiontool",
+                "name": "Google-InspectionTool",
+                "operator": "Google",
+                "category": "tool",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "The fetcher behind Search Console's URL Inspection and the Rich Results Test. It runs when a site owner clicks a button.",
+                "cost_of_blocking": "Your own Search Console live tests stop working. Blocking this only hurts you."
+              },
+              {
+                "slug": "googlebot-image",
+                "name": "Googlebot-Image",
+                "operator": "Google",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "Image indexing for Google Images. A separate token so you can leave images out of search without leaving search.",
+                "cost_of_blocking": "Your images stop appearing in Google Images."
+              },
+              {
+                "slug": "googlebot-news",
+                "name": "Googlebot-News",
+                "operator": "Google",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "A robots.txt token controlling inclusion in Google News. It does not have its own user-agent string; the fetch arrives as Googlebot.",
+                "cost_of_blocking": "Removal from Google News, with normal Search unaffected."
+              },
+              {
+                "slug": "storebot-google",
+                "name": "Storebot-Google",
+                "operator": "Google",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "Checks shopping and checkout flows for Google's shopping surfaces.",
+                "cost_of_blocking": "Product listings may lose shopping-specific enrichment. Irrelevant to non-commerce sites."
+              },
+              {
+                "slug": "bingbot",
+                "name": "bingbot",
+                "operator": "Microsoft",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "Bing's only crawler, and therefore also the crawler behind Microsoft Copilot's grounding. Microsoft's documented way to keep search indexing while refusing generative reuse is the nocache / noarchive robots meta directive, not a separate user-agent.",
+                "cost_of_blocking": "Very high and very wide: Bing, Copilot, DuckDuckGo and several assistants that resell Bing's index all lose you at once. Use nocache/noarchive rather than blocking."
+              },
+              {
+                "slug": "applebot",
+                "name": "Applebot",
+                "operator": "Apple",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "Powers Siri, Spotlight and Safari suggestions. Blocking it is a search decision, not an AI decision \u2014 the AI decision has its own token.",
+                "cost_of_blocking": "You disappear from Siri, Spotlight and Safari search suggestions across Apple's install base."
+              },
+              {
+                "slug": "applebot-extended",
+                "name": "Applebot-Extended",
+                "operator": "Apple",
+                "category": "ai-training",
+                "respects_robots_txt": "n-a",
+                "verification_method": "none",
+                "what_it_is": "Apple's counterpart to Google-Extended: a robots.txt token that withdraws consent for Apple Intelligence and Apple foundation-model training, without touching Applebot's search crawl.",
+                "cost_of_blocking": "Excluded from Apple Intelligence training. Siri, Spotlight and Safari suggestions are unaffected."
+              },
+              {
+                "slug": "perplexitybot",
+                "name": "PerplexityBot",
+                "operator": "Perplexity",
+                "category": "ai-search",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "Builds Perplexity's search index. Perplexity is citation-heavy by product design, so inclusion here converts to referral traffic more directly than most AI surfaces.",
+                "cost_of_blocking": "You stop being indexed and cited by Perplexity, and lose the referral clicks its citations produce."
+              },
+              {
+                "slug": "perplexity-user",
+                "name": "Perplexity-User",
+                "operator": "Perplexity",
+                "category": "user-fetch",
+                "respects_robots_txt": "by-design-no",
+                "verification_method": "published-ranges",
+                "what_it_is": "Fetches a page because a Perplexity user asked for it. Perplexity documents that this fetch is user-initiated and is therefore not governed by robots.txt \u2014 a robots rule will not stop it, by stated policy.",
+                "cost_of_blocking": "Not controllable via robots.txt. If you must stop it, verify by the published IP ranges and block at the edge \u2014 and accept that users who ask for your page get an error."
+              },
+              {
+                "slug": "ccbot",
+                "name": "CCBot",
+                "operator": "Common Crawl",
+                "category": "dataset",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "Common Crawl's corpus builder. It trains nothing itself, but its archive is an input to most open and many closed LLM training sets, which makes it the highest-leverage single entry on this list.",
+                "cost_of_blocking": "Future Common Crawl snapshots exclude you, so downstream training sets lose you too \u2014 but only going forward. Existing snapshots are permanent and blocking today does not retract them."
+              },
+              {
+                "slug": "bytespider",
+                "name": "Bytespider",
+                "operator": "ByteDance",
+                "category": "ai-training",
+                "respects_robots_txt": "disputed",
+                "verification_method": "none",
+                "what_it_is": "ByteDance's crawler, associated with training data collection for Doubao and related models. Repeatedly reported by CDNs and site operators as the highest-volume AI crawler on the web and as inconsistent about robots.txt.",
+                "cost_of_blocking": "Little to lose. If you want it gone, expect to block by user-agent at the edge rather than to ask politely in robots.txt."
+              },
+              {
+                "slug": "tiktokspider",
+                "name": "TikTokSpider",
+                "operator": "ByteDance",
+                "category": "ai-training",
+                "respects_robots_txt": "disputed",
+                "verification_method": "none",
+                "what_it_is": "A second ByteDance crawler identifying with TikTok, collecting page content for the same family of models.",
+                "cost_of_blocking": "Little to lose unless TikTok search referral matters to you."
+              },
+              {
+                "slug": "meta-externalagent",
+                "name": "meta-externalagent",
+                "operator": "Meta",
+                "category": "ai-training",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Meta's AI crawler, gathering training data for Llama and Meta AI. It replaced the older FacebookBot name for this purpose.",
+                "cost_of_blocking": "Excluded from Meta AI training. Link previews on Facebook, Instagram and WhatsApp are unaffected \u2014 those are a different bot."
+              },
+              {
+                "slug": "meta-externalfetcher",
+                "name": "meta-externalfetcher",
+                "operator": "Meta",
+                "category": "user-fetch",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Fetches a page when a Meta AI user asks about a specific link.",
+                "cost_of_blocking": "Meta AI cannot read pages users hand it."
+              },
+              {
+                "slug": "facebookexternalhit",
+                "name": "facebookexternalhit",
+                "operator": "Meta",
+                "category": "preview",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "The link unfurler: it reads your Open Graph tags when somebody shares your URL on a Meta property.",
+                "cost_of_blocking": "Severe and usually accidental. Your links share as bare grey boxes with no title, image or description across Facebook, Instagram, Messenger and WhatsApp. Almost nobody means to block this."
+              },
+              {
+                "slug": "facebookbot",
+                "name": "FacebookBot",
+                "operator": "Meta",
+                "category": "ai-training",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Meta's older speech- and language-corpus crawler, largely superseded by meta-externalagent but still listed as a valid robots token.",
+                "cost_of_blocking": "Negligible today. Keep the rule; expect little traffic."
+              },
+              {
+                "slug": "amazonbot",
+                "name": "Amazonbot",
+                "operator": "Amazon",
+                "category": "ai-search",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Amazon's crawler, feeding Alexa's ability to answer questions from the web and Amazon's own search and assistant products.",
+                "cost_of_blocking": "Alexa and Amazon's assistants stop answering from your pages. Verify with reverse DNS to crawl.amazonbot.amazon before trusting the user-agent."
+              },
+              {
+                "slug": "duckassistbot",
+                "name": "DuckAssistBot",
+                "operator": "DuckDuckGo",
+                "category": "ai-search",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Fetches pages so DuckAssist can generate and cite answers inside DuckDuckGo.",
+                "cost_of_blocking": "No DuckAssist answers or citations from your site. Ordinary DuckDuckGo results are unaffected."
+              },
+              {
+                "slug": "duckduckbot",
+                "name": "DuckDuckBot",
+                "operator": "DuckDuckGo",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "DuckDuckGo's own crawler. Note that the bulk of DuckDuckGo's web results come from Bing, so blocking bingbot removes you from DuckDuckGo whether or not you allow this one.",
+                "cost_of_blocking": "Limited on its own; the real DuckDuckGo lever is bingbot."
+              },
+              {
+                "slug": "ai2bot",
+                "name": "AI2Bot",
+                "operator": "Allen Institute for AI",
+                "category": "dataset",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "The Allen Institute's crawler, gathering pages for open research corpora such as Dolma that underpin fully open models like OLMo.",
+                "cost_of_blocking": "Excluded from open research datasets. Worth a deliberate decision: this is the category where 'blocking AI' also blocks the open, auditable end of it."
+              },
+              {
+                "slug": "ai2bot-dolma",
+                "name": "Ai2Bot-Dolma",
+                "operator": "Allen Institute for AI",
+                "category": "dataset",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "The variant of AI2's crawler named for the Dolma corpus specifically.",
+                "cost_of_blocking": "Same as AI2Bot: exclusion from an open, published training corpus."
+              },
+              {
+                "slug": "cohere-ai",
+                "name": "cohere-ai",
+                "operator": "Cohere",
+                "category": "user-fetch",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Cohere's fetcher, used when its assistant products need a page.",
+                "cost_of_blocking": "Cohere-powered assistants cannot read your pages on request."
+              },
+              {
+                "slug": "cohere-training-data-crawler",
+                "name": "cohere-training-data-crawler",
+                "operator": "Cohere",
+                "category": "ai-training",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Cohere's separately-named bulk crawler for model training data, split out so consent for training and consent for retrieval can differ.",
+                "cost_of_blocking": "Excluded from Cohere model training."
+              },
+              {
+                "slug": "mistralai-user",
+                "name": "MistralAI-User",
+                "operator": "Mistral AI",
+                "category": "user-fetch",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Fetches a page when a Le Chat user asks Mistral's assistant to read it.",
+                "cost_of_blocking": "Le Chat cannot open links your readers give it."
+              },
+              {
+                "slug": "youbot",
+                "name": "YouBot",
+                "operator": "You.com",
+                "category": "ai-search",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "You.com's crawler, feeding its AI search product and its search API.",
+                "cost_of_blocking": "Removal from You.com's index and from answers built on its API."
+              },
+              {
+                "slug": "diffbot",
+                "name": "Diffbot",
+                "operator": "Diffbot",
+                "category": "dataset",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Extracts structured records from pages to build a commercial knowledge graph that is resold and used for retrieval and training.",
+                "cost_of_blocking": "Your facts stop entering a widely-licensed knowledge graph. Whether that is a loss depends on whether you want to be a machine-readable entity."
+              },
+              {
+                "slug": "omgilibot",
+                "name": "omgilibot",
+                "operator": "Webz.io",
+                "category": "dataset",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Webz.io's crawler, collecting web and forum text sold as datasets, including to model builders.",
+                "cost_of_blocking": "Exclusion from a commercial dataset resold to third parties."
+              },
+              {
+                "slug": "omgili",
+                "name": "omgili",
+                "operator": "Webz.io",
+                "category": "dataset",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "The older robots token for the same Webz.io collection, still honoured and still worth listing.",
+                "cost_of_blocking": "Same as omgilibot."
+              },
+              {
+                "slug": "webzio-extended",
+                "name": "Webzio-Extended",
+                "operator": "Webz.io",
+                "category": "ai-training",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Webz.io's opt-out token specifically for AI training reuse, in the pattern Google and Apple established.",
+                "cost_of_blocking": "Your content is excluded from the AI-training tier of Webz.io's product while ordinary collection continues."
+              },
+              {
+                "slug": "imagesiftbot",
+                "name": "ImagesiftBot",
+                "operator": "Hive AI",
+                "category": "dataset",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Crawls images for Hive AI's reverse-image and dataset products. Image-heavy sites see this one long before they see the text crawlers.",
+                "cost_of_blocking": "Your images stop entering an image dataset and reverse-image index."
+              },
+              {
+                "slug": "timpibot",
+                "name": "Timpibot",
+                "operator": "Timpi",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "A distributed crawler building an independent search index outside the Google/Bing duopoly.",
+                "cost_of_blocking": "Absence from a small independent index."
+              },
+              {
+                "slug": "semrushbot",
+                "name": "SemrushBot",
+                "operator": "Semrush",
+                "category": "seo",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Semrush's backlink and keyword crawler. It is not an AI crawler, but it is usually in the top three by volume on any site, and it is the cheapest block on this list.",
+                "cost_of_blocking": "Your competitors' Semrush reports get thinner, and so do yours. No user-facing effect."
+              },
+              {
+                "slug": "semrushbot-ocob",
+                "name": "SemrushBot-OCOB",
+                "operator": "Semrush",
+                "category": "ai-training",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Semrush's separately-tokenised crawler for its AI content tooling, split out so SEO crawling and AI reuse can be answered differently.",
+                "cost_of_blocking": "Exclusion from Semrush's AI corpus, with its SEO crawl unaffected."
+              },
+              {
+                "slug": "ahrefsbot",
+                "name": "AhrefsBot",
+                "operator": "Ahrefs",
+                "category": "seo",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "Ahrefs' backlink crawler, and one of the largest non-search crawlers on the web by request volume.",
+                "cost_of_blocking": "No user-facing effect. Ahrefs honours Crawl-delay, so rate-limiting is usually better than blocking."
+              },
+              {
+                "slug": "archive-org-bot",
+                "name": "archive.org_bot",
+                "operator": "Internet Archive",
+                "category": "archive",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "The Wayback Machine's crawler. Preservation rather than AI, but it lands in the same 'is this bot welcome' decision and its output is a public corpus.",
+                "cost_of_blocking": "Your site stops being preserved. When it dies, it is gone. Consider this one separately from the AI question."
+              },
+              {
+                "slug": "ia-archiver",
+                "name": "ia_archiver",
+                "operator": "Internet Archive",
+                "category": "archive",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "The legacy Alexa/Internet Archive token, still present in most robots.txt files and still occasionally honoured.",
+                "cost_of_blocking": "Negligible today; retain for tidiness."
+              },
+              {
+                "slug": "yandexbot",
+                "name": "YandexBot",
+                "operator": "Yandex",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Yandex's search crawler, which also feeds Alice and Yandex's generative answers.",
+                "cost_of_blocking": "Removal from Yandex Search. Verify with reverse DNS to a yandex.ru, yandex.net or yandex.com host \u2014 YandexBot is among the most-spoofed user-agents there is."
+              },
+              {
+                "slug": "baiduspider",
+                "name": "Baiduspider",
+                "operator": "Baidu",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Baidu's search crawler, and the ingest path for Baidu's Ernie-backed answers.",
+                "cost_of_blocking": "Removal from Baidu Search, which matters only if you want Chinese-language traffic."
+              },
+              {
+                "slug": "seznambot",
+                "name": "SeznamBot",
+                "operator": "Seznam",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Seznam's crawler \u2014 the dominant search engine in the Czech Republic and one of the few national engines with its own index.",
+                "cost_of_blocking": "Removal from Seznam. Also removes you from its IndexNow endpoint's usefulness."
+              },
+              {
+                "slug": "yeti",
+                "name": "Yeti",
+                "operator": "Naver",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Naver's crawler. Naver is South Korea's largest search portal and runs its own index and its own generative answers.",
+                "cost_of_blocking": "Removal from Naver, which is most of Korean search."
+              },
+              {
+                "slug": "petalbot",
+                "name": "PetalBot",
+                "operator": "Huawei",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Huawei's crawler for Petal Search, shipped as the default search on Huawei devices.",
+                "cost_of_blocking": "Removal from Petal Search. Frequently blocked for volume rather than for policy."
+              },
+              {
+                "slug": "firecrawlagent",
+                "name": "FirecrawlAgent",
+                "operator": "Firecrawl",
+                "category": "tool",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "A hosted scrape-to-markdown service that LLM applications call to read pages. The requester is whoever is building on it, not Firecrawl itself, so volume and intent vary wildly.",
+                "cost_of_blocking": "Applications built on Firecrawl cannot read your pages. This is increasingly how agents fetch the web, so it is a bigger block than its name suggests."
+              },
+              {
+                "slug": "scrapy",
+                "name": "Scrapy",
+                "operator": "Scrapy project",
+                "category": "tool",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Not an operator: the default user-agent of the most common Python crawling framework. Anyone can be behind it. Modern Scrapy obeys robots.txt by default, which is why the default UA is still worth a rule.",
+                "cost_of_blocking": "You block a very large tail of unattributed one-off crawlers, and also every well-behaved researcher who did not change the default."
+              },
+              {
+                "slug": "img2dataset",
+                "name": "img2dataset",
+                "operator": "LAION / img2dataset",
+                "category": "dataset",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "The tool used to turn image-URL lists such as LAION's into downloaded training sets. It is run by whoever is building a dataset, not by a single operator.",
+                "cost_of_blocking": "Your images are skipped when someone materialises an image-text dataset that references them."
+              },
+              {
+                "slug": "googlebot-video",
+                "name": "Googlebot-Video",
+                "operator": "Google",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "The video half of Googlebot. It crawls video files and the pages around them for Google Video search, and it is matched by a robots.txt group for Googlebot as well as by its own token.",
+                "cost_of_blocking": "Your videos leave Google video search. A rule for Googlebot already covers it, so blocking this token alone is usually a mistake of precision rather than of intent."
+              },
+              {
+                "slug": "googleother-image",
+                "name": "GoogleOther-Image",
+                "operator": "Google",
+                "category": "ai-training",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "The image variant of GoogleOther: one-off fetches by Google product and research teams that are not Search. It also answers to a GoogleOther group in robots.txt.",
+                "cost_of_blocking": "Google teams outside Search stop fetching your images. Image Search itself is unaffected \u2014 that is Googlebot-Image."
+              },
+              {
+                "slug": "googleother-video",
+                "name": "GoogleOther-Video",
+                "operator": "Google",
+                "category": "ai-training",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "The video variant of GoogleOther, used for internal Google fetches that do not belong to Search.",
+                "cost_of_blocking": "No effect on Search or on Google Video search. Blocks internal Google research fetches of your video files."
+              },
+              {
+                "slug": "apis-google",
+                "name": "APIs-Google",
+                "operator": "Google",
+                "category": "tool",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "published-ranges",
+                "what_it_is": "Delivers push notifications for Google APIs to a webhook you registered. It is a special-case crawler: it ignores the robots.txt * group, because the fetch is a delivery to an address you asked it to deliver to.",
+                "cost_of_blocking": "Google API push notifications stop arriving at your endpoint. This only affects services you set up yourself; there is no search or AI consequence."
+              },
+              {
+                "slug": "adsbot-google",
+                "name": "AdsBot-Google",
+                "operator": "Google",
+                "category": "tool",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "published-ranges",
+                "what_it_is": "Checks the quality of desktop landing pages for Google Ads. Google documents that it ignores the robots.txt * group with the ad publisher's permission, and obeys a group named for its own token.",
+                "cost_of_blocking": "Google Ads cannot score your landing pages, which lowers Ad Rank on the ads pointing at them. If you do not buy ads, blocking it costs nothing but bandwidth savings."
+              },
+              {
+                "slug": "adsbot-google-mobile",
+                "name": "AdsBot-Google-Mobile",
+                "operator": "Google",
+                "category": "tool",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "published-ranges",
+                "what_it_is": "The mobile-web landing page checker for Google Ads. Same rules as AdsBot-Google: the * group does not apply to it, its own token does.",
+                "cost_of_blocking": "Mobile ad landing pages go unscored and the ads pointing at them rank worse. No effect on organic search."
+              },
+              {
+                "slug": "adsbot-google-mobile-apps",
+                "name": "AdsBot-Google-Mobile-Apps",
+                "operator": "Google",
+                "category": "tool",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "published-ranges",
+                "what_it_is": "Checks Android app landing pages for Google Ads. It obeys a group named for its own token and, per Google, follows the AdsBot-Google rules otherwise.",
+                "cost_of_blocking": "App-install ad landing pages go unscored. Nothing organic changes."
+              },
+              {
+                "slug": "mediapartners-google",
+                "name": "Mediapartners-Google",
+                "operator": "Google",
+                "category": "tool",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "published-ranges",
+                "what_it_is": "The AdSense crawler. It reads a page so AdSense can choose relevant ads for it, and it is a special-case crawler that ignores the robots.txt * group.",
+                "cost_of_blocking": "Pages it cannot read get generic, lower-value AdSense ads or none at all. This is the one block on this list that costs you money directly if you run AdSense."
+              },
+              {
+                "slug": "google-safety",
+                "name": "Google-Safety",
+                "operator": "Google",
+                "category": "tool",
+                "respects_robots_txt": "by-design-no",
+                "verification_method": "none",
+                "what_it_is": "Google's abuse-investigation fetcher: malware review, phishing reports and similar. Google documents that it ignores robots.txt entirely, and a robots.txt rule for it does nothing.",
+                "cost_of_blocking": "Nothing you can control. The rule is ignored by design; listing the token is documentation, not enforcement."
+              },
+              {
+                "slug": "feedfetcher-google",
+                "name": "FeedFetcher-Google",
+                "operator": "Google",
+                "category": "tool",
+                "respects_robots_txt": "by-design-no",
+                "verification_method": "published-ranges",
+                "what_it_is": "Crawls RSS and Atom feeds for Google News and WebSub. It is a user-triggered fetcher, and Google documents that those generally ignore robots.txt because a person asked for the fetch. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.",
+                "cost_of_blocking": "Feed-driven Google products stop seeing your updates. A robots.txt rule will not stop it \u2014 block by user-agent at the edge if you mean it."
+              },
+              {
+                "slug": "google-read-aloud",
+                "name": "Google-Read-Aloud",
+                "operator": "Google",
+                "category": "user-fetch",
+                "respects_robots_txt": "by-design-no",
+                "verification_method": "published-ranges",
+                "what_it_is": "Fetches a page so Google can read it out loud with text-to-speech, at the moment a user asks. Formerly google-speakr. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.",
+                "cost_of_blocking": "A reader who asked Google to read your page aloud \u2014 often someone using it for accessibility \u2014 gets an error instead."
+              },
+              {
+                "slug": "google-site-verification",
+                "name": "Google-Site-Verification",
+                "operator": "Google",
+                "category": "tool",
+                "respects_robots_txt": "by-design-no",
+                "verification_method": "published-ranges",
+                "what_it_is": "Fetches the token file or meta tag that proves you own a site, when you click verify in Search Console. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.",
+                "cost_of_blocking": "Your own Search Console verification fails. Blocking this only ever hurts the person doing the blocking."
+              },
+              {
+                "slug": "google-cws",
+                "name": "Google-CWS",
+                "operator": "Google",
+                "category": "tool",
+                "respects_robots_txt": "by-design-no",
+                "verification_method": "published-ranges",
+                "what_it_is": "The Chrome Web Store fetcher. It requests the URLs a developer put in the metadata of a Chrome extension or theme. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.",
+                "cost_of_blocking": "Chrome Web Store listings that point at your pages cannot fetch them. Relevant only if you publish extensions."
+              },
+              {
+                "slug": "google-pinpoint",
+                "name": "Google-Pinpoint",
+                "operator": "Google",
+                "category": "user-fetch",
+                "respects_robots_txt": "by-design-no",
+                "verification_method": "published-ranges",
+                "what_it_is": "Fetches individual URLs that a Pinpoint user \u2014 usually a journalist or researcher \u2014 added as a source to their own document collection. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.",
+                "cost_of_blocking": "A researcher who explicitly added your page to a collection cannot load it."
+              },
+              {
+                "slug": "googleproducer",
+                "name": "GoogleProducer",
+                "operator": "Google",
+                "category": "tool",
+                "respects_robots_txt": "by-design-no",
+                "verification_method": "published-ranges",
+                "what_it_is": "Google Publisher Center: fetches the feeds a publisher explicitly supplied for Google News landing pages. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.",
+                "cost_of_blocking": "Your own Google News landing pages stop updating. Only publishers who configured Publisher Center are affected."
+              },
+              {
+                "slug": "googlemessages",
+                "name": "GoogleMessages",
+                "operator": "Google",
+                "category": "preview",
+                "respects_robots_txt": "by-design-no",
+                "verification_method": "published-ranges",
+                "what_it_is": "Generates the link preview when somebody sends one of your URLs in Google Messages. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.",
+                "cost_of_blocking": "Your links appear as bare URLs with no title or image in Google Messages chats. A preview fetcher is almost never the one you meant to block."
+              },
+              {
+                "slug": "google-gemininotebook",
+                "name": "Google-GeminiNotebook",
+                "operator": "Google",
+                "category": "user-fetch",
+                "respects_robots_txt": "by-design-no",
+                "verification_method": "published-ranges",
+                "what_it_is": "Fetches a URL a Gemini Notebook (formerly NotebookLM) user added as a source to their notebook. The former agent string Google-NotebookLM is documented as supported until August 2026. Google publishes fetcher addresses in two files \u2014 user-triggered-fetchers.json and user-triggered-fetchers-google.json \u2014 and does not say per fetcher which one applies, so verification means checking both; this index mirrors both.",
+                "cost_of_blocking": "A user who deliberately added your page as a research source gets nothing. This is a citation-shaped fetch, not a training crawl."
+              },
+              {
+                "slug": "google-agent",
+                "name": "Google-Agent",
+                "operator": "Google",
+                "category": "user-fetch",
+                "respects_robots_txt": "by-design-no",
+                "verification_method": "published-ranges",
+                "what_it_is": "Agents hosted on Google infrastructure navigating the web and taking actions on a user's request. Google names one prefix list for it \u2014 user-triggered-agents.json \u2014 and is separately experimenting with Web Bot Auth under the identity https://agent.bot.goog.",
+                "cost_of_blocking": "Google-hosted agents cannot complete a task on your site for a user who asked them to. This is the agentic-commerce fetch: blocking it removes you from what an assistant can actually do rather than from what it can say."
+              },
+              {
+                "slug": "yandeximages",
+                "name": "YandexImages",
+                "operator": "Yandex",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Indexes images for Yandex Images. Yandex's robot table marks it as taking the general robots.txt rules into account.",
+                "cost_of_blocking": "Your images leave Yandex Images, which is a large share of image search in Russian-speaking markets."
+              },
+              {
+                "slug": "yandexvideo",
+                "name": "YandexVideo",
+                "operator": "Yandex",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Indexes video for Yandex video search. Obeys the general robots.txt rules per Yandex's own table.",
+                "cost_of_blocking": "Removal from Yandex video search. Note that a second robot, YandexVideoParser, does the same job and is documented as NOT taking the general rules into account."
+              },
+              {
+                "slug": "yandexmedia",
+                "name": "YandexMedia",
+                "operator": "Yandex",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Indexes multimedia data for Yandex. Takes the general robots.txt rules into account.",
+                "cost_of_blocking": "Your multimedia content stops appearing in Yandex's media surfaces."
+              },
+              {
+                "slug": "yandexblogs",
+                "name": "YandexBlogs",
+                "operator": "Yandex",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Yandex's blog-search robot; it indexes post comments as well as posts.",
+                "cost_of_blocking": "Comment threads and blog posts stop being findable through Yandex blog search."
+              },
+              {
+                "slug": "yandexmarket",
+                "name": "YandexMarket",
+                "operator": "Yandex",
+                "category": "search",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "The robot behind Yandex Market, Yandex's shopping comparison service. Version 1.0 is documented as obeying the general rules; version 2.0 is documented as not.",
+                "cost_of_blocking": "Your products stop being listed and priced in Yandex Market. For a retailer in that market this is a revenue block, not a bandwidth one."
+              },
+              {
+                "slug": "yandexwebmaster",
+                "name": "YandexWebmaster",
+                "operator": "Yandex",
+                "category": "tool",
+                "respects_robots_txt": "documented",
+                "verification_method": "reverse-dns",
+                "what_it_is": "The fetcher behind Yandex Webmaster, the console a site owner uses to inspect their own site.",
+                "cost_of_blocking": "Your own Yandex Webmaster checks stop working. Blocking this only hurts you."
+              },
+              {
+                "slug": "yandexmobilebot",
+                "name": "YandexMobileBot",
+                "operator": "Yandex",
+                "category": "search",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Decides whether a page's layout is suitable for mobile devices. Yandex's table marks it as NOT taking the general robots.txt rules into account, so a * group does not stop it \u2014 a group named YandexMobileBot does.",
+                "cost_of_blocking": "Yandex loses its mobile-friendliness signal for your pages, which affects how they are ranked and rendered on phones."
+              },
+              {
+                "slug": "yandexfavicons",
+                "name": "YandexFavicons",
+                "operator": "Yandex",
+                "category": "search",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Downloads your favicon so Yandex can show it beside your result. Documented as not taking the general robots.txt rules into account.",
+                "cost_of_blocking": "Your results in Yandex lose their icon. Cosmetic, and a * rule will not achieve it anyway."
+              },
+              {
+                "slug": "yandexcalendar",
+                "name": "YandexCalendar",
+                "operator": "Yandex",
+                "category": "user-fetch",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Downloads calendar files a user subscribed to. Yandex notes these files are often in directories that are disallowed for indexing, which is why the general rules are not applied.",
+                "cost_of_blocking": "Users who subscribed to a calendar you publish stop receiving updates."
+              },
+              {
+                "slug": "yandexdirect",
+                "name": "YandexDirect",
+                "operator": "Yandex",
+                "category": "tool",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Reads the content of Yandex Advertising Network partner pages to work out their topic so relevant ads can be matched. Documented as not taking the general robots.txt rules into account.",
+                "cost_of_blocking": "Ads on your pages become less relevant and earn less. Relevant only if you monetise with Yandex's network."
+              },
+              {
+                "slug": "yandexmetrika",
+                "name": "YandexMetrika",
+                "operator": "Yandex",
+                "category": "tool",
+                "respects_robots_txt": "by-design-no",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Yandex Metrica's own fetcher. Two of its versions \u2014 the 2.0 yabs01 availability checker and the 4.0 CSS cache for Webvisor \u2014 are documented in Yandex's table as not using robots.txt at all.",
+                "cost_of_blocking": "Nothing you can enforce through robots.txt. If you run Metrica, its session replay loses your stylesheets and renders your pages wrong."
+              },
+              {
+                "slug": "yandexrenderresourcesbot",
+                "name": "YandexRenderResourcesBot",
+                "operator": "Yandex",
+                "category": "search",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Loads the CSS, JavaScript and images Yandex needs to render a page. Yandex documents the exact rule: it ignores robots.txt for a resource when the HTML page using it is allowed, and does not fetch the resource when that page is disallowed.",
+                "cost_of_blocking": "Yandex renders your pages without their stylesheets or scripts and ranks what it sees. This is the classic accidental self-inflicted ranking loss."
+              },
+              {
+                "slug": "yandexscreenshotbot",
+                "name": "YandexScreenshotBot",
+                "operator": "Yandex",
+                "category": "tool",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Takes a screenshot of a page. Documented as not taking the general robots.txt rules into account.",
+                "cost_of_blocking": "Yandex surfaces that show a page thumbnail show nothing for you."
+              },
+              {
+                "slug": "yandexadditional",
+                "name": "YandexAdditional",
+                "operator": "Yandex",
+                "category": "ai-training",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "reverse-dns",
+                "what_it_is": "The token that controls whether already-indexed pages may appear in Search with Yandex AI answers. Yandex's table says it makes no indexing requests of its own \u2014 it exists so a site can opt out of the generative answer without leaving the index.",
+                "cost_of_blocking": "You disappear from Yandex's AI answers while staying in Yandex Search. This is Yandex's equivalent of Google-Extended, and it is the cheap opt-out most people are looking for."
+              },
+              {
+                "slug": "yandexadditionalbot",
+                "name": "YandexAdditionalBot",
+                "operator": "Yandex",
+                "category": "ai-training",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "reverse-dns",
+                "what_it_is": "The second token Yandex publishes for the same AI-answers opt-out. Both names appear in Yandex's own robot list, so a robots.txt that names only one of them is half a policy.",
+                "cost_of_blocking": "Same as YandexAdditional: out of Yandex's AI answers, still in Yandex Search. Name both tokens or neither."
+              },
+              {
+                "slug": "yandexcombot",
+                "name": "YandexComBot",
+                "operator": "Yandex",
+                "category": "search",
+                "respects_robots_txt": "own-token-only",
+                "verification_method": "reverse-dns",
+                "what_it_is": "Indexes content for Yandex search in languages other than Russian. Yandex documents that it can index content when there is no explicit robot-specific restriction \u2014 a * group is not one.",
+                "cost_of_blocking": "You leave Yandex's non-Russian index. A rule naming this token is the only one that works on it."
+              },
+              {
+                "slug": "siteauditbot",
+                "name": "SiteAuditBot",
+                "operator": "Semrush",
+                "category": "seo",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Semrush's Site Audit crawler: it walks a site a customer owns and reports technical SEO problems. Semrush names it as the token to block for that product.",
+                "cost_of_blocking": "Site Audit reports on your own domain stop working. If a customer is auditing your site with your permission, blocking this breaks their tooling and nothing of yours."
+              },
+              {
+                "slug": "semrushbot-ba",
+                "name": "SemrushBot-BA",
+                "operator": "Semrush",
+                "category": "seo",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "The Backlink Audit crawler. It re-checks links pointing at a customer's site, which means it lands on the sites doing the linking.",
+                "cost_of_blocking": "None to you. It costs the site being audited a little accuracy in their backlink report."
+              },
+              {
+                "slug": "semrushbot-si",
+                "name": "SemrushBot-SI",
+                "operator": "Semrush",
+                "category": "seo",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Fetches pages for the On Page SEO Checker and similar advisory tools.",
+                "cost_of_blocking": "Nothing user-facing. Semrush customers lose on-page suggestions for pages on your domain."
+              },
+              {
+                "slug": "semrushbot-swa",
+                "name": "SemrushBot-SWA",
+                "operator": "Semrush",
+                "category": "seo",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Checks whether a URL is reachable, for the SEO Writing Assistant. One request per URL a writer references, not a crawl.",
+                "cost_of_blocking": "Writers using Semrush's assistant see your links reported as unreachable."
+              },
+              {
+                "slug": "splitsignalbot",
+                "name": "SplitSignalBot",
+                "operator": "Semrush",
+                "category": "seo",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Runs SEO A/B tests on a customer's own site with the SplitSignal tool.",
+                "cost_of_blocking": "A site owner's own A/B testing stops. Only relevant on domains whose owner uses the product."
+              },
+              {
+                "slug": "semrushbot-ft",
+                "name": "SemrushBot-FT",
+                "operator": "Semrush",
+                "category": "seo",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Fetches full text for the Plagiarism Checker and similar text-comparison tools.",
+                "cost_of_blocking": "Your text stops being compared against other people's submissions \u2014 which also means copies of your text are less likely to be caught."
+              },
+              {
+                "slug": "semrushbot-esi",
+                "name": "SemrushBot-ESI",
+                "operator": "Semrush",
+                "category": "seo",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "The crawler for Semrush Enterprise Site Intelligence, the enterprise tier's own site analysis.",
+                "cost_of_blocking": "Enterprise customers lose analysis of your domain. Nothing user-facing."
+              },
+              {
+                "slug": "ahrefssiteaudit",
+                "name": "AhrefsSiteAudit",
+                "operator": "Ahrefs",
+                "category": "seo",
+                "respects_robots_txt": "documented",
+                "verification_method": "published-ranges",
+                "what_it_is": "Ahrefs' site-audit crawler, separate from AhrefsBot. Ahrefs documents that it obeys robots.txt by default, and that a verified site owner can ask for it to be allowed to ignore robots.txt on their own site so the audit can see disallowed sections.",
+                "cost_of_blocking": "Site owners auditing your domain get an incomplete report. Blocking it saves bandwidth and costs you nothing in search."
+              },
+              {
+                "slug": "mj12bot",
+                "name": "MJ12bot",
+                "operator": "Majestic",
+                "category": "seo",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Majestic's link-graph crawler, run as a distributed community project. Majestic states plainly that it cannot restrict the bot to a fixed set of addresses, and offers a pre-arranged ident string in the request headers instead.",
+                "cost_of_blocking": "You leave the Majestic backlink index. No search or AI effect. It supports Crawl-delay, which is usually the better answer than a block."
+              },
+              {
+                "slug": "dotbot",
+                "name": "DotBot",
+                "operator": "Moz",
+                "category": "seo",
+                "respects_robots_txt": "documented",
+                "verification_method": "none",
+                "what_it_is": "Moz's crawler for Link Explorer. Moz documents that it respects robots.txt and that dotbot is the token to name.",
+                "cost_of_blocking": "You leave Moz's link index, so Domain Authority and link reports about your site get thinner. Nothing a reader or an assistant sees changes."
+              }
+            ],
+            "filter_values": {
+              "category": [
+                "ai-training",
+                "ai-search",
+                "user-fetch",
+                "dataset",
+                "search",
+                "seo",
+                "archive",
+                "preview",
+                "tool"
+              ],
+              "operator": [
+                "ahrefs",
+                "ai2",
+                "aihit",
+                "amazon",
+                "andi",
+                "anthropic",
+                "apple",
+                "atlassian",
+                "awario",
+                "babbar",
+                "baidu",
+                "bytedance",
+                "ceramic",
+                "cloudflare",
+                "cohere",
+                "commoncrawl",
+                "crawl4ai",
+                "crawlspace",
+                "dataforseo",
+                "diffbot",
+                "direqt",
+                "duckduckgo",
+                "echobox",
+                "exa",
+                "factset",
+                "firecrawl",
+                "google",
+                "hive",
+                "huawei",
+                "hunter",
+                "internetarchive",
+                "iss",
+                "kagi",
+                "klaviyo",
+                "laion",
+                "lightpanda",
+                "linguee",
+                "lyrenth",
+                "majestic",
+                "meltwater",
+                "meta",
+                "microsoft",
+                "mistral",
+                "mojeek",
+                "moz",
+                "naver",
+                "nict",
+                "openai",
+                "panscient",
+                "parallel",
+                "perplexity",
+                "phind",
+                "pinterest",
+                "poseidon",
+                "qualified",
+                "quantumcloud",
+                "quillbot",
+                "qwant",
+                "reflection",
+                "rois",
+                "sbintuitions",
+                "scrapy",
+                "screamingfrog",
+                "semrush",
+                "seokicks",
+                "serpstat",
+                "seznam",
+                "sidetrade",
+                "slack",
+                "thinkbot",
+                "timpi",
+                "webz",
+                "yandex",
+                "you"
+              ],
+              "respects_robots_txt": [
+                "by-design-no",
+                "disputed",
+                "documented",
+                "n-a",
+                "own-token-only",
+                "undocumented"
+              ],
+              "verification": [
+                "none",
+                "published-ranges",
+                "reverse-dns"
+              ]
+            },
+            "source": "https://www.pathwren.workers.dev"
+          },
+          "isError": false,
+          "_meta": {
+            "io.modelcontextprotocol/serverInfo": {
+              "name": "ai-crawler-index",
+              "title": "AI Crawler Index",
+              "version": "1.0.0",
+              "description": "Name any bot user-agent, verify a crawler IP, or generate robots.txt. Free, no key, no signup. Call whoami first: it takes no arguments at all and answers about the request you just sent. example is the other zero-argument tool \u2014 it runs a worked answer against real data.",
+              "websiteUrl": "https://www.pathwren.workers.dev"
+            }
+          }
+        }
+      }
+    },
+    {
+      "check": "A1",
+      "target": "plantguide",
+      "status": "PASS",
+      "detail": "unscoped rule on successful list_garden_styles -> -32603 'guardrail check failed'",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "error": {
+          "code": -32603,
+          "message": "guardrail check failed"
+        }
+      }
+    },
+    {
+      "check": "A2",
+      "target": "plantguide",
+      "status": "PASS",
+      "detail": "shipped scoped rules on list_garden_styles -> unchanged=True",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "# Garden styles for Dubai\n\nCanonical: https://plantguide.ae/styles \u00b7 Updated: 2026-10-29\nSource: Plant Guide (https://plantguide.ae/styles)\n\nEffort is upkeep on a 1\u20135 scale (5 = most work). Costs are indicative build costs per m\u00b2, excluding VAT.\n\n- **Tropical & jungly** (tropical) \u2014 Bali-villa vibe: real banana leaves, warm teak, a plunge pool, kept fresh by real water. Layered Bali-resort planting: true banana-leaved plants, a flowering canopy, warm timber and a plunge pool, for Dubai's rare shaded plots. The thirstiest, shadiest style here \u2014 plan water and shade before the plant list. Effort 5/5 \u00b7 high water \u00b7 AED 230\u2013520/m\u00b2 \u00b7 key plants: Banana, Bird of paradise, Traveller's palm, Elephant ear, Royal Poinciana, Frangipani, Foxtail Palm, Bougainvillea, Hibiscus, Arabian Jasmine \u00b7 [guide](https://plantguide.ae/styles/tropical)\n- **Elegant & manicured** (manicured) \u2014 A crisp striped lawn, straight lines, and everything exactly where it should be. Formal structure built around a tight, striped lawn, clipped hedges and strict symmetry \u2014 the classic Dubai villa-garden look, moderate on water and effort, with a bright, freshly-kept feel year-round. Effort 3/5 \u00b7 moderate water \u00b7 AED 180\u2013400/m\u00b2 \u00b7 key plants: Seashore paspalum, Hopbush, Wild Jasmine, Texas Sage, Date Palm, Olive tree, Bougainvillea, Ixora \u00b7 [guide](https://plantguide.ae/styles/manicured)\n- **Luxury** (luxury) \u2014 Good lighting, real stone, and hedges cut to a line. Built from three things done properly: layered warm-white lighting, pale natural stone underfoot, and hedges kept to a hard, precise edge. The most expensive style here, on stone and light, not a resort theme. Effort 4/5 \u00b7 moderate water \u00b7 AED 300\u2013550/m\u00b2 \u00b7 key plants: Olive tree, Date Palm, Mexican Fan Palm, Bismarck Palm, Texas Sage, Wild Jasmine, Agave, Ghaf tree \u00b7 [guide](https://plantguide.ae/styles/luxury)\n- **Desert modern** (desert-modern) \u2014 Tiled surfaces, bright turf strips and uplit palms \u2014 the low-water look done properly. Large-format porcelain paving broken up by strips of vivid artificial grass, built around local palms, clipped shrubs and evening lighting \u2014 not gravel and sand. The lowest-water style here, and still a proper garden. Effort 2/5 \u00b7 low water \u00b7 AED 180\u2013380/m\u00b2 \u00b7 key plants: Date Palm, Mexican Fan Palm, Ghaf tree, Texas Sage, Hopbush, Arak, Agave, Desert grass \u00b7 [guide](https://plantguide.ae/styles/desert-modern)\n\nFull guide to one style: call get_garden_style with its slug."
+            }
+          ],
+          "structuredContent": {
+            "styles": [
+              {
+                "slug": "tropical",
+                "name": "Tropical & jungly",
+                "tagline": "Bali-villa vibe: real banana leaves, warm teak, a plunge pool, kept fresh by real water.",
+                "summary": "Layered Bali-resort planting: true banana-leaved plants, a flowering canopy, warm timber and a plunge pool, for Dubai's rare shaded plots. The thirstiest, shadiest style here \u2014 plan water and shade before the plant list.",
+                "effort": 5,
+                "water": "high",
+                "costAedM2": [
+                  230,
+                  520
+                ],
+                "suits": [
+                  "Shaded or partly shaded plots, or owners willing to fund a shade structure early",
+                  "Owners set on the Bali-resort look and prepared for the water bill that comes with it",
+                  "Villas with a modest plunge/reflecting pool rather than a full swimming pool as the water feature"
+                ],
+                "keyPlants": [
+                  {
+                    "slug": "banana",
+                    "name": "Banana",
+                    "url": "https://plantguide.ae/plants/banana"
+                  },
+                  {
+                    "slug": "bird-of-paradise",
+                    "name": "Bird of paradise",
+                    "url": "https://plantguide.ae/plants/bird-of-paradise"
+                  },
+                  {
+                    "slug": "travellers-palm",
+                    "name": "Traveller's palm",
+                    "url": "https://plantguide.ae/plants/travellers-palm"
+                  },
+                  {
+                    "slug": "elephant-ear",
+                    "name": "Elephant ear",
+                    "url": "https://plantguide.ae/plants/elephant-ear"
+                  },
+                  {
+                    "slug": "royal-poinciana",
+                    "name": "Royal Poinciana",
+                    "url": "https://plantguide.ae/plants/royal-poinciana"
+                  },
+                  {
+                    "slug": "frangipani",
+                    "name": "Frangipani",
+                    "url": "https://plantguide.ae/plants/frangipani"
+                  },
+                  {
+                    "slug": "foxtail-palm",
+                    "name": "Foxtail Palm",
+                    "url": "https://plantguide.ae/plants/foxtail-palm"
+                  },
+                  {
+                    "slug": "bougainvillea",
+                    "name": "Bougainvillea",
+                    "url": "https://plantguide.ae/plants/bougainvillea"
+                  },
+                  {
+                    "slug": "hibiscus",
+                    "name": "Hibiscus",
+                    "url": "https://plantguide.ae/plants/hibiscus"
+                  },
+                  {
+                    "slug": "arabian-jasmine",
+                    "name": "Arabian Jasmine",
+                    "url": "https://plantguide.ae/plants/arabian-jasmine"
+                  }
+                ],
+                "url": "https://plantguide.ae/styles/tropical",
+                "markdownUrl": "https://plantguide.ae/styles/tropical.md",
+                "image": {
+                  "url": "https://plantguide.ae/images/generated/styles/tropical/a-hero-v2.webp",
+                  "alt": "Tropical Bali-villa-vibe Dubai garden hero: layered palms and a flowering canopy around a stone-edged plunge pool with a cream villa behind"
+                }
+              },
+              {
+                "slug": "manicured",
+                "name": "Elegant & manicured",
+                "tagline": "A crisp striped lawn, straight lines, and everything exactly where it should be.",
+                "summary": "Formal structure built around a tight, striped lawn, clipped hedges and strict symmetry \u2014 the classic Dubai villa-garden look, moderate on water and effort, with a bright, freshly-kept feel year-round.",
+                "effort": 3,
+                "water": "moderate",
+                "costAedM2": [
+                  180,
+                  400
+                ],
+                "suits": [
+                  "Front-of-villa presentation gardens in communities like Emirates Hills, Arabian Ranches or Dubai Hills Estate",
+                  "Owners who want a real, usable lawn for kids or pets",
+                  "Anyone who prefers crisp order and symmetry over abundance"
+                ],
+                "keyPlants": [
+                  {
+                    "slug": "seashore-paspalum",
+                    "name": "Seashore paspalum",
+                    "url": "https://plantguide.ae/plants/seashore-paspalum"
+                  },
+                  {
+                    "slug": "hopbush",
+                    "name": "Hopbush",
+                    "url": "https://plantguide.ae/plants/hopbush"
+                  },
+                  {
+                    "slug": "sea-jasmine",
+                    "name": "Wild Jasmine",
+                    "url": "https://plantguide.ae/plants/sea-jasmine"
+                  },
+                  {
+                    "slug": "texas-sage",
+                    "name": "Texas Sage",
+                    "url": "https://plantguide.ae/plants/texas-sage"
+                  },
+                  {
+                    "slug": "date-palm",
+                    "name": "Date Palm",
+                    "url": "https://plantguide.ae/plants/date-palm"
+                  },
+                  {
+                    "slug": "olive",
+                    "name": "Olive tree",
+                    "url": "https://plantguide.ae/plants/olive"
+                  },
+                  {
+                    "slug": "bougainvillea",
+                    "name": "Bougainvillea",
+                    "url": "https://plantguide.ae/plants/bougainvillea"
+                  },
+                  {
+                    "slug": "ixora",
+                    "name": "Ixora",
+                    "url": "https://plantguide.ae/plants/ixora"
+                  }
+                ],
+                "url": "https://plantguide.ae/styles/manicured",
+                "markdownUrl": "https://plantguide.ae/styles/manicured.md",
+                "image": {
+                  "url": "https://plantguide.ae/images/generated/styles/manicured/a-hero-v2.webp",
+                  "alt": "Elegant manicured Dubai villa garden hero: a symmetrical striped lawn and date palm allee leading to a cream villa entrance"
+                }
+              },
+              {
+                "slug": "luxury",
+                "name": "Luxury",
+                "tagline": "Good lighting, real stone, and hedges cut to a line.",
+                "summary": "Built from three things done properly: layered warm-white lighting, pale natural stone underfoot, and hedges kept to a hard, precise edge. The most expensive style here, on stone and light, not a resort theme.",
+                "effort": 4,
+                "water": "moderate",
+                "costAedM2": [
+                  300,
+                  550
+                ],
+                "suits": [
+                  "Villas wanting a refined evening presence without a resort theme",
+                  "Owners ready to invest in a proper layered lighting design, not just extra floodlights",
+                  "Plots with clean sightlines suited to hard hedge lines and large-format stone"
+                ],
+                "keyPlants": [
+                  {
+                    "slug": "olive",
+                    "name": "Olive tree",
+                    "url": "https://plantguide.ae/plants/olive"
+                  },
+                  {
+                    "slug": "date-palm",
+                    "name": "Date Palm",
+                    "url": "https://plantguide.ae/plants/date-palm"
+                  },
+                  {
+                    "slug": "washingtonia-palm",
+                    "name": "Mexican Fan Palm",
+                    "url": "https://plantguide.ae/plants/washingtonia-palm"
+                  },
+                  {
+                    "slug": "bismarck-palm",
+                    "name": "Bismarck Palm",
+                    "url": "https://plantguide.ae/plants/bismarck-palm"
+                  },
+                  {
+                    "slug": "texas-sage",
+                    "name": "Texas Sage",
+                    "url": "https://plantguide.ae/plants/texas-sage"
+                  },
+                  {
+                    "slug": "sea-jasmine",
+                    "name": "Wild Jasmine",
+                    "url": "https://plantguide.ae/plants/sea-jasmine"
+                  },
+                  {
+                    "slug": "agave",
+                    "name": "Agave",
+                    "url": "https://plantguide.ae/plants/agave"
+                  },
+                  {
+                    "slug": "ghaf",
+                    "name": "Ghaf tree",
+                    "url": "https://plantguide.ae/plants/ghaf"
+                  }
+                ],
+                "url": "https://plantguide.ae/styles/luxury",
+                "markdownUrl": "https://plantguide.ae/styles/luxury.md",
+                "image": {
+                  "url": "https://plantguide.ae/images/generated/styles/luxury/a-hero-v1.webp",
+                  "alt": "Luxury Dubai villa garden hero at blue hour: layered warm lighting on a sculptural olive tree, clipped hedges and travertine stone by a lit pool"
+                }
+              },
+              {
+                "slug": "desert-modern",
+                "name": "Desert modern",
+                "tagline": "Tiled surfaces, bright turf strips and uplit palms \u2014 the low-water look done properly.",
+                "summary": "Large-format porcelain paving broken up by strips of vivid artificial grass, built around local palms, clipped shrubs and evening lighting \u2014 not gravel and sand. The lowest-water style here, and still a proper garden.",
+                "effort": 2,
+                "water": "low",
+                "costAedM2": [
+                  180,
+                  380
+                ],
+                "suits": [
+                  "Owners who want a low-water garden without a gravel/bare-desert look",
+                  "Villas with a clean modern facade that porcelain tile and straight lines can echo",
+                  "Plots wanting a strong evening presence \u2014 uplit palms, LED lines \u2014 without a full luxury-resort build"
+                ],
+                "keyPlants": [
+                  {
+                    "slug": "date-palm",
+                    "name": "Date Palm",
+                    "url": "https://plantguide.ae/plants/date-palm"
+                  },
+                  {
+                    "slug": "washingtonia-palm",
+                    "name": "Mexican Fan Palm",
+                    "url": "https://plantguide.ae/plants/washingtonia-palm"
+                  },
+                  {
+                    "slug": "ghaf",
+                    "name": "Ghaf tree",
+                    "url": "https://plantguide.ae/plants/ghaf"
+                  },
+                  {
+                    "slug": "texas-sage",
+                    "name": "Texas Sage",
+                    "url": "https://plantguide.ae/plants/texas-sage"
+                  },
+                  {
+                    "slug": "hopbush",
+                    "name": "Hopbush",
+                    "url": "https://plantguide.ae/plants/hopbush"
+                  },
+                  {
+                    "slug": "arak",
+                    "name": "Arak",
+                    "url": "https://plantguide.ae/plants/arak"
+                  },
+                  {
+                    "slug": "agave",
+                    "name": "Agave",
+                    "url": "https://plantguide.ae/plants/agave"
+                  },
+                  {
+                    "slug": "desert-grass",
+                    "name": "Desert grass",
+                    "url": "https://plantguide.ae/plants/desert-grass"
+                  }
+                ],
+                "url": "https://plantguide.ae/styles/desert-modern",
+                "markdownUrl": "https://plantguide.ae/styles/desert-modern.md",
+                "image": {
+                  "url": "https://plantguide.ae/images/generated/styles/desert-modern/a-hero-v2.webp",
+                  "alt": "Desert-modern Dubai villa garden hero: large-format tiled paving with artificial-grass strips, palms and clipped shrubs by a rendered wall"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check": "A3",
+      "target": "deepwiki",
+      "status": "INFO",
+      "detail": "guardrail evaluated on the error result and failed closed",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "error": {
+          "code": -32603,
+          "message": "guardrail check failed"
+        }
+      }
+    },
+    {
+      "check": "A4",
+      "target": "ottobot-lic",
+      "status": "INFO",
+      "detail": "#4245 reproduced: success -> -32001 'REJECTED_BY_GUARDRAIL'; upstream JSON-RPC error -> -32602 'argument state must be a two-letter state code, e.g. CA' (untouched)",
+      "raw": {
+        "bad": {
+          "jsonrpc": "2.0",
+          "id": 4,
+          "error": {
+            "code": -32602,
+            "message": "argument state must be a two-letter state code, e.g. CA"
+          }
+        },
+        "good": {
+          "jsonrpc": "2.0",
+          "id": 4,
+          "error": {
+            "code": -32001,
+            "message": "REJECTED_BY_GUARDRAIL"
+          }
+        }
+      }
+    },
+    {
+      "check": "A5",
+      "target": "http-upstream",
+      "status": "PASS",
+      "detail": "control: all 5 interim messages + result forwarded; interim on POST response; error -> ['error']",
+      "raw": null
+    },
+    {
+      "check": "A5",
+      "target": "http-upstream",
+      "status": "INFO",
+      "detail": "#4245 reproduced (expression): result rejected; interim through untouched ['log', 'progress', 'elicit', 'sampling', 'roots']; JSON-RPC error through untouched=True",
+      "raw": {
+        "post_methods": [
+          "notifications/message",
+          "notifications/progress",
+          "elicitation/create",
+          "sampling/createMessage",
+          "roots/list",
+          "error"
+        ],
+        "get_methods": [],
+        "err": [
+          "error"
+        ]
+      }
+    },
+    {
+      "check": "A5",
+      "target": "http-upstream",
+      "status": "INFO",
+      "detail": "#4245 (remote): stream call hooks ['request', 'response'], 5 interim messages forwarded with no hook; error call hooks ['request'], error forwarded untouched",
+      "raw": {
+        "stream_phases": [
+          "request",
+          "response"
+        ],
+        "err_phases": [
+          "request"
+        ],
+        "interim_through": [
+          "log",
+          "progress",
+          "elicit",
+          "sampling",
+          "roots"
+        ]
+      }
+    },
+    {
+      "check": "A5",
+      "target": "stdio-upstream",
+      "status": "PASS",
+      "detail": "control: all 5 interim messages + result forwarded; interim on session GET stream; error -> ['error']",
+      "raw": null
+    },
+    {
+      "check": "A5",
+      "target": "stdio-upstream",
+      "status": "INFO",
+      "detail": "#4245 reproduced (expression): result rejected; interim through untouched ['log', 'progress', 'elicit', 'sampling', 'roots']; JSON-RPC error through untouched=True",
+      "raw": {
+        "post_methods": [
+          "error"
+        ],
+        "get_methods": [
+          "notifications/message",
+          "notifications/progress",
+          "elicitation/create",
+          "sampling/createMessage",
+          "roots/list"
+        ],
+        "err": [
+          "error"
+        ]
+      }
+    },
+    {
+      "check": "A5",
+      "target": "stdio-upstream",
+      "status": "INFO",
+      "detail": "#4245 (remote): stream call hooks ['request', 'response'], 5 interim messages forwarded with no hook; error call hooks ['request'], error forwarded untouched",
+      "raw": {
+        "stream_phases": [
+          "request",
+          "response"
+        ],
+        "err_phases": [
+          "request"
+        ],
+        "interim_through": [
+          "log",
+          "progress",
+          "elicit",
+          "sampling",
+          "roots"
+        ]
+      }
+    },
+    {
+      "check": "B",
+      "target": "pathwren",
+      "status": "PASS",
+      "detail": "remote processor down, failClosed -> -32603 'guardrail check failed'",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "error": {
+          "code": -32603,
+          "message": "guardrail check failed"
+        }
+      }
+    },
+    {
+      "check": "C1",
+      "target": "pathwren",
+      "status": "PASS",
+      "detail": "original rule, roles=\"superoperator\" -> changes_since listed=True (expected True); open tool listed=True",
+      "raw": [
+        "changes_since",
+        "list_crawlers"
+      ]
+    },
+    {
+      "check": "C2",
+      "target": "pathwren",
+      "status": "PASS",
+      "detail": "shipped rule, roles=\"superoperator\" -> changes_since listed=False (expected False); open tool listed=True",
+      "raw": [
+        "list_crawlers"
+      ]
+    },
+    {
+      "check": "C3",
+      "target": "pathwren",
+      "status": "PASS",
+      "detail": "shipped rule, roles=[\"operator\"] -> changes_since listed=True (expected True); open tool listed=True",
+      "raw": [
+        "changes_since",
+        "list_crawlers"
+      ]
+    },
+    {
+      "check": "C4",
+      "target": "pathwren",
+      "status": "PASS",
+      "detail": "shipped rule, no token -> changes_since listed=False (expected False); open tool listed=True",
+      "raw": [
+        "list_crawlers"
+      ]
+    }
+  ]
+}

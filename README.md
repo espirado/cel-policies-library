@@ -1,6 +1,10 @@
 # CEL policies for agentgateway MCP
 
-CEL policies, templates, an external processor and tests for [agentgateway](https://agentgateway.dev)'s MCP policy layers. Everything is validated by running it **inside agentgateway** (v1.7.0, plus a version matrix back to 1.0.1) and against the real rci-knowledge MCP server (45 tools) with real OIDC tokens from Keycloak.
+A **library + notes** for [agentgateway](https://agentgateway.dev) MCP: CEL policies, rebindable YAML, tests that run inside the gateway, and two measured pitfalls. It is not a fork of agentgateway and not a second copy of [`examples/mcp-guardrails/expression`](https://github.com/agentgateway/agentgateway/tree/main/examples/mcp-guardrails/expression) (the toy: stdio `everything`, deny `DO_NOT_SEND`, mask emails/secrets).
+
+Point the gateway at **your** Streamable-HTTP MCP server. Tool names and field lists in the example files are bindings you replace. One hosted 45-tool server is an example target, not the product.
+
+Validated inside agentgateway (v1.7.0, plus a version matrix back to 1.0.1) and against public MCP servers. What upstream already covers, and what this pack does not (Entra, remote OAuth, webhooks, [#4245](https://github.com/agentgateway/agentgateway/issues/4245)), is in [UPSTREAM.md](UPSTREAM.md). The unpublished discussion text is [DISCUSSION_DRAFT.md](DISCUSSION_DRAFT.md) — do not post it until [EVIDENCE.md](EVIDENCE.md) matches the tests it cites.
 
 | Layer | agentgateway feature | Question it answers | Policies |
 |---|---|---|---|
@@ -10,16 +14,20 @@ CEL policies, templates, an external processor and tests for [agentgateway](http
 
 Extracted from [mcp-judge-seam](https://github.com/espirado/mcp-judge-seam) (two authorization rules) and [mcp-trace-gate](https://github.com/espirado/mcp-trace-gate) (the signal thresholds).
 
+What already exists in agentgateway (toy `examples/mcp-guardrails/expression`, JWT authz example, Entra/OAuth discussions) and what this pack does **not** cover is in [UPSTREAM.md](UPSTREAM.md). Read that before posting anything.
+
 ## Use it
 
 | Need | Template | Needs |
 |---|---|---|
-| authorization rules | [templates/agentgateway.yaml](templates/agentgateway.yaml) | agentgateway 1.0.1+ |
-| authentication + authorization on real tool names | [templates/agentgateway-rci-knowledge.yaml](templates/agentgateway-rci-knowledge.yaml) | 1.0.1+, an OIDC provider |
-| result guardrails | [templates/agentgateway-calibration.yaml](templates/agentgateway-calibration.yaml) | 1.7.0+ (`kind: expression`) |
-| cross-call signal policies | [templates/agentgateway-signals.yaml](templates/agentgateway-signals.yaml) + `processors/signal_processor.py` | 1.7.0 (1.3.1 to 1.6.0 work but share history across sessions) |
+| exact tool-name authorization | [templates/agentgateway.yaml](templates/agentgateway.yaml) | agentgateway 1.0.1+ |
+| prefix authorization (`lookup_*` / `list_*` / `calculate_*`) | [templates/agentgateway-prefix-authz.yaml](templates/agentgateway-prefix-authz.yaml) | 1.0.1+ |
+| result guardrails (example field lists) | [templates/agentgateway-calibration.yaml](templates/agentgateway-calibration.yaml) | 1.7.0+ (`kind: expression`) |
+| cross-call signal policies | [templates/agentgateway-signals.yaml](templates/agentgateway-signals.yaml) + `processors/signal_processor.py` | 1.3.1+ (`kind: remote`); `kind: expression` still needs 1.7.0 |
 
-Check any config with `agentgateway --validate-only -f your.yaml`. The field lists, tool names, thresholds and freshness rules in the policies are defaults for rci-knowledge's tools; edit them for yours.
+[templates/agentgateway-rci-knowledge.yaml](templates/agentgateway-rci-knowledge.yaml) is the prefix-authz template pointed at one example host, with optional OIDC. Copy it; change `host`, issuer and JWKS.
+
+Check any config with `agentgateway --validate-only -f your.yaml`. Bind `mcp.tool.name` and required fields to **your** tools. Unscoped result rules fail closed on every other tool.
 
 ## The policies
 
@@ -60,7 +68,7 @@ Thresholds are mcp-trace-gate's demo defaults.
 
 ## What was validated, and how
 
-Which numbers were re-run in a given session, and which tests back each claim, is in [EVIDENCE.md](EVIDENCE.md). Gateway tests (`tests/test_gateway.py`, `tests/test_signal_processor.py`, `tests/test_keycloak.py`) run real agentgateway processes with a mock MCP server and, for Keycloak, real tokens. Real-traffic scripts call the hosted rci-knowledge server (`https://api.rcintell.com/v1/mcp`), read-only tools only, with the API key in an environment variable (never printed or written to a file).
+Which numbers were re-run in a given session, and which tests back each claim, is in [EVIDENCE.md](EVIDENCE.md). Gateway tests (`tests/test_gateway.py`, `tests/test_signal_processor.py`, `tests/test_keycloak.py`) run real agentgateway processes with a mock MCP server and, for Keycloak, real tokens. `scripts/live_public_mcp.py` puts the gateway in front of public Streamable-HTTP MCP servers (no key). A separate example pack of scripts talks to one hosted 45-tool server when `RCI_API_KEY` is set; that server is a validation target, not a dependency of the package.
 
 | Policy | In agentgateway with controlled inputs | Real traffic |
 |---|---|---|
@@ -83,7 +91,7 @@ The same suite ran against each release (macOS arm64):
 | Release | Result (suite re-run 2026-11-09 with the current rules) |
 |---|---|
 | 1.0.1, 1.1.0, 1.2.1 | authorization passes, including with real Keycloak tokens (70 passed, the 24 guardrail and processor tests skipped). The original `"operator" in jwt.roles` form failed the JWT allow cases on 1.0.1; the `exists` form passes |
-| 1.3.1, 1.4.1, 1.5.0, 1.6.0 | authorization passes (78 passed, 16 skipped). `kind: remote` works, so the signal processor runs, but the gateway sends no `session` metadata, so contradiction history is shared across sessions (the processor logs a warning). `kind: expression` is not accepted |
+| 1.3.1, 1.4.1, 1.5.0, 1.6.0 | authorization passes (1.6.0 re-run 2026-11-09: 78 passed, 17 skipped). `kind: remote` works. Contradiction is scoped to the MCP session when the upstream server mints a unique `Mcp-Session-Id` per initialize. `kind: expression` is not accepted |
 | 1.7.0 | everything passes (94 tests) |
 
 1.3.0, 1.4.0, 1.5.0 betas, 1.6.0 pre-releases and patch releases in between were not run. Also run: Linux aarch64 (a `python:3.12-slim` container with the Linux v1.7.0 binary), clean `pip install -r requirements.txt`: 84 passed, 10 skipped (Keycloak and the two sibling repos are absent there).
@@ -96,14 +104,15 @@ These are defects the mock tests did not show:
 2. **Unscoped guardrails rejected other tools' results.** With several tools behind one gateway, rules without a tool and shape guard errored on results with no `results` list and failed closed. Fixed with the guards; a regression test covers it.
 3. **`requirements.txt` was missing `grpcio`.** Found by a clean install in a Linux container.
 4. **The original role rule admitted a string `roles` claim.** In agentgateway 1.7.0, `"operator" in jwt.roles` is a substring test when the claim is a string: a token whose `roles` is `"superoperator"` was allowed to call `grant_admin_access` (`test_original_substring_rule_admits_a_string_roles_claim`). The same rule also errored when a token had `sub` but no `roles`. The role rules now use `has(jwt.roles)` and `jwt.roles.exists(r, r == "operator")`, so a missing claim is a clean non-match and a string claim is denied. mcp-judge-seam's own `allow_admin.cel` and `agentgateway.yaml` still use the original form.
-5. **Session scoping needs 1.7.0** (above).
+5. **A constant mock `Mcp-Session-Id` looked like a 1.6.0 session leak.** `tests/gateway/mock_mcp.py` used to return `mock-session` on every initialize. agentgateway 1.6.0 wraps that upstream id, so two pytest "sessions" were one session and contradiction history was shared. Live MCP on 1.6.0 (pathwren, plantguide) forwarded distinct non-empty ExtMCP `session` values. The mock now mints a UUID per initialize; isolation holds on 1.4.1, 1.6.0, and 1.7.0. See [EVIDENCE.md](EVIDENCE.md).
 6. **Test harness:** `adminAddr: "off"` is rejected by releases before 1.3, so the harness uses free ports.
 
 ### Behaviour observed in agentgateway
 
 - A guardrail `reject` on `tools/call` comes back as a JSON-RPC error `-32001` in the response phase and as a tool result with `isError: true` in the request phase.
 - A tool no `mcpAuthorization` rule allows is missing from `tools/list`; calling it returns HTTP 400 (`Unknown tool` on 1.4.1, `unknown resource` on 1.7.0).
-- An expression error fails closed: `guardrail check failed` for guardrails, deny for authorization.
+- An expression error fails closed: `-32603 guardrail check failed` for guardrails, deny for authorization. A guardrail expression is evaluated on an upstream `result.isError: true` (seen live on deepwiki) but **not** on an upstream JSON-RPC `error` object, a notification, or a server-initiated request in the same stream; those pass through untouched on 1.6.0 and 1.7.0, for `kind: expression` and `kind: remote` alike, on Streamable-HTTP and stdio targets (this is [agentgateway#4245](https://github.com/agentgateway/agentgateway/issues/4245), fix pending in [#4345](https://github.com/agentgateway/agentgateway/pull/4345); `scripts/live_pitfalls.py` A4/A5).
+- A `kind: remote` processor that is unreachable with `failureMode: failClosed` is denied with `guardrail check failed` on 1.7.0; 1.6.0 echoes the connect error (`mcpGuardrails checkRequest failed: upstream call failed: Connect: Connection refused`).
 - Indexing a list with a JSON number needs `int(...)`.
 - The client's `X-API-Key` header reaches the upstream server through the gateway. The processor does not receive it unless `requestHeaders` is set.
 - Keycloak puts realm roles under `realm_access.roles`; the tests map them to a top-level `roles` claim, which is what these rules read.
@@ -122,14 +131,15 @@ AGENTGATEWAY_BIN=/path/to/agentgateway .venv/bin/python -m pytest -q   # 94 pass
 
 Without a binary the gateway tests skip. Without Keycloak its 8 tests skip. Release binaries: <https://github.com/agentgateway/agentgateway/releases>.
 
-Real-traffic scripts need `RCI_API_KEY` and `AGENTGATEWAY_BIN` in the environment (and Keycloak for the authz script):
+`scripts/live_public_mcp.py` is the community live path (no API key). The `live_rcintel_*.py` scripts are one example host; they need `RCI_API_KEY` and are not required to use the templates:
 
-| Script | What it checks | Checks |
+| Script | What it checks | Needs |
 |---|---|---|
-| `scripts/live_rcintel_gateway.py` | result guardrails on `lookup_mpfs`, `lookup_opps`, `list_dataset_snapshots`, plus two labelled mechanism checks | 24 |
-| `scripts/live_rcintel_processor.py` | the signal processor enforcing contradiction on real traffic | 16 |
-| `scripts/live_rcintel_authz.py` | authorization with Keycloak tokens on the real tool list, guardrails merged in | 17 |
-| `scripts/live_rcintel_signals.py` | real signals scored with mcp-trace-gate; each policy evaluated in cel-python, trace-gate and agentgateway | 5 policies x 8 vectors |
+| `scripts/live_public_mcp.py` | passthrough, prefix authorization, and rci guardrail scoping against public Streamable-HTTP MCP servers | `AGENTGATEWAY_BIN` (1.7.0). `--discover N` adds registry URLs; `--gateway-discovered N` runs the full checks on those |
+| `scripts/live_rcintel_gateway.py` | result guardrails on `lookup_mpfs`, `lookup_opps`, `list_dataset_snapshots`, plus two labelled mechanism checks | `RCI_API_KEY` |
+| `scripts/live_rcintel_processor.py` | the signal processor enforcing contradiction on real traffic | `RCI_API_KEY` |
+| `scripts/live_rcintel_authz.py` | authorization with Keycloak tokens on the real tool list, guardrails merged in | `RCI_API_KEY`, Keycloak |
+| `scripts/live_rcintel_signals.py` | real signals scored with mcp-trace-gate; each policy evaluated in cel-python, trace-gate and agentgateway | `RCI_API_KEY` |
 | `scripts/bench_gateway.py` | gateway overhead | |
 | `scripts/live_gateway_check.py` | the offline evaluator's authorization predictions against a running gateway | |
 
@@ -150,7 +160,9 @@ Exit codes: 0 permitted (ALLOW or PROCEED), 1 DENY, BLOCK or REVIEW, 2 error. It
 
 ## Known gaps
 
-- **One hosted server, one key.** All real-traffic results come from rci-knowledge using one production-tier API key, read-only tools, on 2026-11-06 and re-run on 2026-11-09 after the processor and rule edits. Other servers, other tools and the server's behaviour on other days were not tested.
+- **Example pack vs product.** Result-guardrail field lists and `processors/signal_processor.example.json` are bound to one example server's tools. Prefix authorization is a naming convention. Point the same layers at your MCP server and rebind names and fields.
+- **Public MCP traffic.** Passthrough and prefix hide/deny were run through agentgateway 1.7.0 against 35 public Streamable-HTTP servers; 30 of them returned a result through the scoped guardrails with no reject ([EVIDENCE.md](EVIDENCE.md) has the breakdown of the other 5). The fail-closed, processor-down, and substring-role pitfalls were each reproduced live (`scripts/live_pitfalls.py`), not only on the mock. That does not test your tools' result shapes.
+- **One deep example host.** Completeness/staleness/contradiction on real fee-schedule rows used one hosted 45-tool server and one production-tier API key, read-only tools. That host is optional.
 - **The server's data cannot trigger two paths.** It never returns an incomplete `lookup_mpfs` row or a row from a superseded year (it holds only CY2026). Those two rules were run on a real payload with one parameter changed; the other incompleteness and snapshot-age rules were triggered by real data.
 - **Identity.** Tokens come from a local Keycloak container through the password grant, not from a production or cloud identity provider. A top-level `roles` claim is assumed.
 - **Platforms and versions.** macOS arm64 and Linux aarch64. No x86_64 or Windows. Releases listed above only.
@@ -159,6 +171,7 @@ Exit codes: 0 permitted (ALLOW or PROCEED), 1 DENY, BLOCK or REVIEW, 2 error. It
 - **`allow_lookup_tools` trusts naming.** It was checked against the 45 real tool names, not against what each tool does.
 - **One local model** (`llama3.1:8b`) drove the authorization traffic. The rules do not depend on the model.
 - Does not replace judges or tracing; it adds deterministic checks at the tool-call boundary.
+- **Not Entra, not remote MCP OAuth, not webhook prompt-guards, not [#4245](https://github.com/agentgateway/agentgateway/issues/4245).** Those are open upstream asks. See [UPSTREAM.md](UPSTREAM.md).
 
 ## License
 

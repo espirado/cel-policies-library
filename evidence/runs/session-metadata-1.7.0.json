@@ -1,0 +1,114 @@
+{
+  "binary": {
+    "version": "1.7.0",
+    "path": "/Users/espirado/Downloads/AAIF/cel-policies-library/bin/agentgateway-1.7.0"
+  },
+  "targets": [
+    {
+      "name": "pathwren",
+      "url": "https://www.pathwren.workers.dev/mcp",
+      "ok": true,
+      "http_sids": [
+        "h2dZgBfrkeuGFnW3UD8Dy/qAL6I0Znj3FjmfO7Q/YAi4qdP5quVo1TgSi9fITKA825QipL8iAXxF3o363m6CluNVMG75OaSNGEyvcwvFo6ylnZ2rBmgEhA8lZBZg7AT156EOKtMFEuMtZsnJRCvbkA==",
+        "IVf8Tw7RxxjOusAOr320+4Nh6GiuXoAZoMWIZhx1VQFaJNpFO+GT3MzhmBCf74EvtYS9nXb7HBdXr8Ntnc+DIvT2pIlai27YROOWPr8SUrIYnsjddyaa3OcSciY/wqQf5JQFF1UfZsXBeAt2Z7gIrw=="
+      ],
+      "http_sids_distinct": true,
+      "extmcp_events": [
+        {
+          "phase": "request",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "sfPtJOeX2RhfZOdbKG1LcppO/p084tgfP8dnW9WdQDzw/6eAME+dhyq6/ocguvQe9FsZIemPyHhB+WA/myzPrdWWBaTGVkhFO3tjxbZglhh13emgyZvz+LaYTsMXUB8oxgWB8Kd61vspIqno/hGebg=="
+        },
+        {
+          "phase": "response",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "sfPtJOeX2RhfZOdbKG1LcppO/p084tgfP8dnW9WdQDzw/6eAME+dhyq6/ocguvQe9FsZIemPyHhB+WA/myzPrdWWBaTGVkhFO3tjxbZglhh13emgyZvz+LaYTsMXUB8oxgWB8Kd61vspIqno/hGebg=="
+        },
+        {
+          "phase": "request",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "Vovgi3vIq6SAF8G2GdH95k9PxsWLZeO2NNX85ogaqLRB4q0H38D1NbbE2ZDvpr0M3duAqNPCSwiV0yoICksc5S+OsNnLuxor6efXXtFbl25Jzf0lyUD0+MNFrSEP4PwNu9u2q/pKO7330+Ie1pYkPg=="
+        },
+        {
+          "phase": "response",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "Vovgi3vIq6SAF8G2GdH95k9PxsWLZeO2NNX85ogaqLRB4q0H38D1NbbE2ZDvpr0M3duAqNPCSwiV0yoICksc5S+OsNnLuxor6efXXtFbl25Jzf0lyUD0+MNFrSEP4PwNu9u2q/pKO7330+Ie1pYkPg=="
+        }
+      ],
+      "extmcp_sessions": [
+        "h2dZgBfrkeuGFnW3UD8Dy/qAL6I0Znj3FjmfO7Q/YAi4qdP5quVo1TgSi9fITKA825QipL8iAXxF3o363m6CluNVMG75OaSNGEyvcwvFo6ylnZ2rBmgEhA8lZBZg7AT156EOKtMFEuMtZsnJRCvbkA==",
+        "h2dZgBfrkeuGFnW3UD8Dy/qAL6I0Znj3FjmfO7Q/YAi4qdP5quVo1TgSi9fITKA825QipL8iAXxF3o363m6CluNVMG75OaSNGEyvcwvFo6ylnZ2rBmgEhA8lZBZg7AT156EOKtMFEuMtZsnJRCvbkA==",
+        "IVf8Tw7RxxjOusAOr320+4Nh6GiuXoAZoMWIZhx1VQFaJNpFO+GT3MzhmBCf74EvtYS9nXb7HBdXr8Ntnc+DIvT2pIlai27YROOWPr8SUrIYnsjddyaa3OcSciY/wqQf5JQFF1UfZsXBeAt2Z7gIrw==",
+        "IVf8Tw7RxxjOusAOr320+4Nh6GiuXoAZoMWIZhx1VQFaJNpFO+GT3MzhmBCf74EvtYS9nXb7HBdXr8Ntnc+DIvT2pIlai27YROOWPr8SUrIYnsjddyaa3OcSciY/wqQf5JQFF1UfZsXBeAt2Z7gIrw=="
+      ],
+      "extmcp_any_nonempty": true,
+      "extmcp_distinct_nonempty": 2,
+      "verdict": "isolated_as_expected"
+    },
+    {
+      "name": "plantguide",
+      "url": "https://plantguide.ae/mcp",
+      "ok": true,
+      "http_sids": [
+        "sfPtJOeX2RhfZOdbKG1LcppO/p084tgfP8dnW9WdQDzw/6eAME+dhyq6/ocguvQe9FsZIemPyHhB+WA/myzPrdWWBaTGVkhFO3tjxbZglhh13emgyZvz+LaYTsMXUB8oxgWB8Kd61vspIqno/hGebg==",
+        "Vovgi3vIq6SAF8G2GdH95k9PxsWLZeO2NNX85ogaqLRB4q0H38D1NbbE2ZDvpr0M3duAqNPCSwiV0yoICksc5S+OsNnLuxor6efXXtFbl25Jzf0lyUD0+MNFrSEP4PwNu9u2q/pKO7330+Ie1pYkPg=="
+      ],
+      "http_sids_distinct": true,
+      "extmcp_events": [
+        {
+          "phase": "request",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "sfPtJOeX2RhfZOdbKG1LcppO/p084tgfP8dnW9WdQDzw/6eAME+dhyq6/ocguvQe9FsZIemPyHhB+WA/myzPrdWWBaTGVkhFO3tjxbZglhh13emgyZvz+LaYTsMXUB8oxgWB8Kd61vspIqno/hGebg=="
+        },
+        {
+          "phase": "response",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "sfPtJOeX2RhfZOdbKG1LcppO/p084tgfP8dnW9WdQDzw/6eAME+dhyq6/ocguvQe9FsZIemPyHhB+WA/myzPrdWWBaTGVkhFO3tjxbZglhh13emgyZvz+LaYTsMXUB8oxgWB8Kd61vspIqno/hGebg=="
+        },
+        {
+          "phase": "request",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "Vovgi3vIq6SAF8G2GdH95k9PxsWLZeO2NNX85ogaqLRB4q0H38D1NbbE2ZDvpr0M3duAqNPCSwiV0yoICksc5S+OsNnLuxor6efXXtFbl25Jzf0lyUD0+MNFrSEP4PwNu9u2q/pKO7330+Ie1pYkPg=="
+        },
+        {
+          "phase": "response",
+          "method": "tools/call",
+          "metadata_keys": [
+            "session"
+          ],
+          "session": "Vovgi3vIq6SAF8G2GdH95k9PxsWLZeO2NNX85ogaqLRB4q0H38D1NbbE2ZDvpr0M3duAqNPCSwiV0yoICksc5S+OsNnLuxor6efXXtFbl25Jzf0lyUD0+MNFrSEP4PwNu9u2q/pKO7330+Ie1pYkPg=="
+        }
+      ],
+      "extmcp_sessions": [
+        "sfPtJOeX2RhfZOdbKG1LcppO/p084tgfP8dnW9WdQDzw/6eAME+dhyq6/ocguvQe9FsZIemPyHhB+WA/myzPrdWWBaTGVkhFO3tjxbZglhh13emgyZvz+LaYTsMXUB8oxgWB8Kd61vspIqno/hGebg==",
+        "sfPtJOeX2RhfZOdbKG1LcppO/p084tgfP8dnW9WdQDzw/6eAME+dhyq6/ocguvQe9FsZIemPyHhB+WA/myzPrdWWBaTGVkhFO3tjxbZglhh13emgyZvz+LaYTsMXUB8oxgWB8Kd61vspIqno/hGebg==",
+        "Vovgi3vIq6SAF8G2GdH95k9PxsWLZeO2NNX85ogaqLRB4q0H38D1NbbE2ZDvpr0M3duAqNPCSwiV0yoICksc5S+OsNnLuxor6efXXtFbl25Jzf0lyUD0+MNFrSEP4PwNu9u2q/pKO7330+Ie1pYkPg==",
+        "Vovgi3vIq6SAF8G2GdH95k9PxsWLZeO2NNX85ogaqLRB4q0H38D1NbbE2ZDvpr0M3duAqNPCSwiV0yoICksc5S+OsNnLuxor6efXXtFbl25Jzf0lyUD0+MNFrSEP4PwNu9u2q/pKO7330+Ie1pYkPg=="
+      ],
+      "extmcp_any_nonempty": true,
+      "extmcp_distinct_nonempty": 2,
+      "verdict": "isolated_as_expected"
+    }
+  ]
+}

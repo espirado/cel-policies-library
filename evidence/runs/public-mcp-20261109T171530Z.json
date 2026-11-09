@@ -1,0 +1,1714 @@
+{
+  "started": "2026-11-09T17:14:01Z",
+  "agentgateway": {
+    "version": "1.7.0",
+    "git_revision": "26f5aebe99a36a037fe54f8080a608aca5547e15",
+    "rust_version": "1.99.0",
+    "build_profile": "release",
+    "build_target": "aarch64-apple-darwin",
+    "crypto_backend": "aws-lc-rs",
+    "crypto_fips": false
+  },
+  "binary": "/Users/espirado/Downloads/AAIF/cel-policies-library/bin/agentgateway-1.7.0",
+  "rci_api_key_present": false,
+  "targets": [
+    {
+      "name": "mcpharbor-search",
+      "url": "https://mcpharbor.app/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.136,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search_servers",
+          "get_server",
+          "list_categories",
+          "recent_servers",
+          "search_tools",
+          "get_tool"
+        ],
+        "n_tools": 6,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_categories"
+          ],
+          "calculate_": [],
+          "other": 5
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "placeholder-tools",
+      "url": "https://mcp.placeholder.com/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.314,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "image_url",
+          "photo_url",
+          "avatar_url",
+          "qr_url",
+          "barcode_url",
+          "brand_assets",
+          "get_person",
+          "generate_people",
+          "safe_test_values",
+          "lorem_text",
+          "localized_text",
+          "stress_text",
+          "pseudo_localize",
+          "mock_api",
+          "company_overview",
+          "company_query",
+          "company_record",
+          "company_wiki_page",
+          "company_eval_questions",
+          "brand_kit",
+          "list_fixtures",
+          "get_fixture",
+          "dummy_files",
+          "http_test_endpoints"
+        ],
+        "n_tools": 24,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_fixtures"
+          ],
+          "calculate_": [],
+          "other": 23
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "superdocs-sbox",
+      "url": "https://superdocs.sboxcool.com/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.598,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search",
+          "get_type",
+          "get_examples",
+          "list_workflows",
+          "get_workflow",
+          "list_namespaces",
+          "get_namespace_types",
+          "get_patterns",
+          "get_related_types",
+          "get_stats",
+          "get_network_storage_guide",
+          "get_pitfalls",
+          "get_pitfall",
+          "get_sbox_tools",
+          "diagnose_error",
+          "get_generalized_patterns",
+          "get_api_catalog",
+          "get_code_templates",
+          "get_component_info",
+          "list_component_types",
+          "get_razor_ui_components",
+          "get_css_reference",
+          "get_networking_patterns",
+          "get_method_signature",
+          "search_properties",
+          "get_gameobject_guide",
+          "get_scene_guide",
+          "get_recipes",
+          "ingest_code_folder",
+          "suggestions",
+          "sbox_generate_material",
+          "sbox_generate_terrain",
+          "sbox_import_model",
+          "sbox_model_status",
+          "get_gameobject_tree",
+          "search_gameobjects",
+          "get_type_members",
+          "browse_api",
+          "compare_types",
+          "get_type_hierarchy",
+          "get_member_details",
+          "get_all_with_attribute",
+          "get_unity_migration_guide",
+          "get_restricted_apis",
+          "get_event_system_guide",
+          "get_endpoint_standards",
+          "get_quick_reference",
+          "find_usages",
+          "find_callers",
+          "find_implementers",
+          "find_overrides",
+          "get_symbol_graph",
+          "get_source_snippet",
+          "resolve_symbol",
+          "get_attribute_usage_map",
+          "get_inheritance_chain_rich",
+          "search_snippets",
+          "get_type_context_bundle",
+          "get_razor_component",
+          "get_scss_selectors",
+          "related_symbols_semantic",
+          "get_razor_examples",
+          "get_namespace_examples",
+          "get_ingested_patterns",
+          "get_editor_integration",
+          "get_sbox_news",
+          "get_sbox_leaderboard",
+          "get_sbox_achievements",
+          "get_sbox_player_count",
+          "get_sbox_steam_news",
+          "get_sbox_reviews",
+          "search_sbox_docs",
+          "get_sbox_doc_page",
+          "list_sbox_doc_categories",
+          "get_schema_diff",
+          "unified_search",
+          "get_whats_new"
+        ],
+        "n_tools": 77,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_workflows",
+            "list_namespaces",
+            "list_component_types",
+            "list_sbox_doc_categories"
+          ],
+          "calculate_": [],
+          "other": 73
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "pathwren-crawler-index",
+      "url": "https://www.pathwren.workers.dev/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.267,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "whoami",
+          "example",
+          "classify_user_agent",
+          "lookup_crawler",
+          "list_crawlers",
+          "generate_robots_txt",
+          "is_verified_crawler_ip",
+          "whats_changed",
+          "changes_since"
+        ],
+        "n_tools": 9,
+        "prefixes": {
+          "lookup_": [
+            "lookup_crawler"
+          ],
+          "list_": [
+            "list_crawlers"
+          ],
+          "calculate_": [],
+          "other": 7
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "mizan-bans",
+      "url": "https://mizan.ac/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.565,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "lookup_player",
+          "check_players",
+          "list_sources",
+          "registry_stats",
+          "list_my_communities"
+        ],
+        "n_tools": 5,
+        "prefixes": {
+          "lookup_": [
+            "lookup_player"
+          ],
+          "list_": [
+            "list_sources",
+            "list_my_communities"
+          ],
+          "calculate_": [],
+          "other": 2
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "tandem-docs",
+      "url": "https://tandem.ac/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.924,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search_docs",
+          "get_doc",
+          "get_start_path",
+          "recommend_next_docs",
+          "answer_how_to",
+          "get_tandem_guide",
+          "warmup_docs_cache",
+          "get_docs_cache_status",
+          "refresh_docs_index",
+          "refresh_doc_page",
+          "invalidate_docs_cache",
+          "compare_docs_index_refresh",
+          "compare_doc_page_refresh"
+        ],
+        "n_tools": 13,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 13
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "apex-ai-academy",
+      "url": "https://apexai.academy/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.121,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "list_courses",
+          "list_lessons",
+          "get_lesson",
+          "search",
+          "latest_news",
+          "list_deep_dives",
+          "get_resources",
+          "get_pricing",
+          "subscribe_link",
+          "get_premium_lesson",
+          "get_progress",
+          "mark_lesson_complete",
+          "forum_search",
+          "forum_read",
+          "forum_post",
+          "forum_hello",
+          "forum_reply",
+          "forum_category_create",
+          "agent_handoff",
+          "agent_notes_get",
+          "agent_notes_set",
+          "forum_edit",
+          "pair_agent",
+          "forum_polls_list",
+          "forum_poll_vote",
+          "agent_signup",
+          "agent_me",
+          "agent_progress",
+          "agent_quiz_answer",
+          "agent_delete_account"
+        ],
+        "n_tools": 30,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_courses",
+            "list_lessons",
+            "list_deep_dives"
+          ],
+          "calculate_": [],
+          "other": 27
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "ase-periodic-system",
+      "url": "https://ase.academy/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.195,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "overview",
+          "find_elements",
+          "get_element",
+          "repository_checklist"
+        ],
+        "n_tools": 4,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 4
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "service-engineer-ai",
+      "url": "https://api.serviceengineer.academy/mcp",
+      "note": null,
+      "direct": {
+        "http": 401,
+        "protocol": "2024-11-05",
+        "elapsed_s": 0.667,
+        "ok": false,
+        "error": {
+          "http_error": "{\"jsonrpc\": \"2.0\", \"id\": null, \"error\": {\"code\": -32001, \"message\": \"Sign in to Service Engineer AI (OAuth), or use a personal key from serviceengineer.academy/ai, menu, Connect to Claude / ChatGPT.\"}}"
+        },
+        "tools": [],
+        "n_tools": 0,
+        "prefixes": {}
+      },
+      "reachable": false
+    },
+    {
+      "name": "brainy-uae-prices",
+      "url": "https://prices.brainy.ae/mcp/v2",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.85,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "commute_cost",
+          "costs_by_area",
+          "costs_by_emirate",
+          "data_sources",
+          "dewa",
+          "end_of_service_gratuity",
+          "fixed_monthly_costs",
+          "free_zone_companies",
+          "fuel_prices",
+          "fx_rates",
+          "grocery_compare_list",
+          "grocery_products",
+          "grocery_stores",
+          "health_insurance",
+          "housing_rents",
+          "housing_sales",
+          "labour_calculator",
+          "ministry_shop_prices",
+          "mobile_internet_plans",
+          "move_to_dubai",
+          "residence_visas",
+          "schools",
+          "shopper_price_reports",
+          "start_here",
+          "tax_savings_by_country",
+          "transport_fares"
+        ],
+        "n_tools": 26,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 26
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "dubai-real-estate",
+      "url": "https://mcp.datadubai.ae/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.719,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search",
+          "get_entity",
+          "get_market_summary",
+          "get_monthly_report",
+          "fetch",
+          "list_rankings"
+        ],
+        "n_tools": 6,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_rankings"
+          ],
+          "calculate_": [],
+          "other": 5
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "plantguide-dubai",
+      "url": "https://plantguide.ae/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.587,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "what_to_plant",
+          "search_plants",
+          "get_plant",
+          "get_planting_calendar",
+          "get_dubai_climate",
+          "list_garden_styles",
+          "get_garden_style",
+          "search_guides",
+          "get_guide",
+          "get_kitchen_garden_guide",
+          "get_indoor_plant_guide",
+          "get_indoor_style",
+          "estimate_garden_care_price",
+          "build_designer_link",
+          "get_contact_link"
+        ],
+        "n_tools": 15,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_garden_styles"
+          ],
+          "calculate_": [],
+          "other": 14
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "beachclubs-ae",
+      "url": "https://www.beachclubs.ae/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 2.368,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search_beach_clubs",
+          "get_beach_club",
+          "list_events",
+          "request_booking_enquiry"
+        ],
+        "n_tools": 4,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_events"
+          ],
+          "calculate_": [],
+          "other": 3
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "deepwiki",
+      "url": "https://mcp.deepwiki.com/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.467,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "ask_wiki_question",
+          "read_wiki_contents",
+          "read_wiki_structure"
+        ],
+        "n_tools": 3,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 3
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "grovisor-grotax",
+      "url": "https://mcp.grovisor.ae",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 1.448,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "grotax_compute_ct",
+          "grotax_health_check",
+          "grotax_list_health_questions",
+          "grotax_tp_thresholds",
+          "grotax_compare_sbr",
+          "grotax_penalties",
+          "grotax_qfzp_de_minimis",
+          "grotax_get_rules"
+        ],
+        "n_tools": 8,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 8
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "projectory-uae",
+      "url": "https://mcp.projectory.ae/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.537,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search",
+          "search_transactions",
+          "list_research_reports",
+          "fetch",
+          "list_project_facets",
+          "suggest_project_terms"
+        ],
+        "n_tools": 6,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_research_reports",
+            "list_project_facets"
+          ],
+          "calculate_": [],
+          "other": 4
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "events-aero",
+      "url": "https://events.aero/mcp/events",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.685,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search-events",
+          "get-event",
+          "featured-events",
+          "list-event-types",
+          "list-countries"
+        ],
+        "n_tools": 5,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 5
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "tide-sui",
+      "url": "https://api.tide.ad/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.693,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "explain_transaction",
+          "wallet_profile",
+          "wallet_history",
+          "balance_at",
+          "token_info",
+          "trace_funds",
+          "search",
+          "perp_market",
+          "price",
+          "sql",
+          "explain_unsigned",
+          "yield_options",
+          "yield_plan",
+          "build_transaction",
+          "withdraw_plan",
+          "receipt_for_transaction",
+          "confirm_execution",
+          "verify_receipt",
+          "agent_pass_report",
+          "agent_pass_precheck",
+          "agents_overview",
+          "agent_wallet",
+          "owner_agents",
+          "billing_status",
+          "billing_topup",
+          "get_object",
+          "get_object_at",
+          "object_children",
+          "package_info",
+          "events",
+          "checkpoint",
+          "candles",
+          "nfts",
+          "staking",
+          "order_book",
+          "walrus_blob",
+          "address_kind",
+          "docs"
+        ],
+        "n_tools": 38,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [],
+          "calculate_": [],
+          "other": 38
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "pantheon-ads",
+      "url": "https://mcp.pantheon.ad/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.431,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "list_projects",
+          "list_brand_voices",
+          "list_offer_briefs",
+          "list_analyzed_pages",
+          "search_ads_library",
+          "get_market_creators_data",
+          "get_top_performing_ads",
+          "get_active_ads_copy",
+          "get_saved_ads",
+          "get_strategic_avatar",
+          "get_competitor_active_ads",
+          "get_creative_analysis",
+          "get_job_status",
+          "run_competitor_spy",
+          "run_inspiration_search",
+          "run_brand_campaign_analysis",
+          "run_ad_copilot",
+          "analyze_ad",
+          "run_persuasion_analysis",
+          "run_sales_psychology",
+          "create_brand_voice",
+          "create_offer_brief",
+          "run_magic_tool"
+        ],
+        "n_tools": 23,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_projects",
+            "list_brand_voices",
+            "list_offer_briefs",
+            "list_analyzed_pages"
+          ],
+          "calculate_": [],
+          "other": 19
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "1court-state",
+      "url": "https://state.1court.ai/api/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.212,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "list_rule_sets",
+          "search_rules",
+          "get_rule",
+          "list_deadline_rules",
+          "calculate_deadline",
+          "list_states",
+          "list_counties",
+          "get_court_info",
+          "search_courts"
+        ],
+        "n_tools": 9,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_rule_sets",
+            "list_deadline_rules",
+            "list_states",
+            "list_counties"
+          ],
+          "calculate_": [
+            "calculate_deadline"
+          ],
+          "other": 4
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "4ai",
+      "url": "https://4ai.ai/mcp",
+      "note": null,
+      "direct": {
+        "http": 200,
+        "protocol": "2025-03-26",
+        "elapsed_s": 0.252,
+        "ok": true,
+        "error": null,
+        "tools": [
+          "search_domains",
+          "get_domain",
+          "list_categories",
+          "estimate_domain_value",
+          "suggest_domains",
+          "similar_domains",
+          "get_offer_link",
+          "compare_domains",
+          "how_buying_works",
+          "ai_domain_sales"
+        ],
+        "n_tools": 10,
+        "prefixes": {
+          "lookup_": [],
+          "list_": [
+            "list_categories"
+          ],
+          "calculate_": [],
+          "other": 9
+        },
+        "listing_error": null
+      },
+      "reachable": true,
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      }
+    },
+    {
+      "name": "rci-knowledge-unauthenticated",
+      "url": "https://api.rcintell.com/v1/mcp",
+      "note": "hosted domain-specific target; expected to refuse without RCI_API_KEY",
+      "direct": {
+        "http": 401,
+        "protocol": "2024-11-05",
+        "elapsed_s": 0.346,
+        "ok": false,
+        "error": {
+          "http_error": "{\"detail\":\"Missing API key\"}"
+        },
+        "tools": [],
+        "n_tools": 0,
+        "prefixes": {}
+      },
+      "reachable": false
+    }
+  ],
+  "discovered": [
+    {
+      "name": "ac.inference.sh/mcp",
+      "url": "https://api.inference.sh/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ac.snag/snag",
+      "url": "https://mcp.snag.ac/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ad.apogee/apogee",
+      "url": "https://app.apogee.ad/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ad.getle/leads",
+      "url": "https://mcp.getle.ad/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 35,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 4,
+        "calculate_": 0,
+        "other": 31
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "get_account",
+        "list_mailboxes",
+        "test_mailbox",
+        "list_campaigns",
+        "get_campaign_stats",
+        "get_campaign_analytics",
+        "control_campaign",
+        "create_campaign",
+        "crm_leads",
+        "crm_update_lead",
+        "check_deliverability",
+        "suppression",
+        "email_templates",
+        "get_inbox",
+        "get_thread",
+        "draft_reply",
+        "send_reply",
+        "list_opportunities",
+        "update_opportunity",
+        "preview_b2b_leads",
+        "search_b2b_leads",
+        "enrich_lead",
+        "scrape_leads_start",
+        "scrape_job_status",
+        "scrape_job_leads",
+        "verify_email",
+        "verify_list_start",
+        "verify_list_status",
+        "find_email",
+        "list_lists",
+        "create_list",
+        "get_list_leads",
+        "add_leads_to_list",
+        "export_list_csv",
+        "delete_list"
+      ]
+    },
+    {
+      "name": "ad.inside/inside-ads",
+      "url": "https://app.inside.ad/api/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 3,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 3
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "estimate_campaign",
+        "create_campaign_draft",
+        "get_draft_status"
+      ]
+    },
+    {
+      "name": "ae.genosys/genosys",
+      "url": "https://genosys.ae/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 11,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 1,
+        "calculate_": 0,
+        "other": 10
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "search_products",
+        "get_product",
+        "recommend_routine",
+        "list_categories",
+        "create_bag_link",
+        "open_checkout",
+        "place_order",
+        "order_status",
+        "store_info",
+        "search",
+        "fetch"
+      ]
+    },
+    {
+      "name": "africa.lomi/mcp",
+      "url": "https://mcp.lomi.africa/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "africa.lomi/mcp",
+      "url": "https://mcp.lomi.africa/mcp/guest",
+      "ok": true,
+      "http": 200,
+      "n_tools": 0,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 0
+      }
+    },
+    {
+      "name": "africa.ugc/ugc",
+      "url": "https://api.ugc.africa/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ag.hood/name-service",
+      "url": "https://www.hood.ag/api/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 5,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 5
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "resolve_name",
+        "reverse_resolve",
+        "resolve_text",
+        "check_availability",
+        "name_info"
+      ]
+    },
+    {
+      "name": "agency.goji/goji",
+      "url": "https://mcp.goji.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 9,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 9
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "goji_search",
+        "goji_explain_term",
+        "goji_browse_glossary",
+        "goji_get_service",
+        "goji_answer_faq",
+        "goji_guide_contents",
+        "goji_read_guide_chapter",
+        "goji_read_guide",
+        "goji_start_enquiry"
+      ]
+    },
+    {
+      "name": "agency.granek.signal/signal",
+      "url": "https://signal.granek.agency/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "agency.justidea/justidea-agency",
+      "url": "https://justidea.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 8,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 1,
+        "calculate_": 0,
+        "other": 7
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "list_services",
+        "get_page",
+        "search_site",
+        "send_inquiry",
+        "scan_analytics",
+        "scan_ai_visibility",
+        "scan_google_visibility",
+        "get_scan_result"
+      ]
+    },
+    {
+      "name": "agency.lona/trading",
+      "url": "https://mcp.lona.agency/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "agency.ottobot/business-contact-finder",
+      "url": "https://business-contact-finder-mcp.ottobot2025.workers.dev/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 1,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 1
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "check_contact_path"
+      ]
+    },
+    {
+      "name": "agency.ottobot/contractor-license-changes",
+      "url": "https://license-changes-mcp.ottobot2025.workers.dev/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 2,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 2
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "check_license_history",
+        "recent_license_changes"
+      ]
+    },
+    {
+      "name": "agency.ottobot/licensed-house-painters",
+      "url": "https://house-painters.ottobot.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 3,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 3
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "search_painters",
+        "get_painter",
+        "request_estimate"
+      ]
+    },
+    {
+      "name": "agency.thebureauoflostcontext/bureau-public",
+      "url": "https://thebureauoflostcontext.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 5,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 5
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "bureau_discover",
+        "bureau_search_agents",
+        "bureau_list_cases",
+        "bureau_get_case",
+        "bureau_get_artifact"
+      ]
+    },
+    {
+      "name": "agency.thirdhemisphere/ai-authority-index",
+      "url": "https://thirdhemisphere.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 12,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 3,
+        "calculate_": 0,
+        "other": 9
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "list_index_editions",
+        "get_edition_results",
+        "get_company_authority_score",
+        "get_company_score_history",
+        "search_companies",
+        "list_markets",
+        "get_market_standing",
+        "list_my_blueprints",
+        "get_my_blueprint_plan",
+        "get_blueprint_item_evidence",
+        "update_blueprint_progress",
+        "get_blueprint_progress"
+      ]
+    },
+    {
+      "name": "agency.zoll/ausfuhr",
+      "url": "https://zoll.agency/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 7,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 7
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "kumulierung_pruefen",
+        "praeferenznachweis_bestimmen",
+        "incoterms_waehlen",
+        "warennummer_suchen",
+        "ausfuhranmeldung_noetig",
+        "ratgeber_suchen",
+        "einfuhr_weg_bestimmen"
+      ]
+    },
+    {
+      "name": "ai.0si/disclosures",
+      "url": "https://app.0si.ai/api/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.1325/mcp",
+      "url": "https://agoclnqfyinwjxdmjnns.supabase.co/functions/v1/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.1clickwebsite/mcp",
+      "url": "https://www.1clickwebsite.ai/api/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.28in28/agent-service-desk",
+      "url": "https://28in28.ai/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 3,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 3
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "checkDomain",
+        "quoteFixVerify",
+        "verifyFixVerify"
+      ]
+    },
+    {
+      "name": "ai.69ai/69ai",
+      "url": "https://69ai.ai/mcp",
+      "ok": false,
+      "http": 0,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.a1lane/a1lane",
+      "url": "https://a1lane.ai/mcp/v1",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.aard/aard",
+      "url": "https://api.aard.ai/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.aarna/atars-mcp",
+      "url": "https://mcp.aarna.ai/mcp",
+      "ok": false,
+      "http": 502,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.abmeter/abmeter",
+      "url": "https://mcp.abmeter.ai",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.achromat/mcp-server",
+      "url": "https://achromat.ai/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 1,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 1
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "achromat_recall"
+      ]
+    },
+    {
+      "name": "ai.actwise/ideation",
+      "url": "https://actwise.ai/ideation/mcp/v1",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adako/ads",
+      "url": "https://adako.ai/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adkix/adkix",
+      "url": "https://adkix.ai/api/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adoraads/beauty",
+      "url": "https://mcp.adoraads.ai/beauty",
+      "ok": true,
+      "http": 200,
+      "n_tools": 6,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 6
+      },
+      "gateway": {
+        "passthrough": {
+          "ok": false,
+          "error": "UnboundLocalError: cannot access local variable 'match' where it is not associated with a value"
+        },
+        "prefix_authz": null,
+        "guardrail_scope": null
+      },
+      "direct_tools": [
+        "sponsored_search",
+        "brand_spotlight",
+        "routine_builder",
+        "skin_match",
+        "fire_billing_event",
+        "get_shopper_prefs"
+      ]
+    },
+    {
+      "name": "ai.adplane/google-ads",
+      "url": "https://mcp.adplane.ai",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adrails/adrails",
+      "url": "https://adrails.ai/api/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adramp/google-ads",
+      "url": "https://mcp.adramp.ai",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adrio/adrio",
+      "url": "https://api.adrio.ai/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.adsap/adsap",
+      "url": "https://mcp.adsap.ai/mcp",
+      "ok": false,
+      "http": 401,
+      "n_tools": 0,
+      "prefixes": {}
+    },
+    {
+      "name": "ai.advisorsai/service-navigator",
+      "url": "https://advisorsai.ai/mcp",
+      "ok": true,
+      "http": 200,
+      "n_tools": 5,
+      "prefixes": {
+        "lookup_": 0,
+        "list_": 0,
+        "calculate_": 0,
+        "other": 5
+      }
+    }
+  ],
+  "finished": "2026-11-09T17:15:30Z",
+  "summary": {
+    "curated": 22,
+    "reachable": 20,
+    "gateway_checks_failed": 35,
+    "discovered_ok": 17,
+    "discovered_n": 40
+  }
+}
